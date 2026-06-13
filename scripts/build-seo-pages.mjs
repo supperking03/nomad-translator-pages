@@ -2,7 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const siteUrl = "https://minhkienngo.github.io/nomad-translator-pages";
+const siteUrl = "https://supperking03.github.io/nomad-translator-pages";
+const siteBasePath = "/nomad-translator-pages";
 const appUrl = "https://apps.apple.com/app/id6766855589";
 const lastModified = "2026-06-13";
 const developerName = "Minh Kien Ngo";
@@ -10,12 +11,36 @@ const appName = "Nomad Translator";
 const appTitle = "Nomad Translator - No Internet";
 const appDescriptionEn = "Nomad Translator is an offline travel translator for iPhone with on-device text, voice, and camera translation plus downloadable language packs.";
 const appDescriptionVi = "Nomad Translator là app dịch du lịch offline cho iPhone với dịch văn bản, giọng nói, camera trên thiết bị và tải gói ngôn ngữ để dùng không cần mạng.";
+const heroImage = {
+  src: "/assets/blog/nomad-translator-hero.webp",
+  desktop: "/assets/blog/nomad-translator-home-1340.webp",
+  mobile: "/assets/blog/nomad-translator-home-760.webp",
+  width: 1672,
+  height: 941,
+  desktopWidth: 1340,
+  desktopHeight: 754,
+  mobileWidth: 760,
+  mobileHeight: 427,
+  alt: "Nomad Translator hero image showing offline travel translation on iPhone"
+};
+const articleImage = {
+  src: "/assets/blog/nomad-translator-hero.webp",
+  desktop: "/assets/blog/nomad-translator-blog-920.webp",
+  mobile: "/assets/blog/nomad-translator-blog-640.webp",
+  width: 1672,
+  height: 941,
+  desktopWidth: 920,
+  desktopHeight: 517,
+  mobileWidth: 640,
+  mobileHeight: 360,
+  alt: "Nomad Translator app preview for offline translation blog articles"
+};
 
-const faviconTags = `<link rel="icon" href="/nomad-translator-pages/favicon.ico" sizes="any" />
-<link rel="icon" type="image/png" sizes="32x32" href="/nomad-translator-pages/assets/icons/favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/nomad-translator-pages/assets/icons/favicon-16x16.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="/nomad-translator-pages/apple-touch-icon.png" />
-<link rel="manifest" href="/nomad-translator-pages/site.webmanifest" />
+const faviconTags = `<link rel="icon" href="${siteBasePath}/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="${siteBasePath}/assets/icons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="${siteBasePath}/assets/icons/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="${siteBasePath}/apple-touch-icon.png" />
+<link rel="manifest" href="${siteBasePath}/site.webmanifest" />
 <meta name="theme-color" content="#0F172A" />`;
 
 const appKeywordsEn = [
@@ -72,6 +97,7 @@ function page({
   noIndex = false
 }) {
   const canonical = `${siteUrl}${canonicalPath}`;
+  const defaultOgImage = `${siteUrl}${ogType === "article" ? articleImage.src : heroImage.src}`;
   return `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
@@ -90,14 +116,14 @@ ${faviconTags}
 <meta property="og:description" content="${escapeHtml(description)}" />
 <meta property="og:type" content="${ogType}" />
 <meta property="og:url" content="${canonical}" />
-<meta property="og:image" content="${siteUrl}/assets/icons/icon-512.png" />
-<meta property="og:image:width" content="512" />
-<meta property="og:image:height" content="512" />
+<meta property="og:image" content="${defaultOgImage}" />
+<meta property="og:image:width" content="${ogType === "article" ? articleImage.width : heroImage.width}" />
+<meta property="og:image:height" content="${ogType === "article" ? articleImage.height : heroImage.height}" />
 <meta property="og:image:alt" content="${escapeHtml(title)}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="${escapeHtml(title)}" />
 <meta name="twitter:description" content="${escapeHtml(description)}" />
-<meta name="twitter:image" content="${siteUrl}/assets/icons/icon-512.png" />
+<meta name="twitter:image" content="${defaultOgImage}" />
 <link rel="alternate" hreflang="en" href="${siteUrl}/en/" />
 <link rel="alternate" hreflang="vi-VN" href="${siteUrl}/vi/" />
 <link rel="alternate" hreflang="x-default" href="${siteUrl}/en/" />
@@ -128,11 +154,11 @@ ${faviconTags}
 <meta property="og:description" content="${appDescriptionEn}" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="${siteUrl}/" />
-<meta property="og:image" content="${siteUrl}/assets/icons/icon-512.png" />
+<meta property="og:image" content="${siteUrl}${heroImage.src}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="${appName} | Offline Travel Translator" />
 <meta name="twitter:description" content="${appDescriptionEn}" />
-<meta name="twitter:image" content="${siteUrl}/assets/icons/icon-512.png" />
+<meta name="twitter:image" content="${siteUrl}${heroImage.src}" />
 <link rel="alternate" hreflang="en" href="${siteUrl}/en/" />
 <link rel="alternate" hreflang="vi-VN" href="${siteUrl}/vi/" />
 <link rel="alternate" hreflang="x-default" href="${siteUrl}/en/" />
@@ -153,7 +179,7 @@ ${faviconTags}
     var tz = "";
     try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
     var isVietnam = tz === "Asia/Ho_Chi_Minh" || tz === "Asia/Saigon" || langs.some(function (lang) { return /^vi\\b/i.test(lang); });
-    window.location.replace(isVietnam ? "/nomad-translator-pages/vi/" : "/nomad-translator-pages/en/");
+    window.location.replace(isVietnam ? "${siteBasePath}/vi/" : "${siteBasePath}/en/");
   })();
 </script>
 </head>
@@ -187,7 +213,7 @@ function homePage(lang) {
     operatingSystem: "iOS",
     description,
     url: `${siteUrl}/${lang}/`,
-    image: `${siteUrl}/assets/icons/icon-512.png`,
+    image: `${siteUrl}${heroImage.src}`,
     downloadUrl: appUrl,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     publisher: { "@type": "Organization", name: developerName, logo: `${siteUrl}/assets/icons/icon-512.png` }
@@ -202,26 +228,19 @@ function homePage(lang) {
       </div>
     </nav>
 
-    <section class="hero-card">
-      <div>
-        <div class="eyebrow">${isVi ? "Dịch offline cho chuyến đi" : "Offline translation for real travel"}</div>
-        <h1>${isVi ? "Dịch menu, biển báo, tin nhắn và hội thoại mà không cần mạng." : "Translate menus, signs, messages, and conversations without the internet."}</h1>
-        <p class="intro">${isVi ? "Nomad Translator dành cho khách du lịch muốn dịch ngay trên iPhone bằng văn bản, giọng nói hoặc camera, sau khi tải gói ngôn ngữ một lần." : "Nomad Translator helps travelers translate on iPhone with text, voice, and camera input after downloading a language pack once."}</p>
-        <div class="tag-row">
-          <a href="articles/">${isVi ? "Bài viết SEO" : "SEO guides"}</a>
-          <a href="../about.html">${isVi ? "Giới thiệu app" : "About the app"}</a>
-          <a href="../support.html">${isVi ? "Hỗ trợ" : "Support"}</a>
-        </div>
-      </div>
-      <div class="placeholder hero-placeholder">
-        <div>
-          <strong>${isVi ? "Placeholder ảnh hero" : "Hero image placeholder"}</strong>
-          <span>${isVi ? "Chèn screenshot homepage, màn hình dịch text, voice, camera của Nomad Translator tại đây." : "Add Nomad Translator screenshots here later: text translation, voice mode, and camera translation screens."}</span>
-        </div>
-      </div>
+    <section class="hero-card" aria-label="${appName}">
+      <figure class="hero-media">
+        <picture>
+          <source media="(max-width: 760px)" srcset="../assets/blog/nomad-translator-home-760.webp" width="${heroImage.mobileWidth}" height="${heroImage.mobileHeight}" />
+          <source media="(max-width: 1440px)" srcset="../assets/blog/nomad-translator-home-1340.webp" width="${heroImage.desktopWidth}" height="${heroImage.desktopHeight}" />
+          <img src="../assets/blog/nomad-translator-home-1340.webp" width="${heroImage.desktopWidth}" height="${heroImage.desktopHeight}" alt="${heroImage.alt}" fetchpriority="high" decoding="async" />
+        </picture>
+      </figure>
     </section>
 
     <main>
+      <h1 class="visually-hidden">${isVi ? "Dịch menu, biển báo, tin nhắn và hội thoại mà không cần mạng." : "Translate menus, signs, messages, and conversations without the internet."}</h1>
+      <p class="visually-hidden">${isVi ? "Nomad Translator dành cho khách du lịch muốn dịch ngay trên iPhone bằng văn bản, giọng nói hoặc camera, sau khi tải gói ngôn ngữ một lần." : "Nomad Translator helps travelers translate on iPhone with text, voice, and camera input after downloading a language pack once."}</p>
       <nav class="article-list home-links" aria-label="${isVi ? "Các trang Nomad Translator" : "Nomad Translator pages"}">
         <a href="articles/">${isVi ? "Blog & hướng dẫn" : "Blog & guides"}<span>${isVi ? "Bộ bài SEO về dịch offline, camera và du lịch" : "Search-focused articles about offline translation, camera tools, and travel use cases"}</span></a>
         <a href="../about.html">${isVi ? "Về Nomad Translator" : "About Nomad Translator"}<span>${isVi ? "Tính năng chính, workflow và trường hợp sử dụng" : "Core features, workflow, and who it helps"}</span></a>
@@ -429,7 +448,7 @@ function articlePage(lang, topic, index) {
     "@type": "Article",
     headline: title,
     description,
-    image: [`${siteUrl}/assets/icons/icon-512.png`],
+    image: [`${siteUrl}${articleImage.src}`],
     author: { "@type": "Organization", name: developerName, url: siteUrl },
     publisher: { "@type": "Organization", name: developerName, logo: { "@type": "ImageObject", url: `${siteUrl}/assets/icons/icon-512.png` } },
     mainEntityOfPage: `${siteUrl}${canonicalPath}`,
@@ -457,13 +476,12 @@ function articlePage(lang, topic, index) {
       <h1>${escapeHtml(title)}</h1>
       <p class="intro">${escapeHtml(description)}</p>
 
-      <figure class="blog-figure-top">
-        <div class="placeholder">
-          <div>
-            <strong>${isVi ? "Placeholder ảnh bài viết" : "Article image placeholder"}</strong>
-            <span>${isVi ? `Chèn screenshot hoặc mockup số ${index + 1} cho chủ đề “${data.focus}”.` : `Add screenshot or mockup ${index + 1} here for the topic "${data.focus}".`}</span>
-          </div>
-        </div>
+      <figure class="blog-figure blog-figure-top">
+        <picture>
+          <source media="(max-width: 760px)" srcset="../../assets/blog/nomad-translator-blog-640.webp" width="${articleImage.mobileWidth}" height="${articleImage.mobileHeight}" />
+          <source media="(max-width: 1440px)" srcset="../../assets/blog/nomad-translator-blog-920.webp" width="${articleImage.desktopWidth}" height="${articleImage.desktopHeight}" />
+          <img src="../../assets/blog/nomad-translator-blog-920.webp" width="${articleImage.desktopWidth}" height="${articleImage.desktopHeight}" alt="${isVi ? `${data.title} - Nomad Translator` : `${data.title} - Nomad Translator`}" loading="${index < 2 ? "eager" : "lazy"}" decoding="async" />
+        </picture>
       </figure>
 
       <h2>${isVi ? "Khi nào bài toán này xuất hiện?" : "When does this problem show up?"}</h2>
@@ -563,6 +581,9 @@ function articleHub(lang) {
 }
 
 function redirectPage(target) {
+  const canonicalTarget = target.startsWith(siteBasePath)
+    ? target.slice(siteBasePath.length) || "/"
+    : target;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -571,7 +592,7 @@ function redirectPage(target) {
 <title>Redirecting</title>
 ${faviconTags}
 <meta name="robots" content="noindex" />
-<link rel="canonical" href="${siteUrl}${target}" />
+<link rel="canonical" href="${siteUrl}${canonicalTarget}" />
 <meta http-equiv="refresh" content="0; url=${target}" />
 </head>
 <body>
@@ -594,7 +615,7 @@ function staticPage(kind) {
         "@context": "https://schema.org",
         "@graph": [
           { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: developerName, url: siteUrl, logo: `${siteUrl}/assets/icons/icon-512.png` },
-          { "@type": "SoftwareApplication", "@id": `${siteUrl}/#app`, name: appTitle, applicationCategory: "UtilitiesApplication", operatingSystem: "iOS", description: appDescriptionEn, url: `${siteUrl}/about.html`, image: `${siteUrl}/assets/icons/icon-512.png`, downloadUrl: appUrl, publisher: { "@id": `${siteUrl}/#organization` }, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } }
+          { "@type": "SoftwareApplication", "@id": `${siteUrl}/#app`, name: appTitle, applicationCategory: "UtilitiesApplication", operatingSystem: "iOS", description: appDescriptionEn, url: `${siteUrl}/about.html`, image: `${siteUrl}${heroImage.src}`, downloadUrl: appUrl, publisher: { "@id": `${siteUrl}/#organization` }, offers: { "@type": "Offer", price: "0", priceCurrency: "USD" } }
         ]
       },
       content: `
@@ -949,16 +970,45 @@ li { margin: 8px 0; }
   flex-wrap: wrap;
 }
 
-.hero-card {
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap: 24px;
-  align-items: center;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.hero-placeholder {
-  min-height: 360px;
+.hero-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-media {
   margin: 0;
+  border-radius: 18px;
+}
+
+.hero-media picture,
+.hero-media img,
+.blog-figure picture,
+.blog-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.blog-figure {
+  margin: 28px 0;
+}
+
+.blog-figure img {
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #06111f;
 }
 
 .home-links {
@@ -974,7 +1024,6 @@ li { margin: 8px 0; }
 }
 
 @media (max-width: 820px) {
-  .hero-card,
   .home-links {
     grid-template-columns: 1fr;
   }
@@ -982,7 +1031,8 @@ li { margin: 8px 0; }
 
 @media (max-width: 620px) {
   .wrap { padding: 24px 16px 56px; }
-  article, .hero-card { padding: 24px 18px; }
+  article { padding: 24px 18px; }
+  .hero-card { padding: 0; }
   .placeholder { min-height: 210px; }
 }
 `;
@@ -1026,8 +1076,8 @@ function generate() {
     name: appName,
     short_name: appName,
     icons: [
-      { src: "/nomad-translator-pages/assets/icons/icon-192.png", sizes: "192x192", type: "image/png" },
-      { src: "/nomad-translator-pages/assets/icons/icon-512.png", sizes: "512x512", type: "image/png" }
+      { src: `${siteBasePath}/assets/icons/icon-192.png`, sizes: "192x192", type: "image/png" },
+      { src: `${siteBasePath}/assets/icons/icon-512.png`, sizes: "512x512", type: "image/png" }
     ],
     theme_color: "#0F172A",
     background_color: "#F6F8FB",

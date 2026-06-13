@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://minhkienngo.github.io/nomad-translator-pages/sitemap.xml
+Sitemap: https://supperking03.github.io/nomad-translator-pages/sitemap.xml
