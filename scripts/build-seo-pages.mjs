@@ -35,6 +35,31 @@ const articleImage = {
   mobileHeight: 360,
   alt: "Nomad Translator app preview for offline translation blog articles"
 };
+const menuCameraArticleImage = {
+  src: "/assets/blog/nomad-translator-menu-camera.webp",
+  desktop: "/assets/blog/nomad-translator-menu-camera-920.webp",
+  mobile: "/assets/blog/nomad-translator-menu-camera-640.webp",
+  width: 1536,
+  height: 1024,
+  desktopWidth: 920,
+  desktopHeight: 613,
+  mobileWidth: 640,
+  mobileHeight: 426,
+  alt: "Nomad Translator camera translation preview for menus and restaurant text"
+};
+const articleImageOverrides = new Map([
+  ["best-app-to-translate-menus-while-traveling", menuCameraArticleImage],
+  ["offline-camera-translator-for-signs-and-menus", menuCameraArticleImage],
+  ["translate-photos-without-internet", menuCameraArticleImage]
+]);
+const ga4Head = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DTZDZJPXL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7DTZDZJPXL');
+</script>`;
 
 const faviconTags = `<link rel="icon" href="${siteBasePath}/favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="${siteBasePath}/assets/icons/favicon-32x32.png" />
@@ -100,6 +125,7 @@ function page({
   canonicalPath,
   stylesheetPath,
   ogType = "website",
+  ogImage = null,
   bodyClass = "",
   ogLocale,
   ldJson,
@@ -108,7 +134,8 @@ function page({
   noIndex = false
 }) {
   const canonical = `${siteUrl}${canonicalPath}`;
-  const defaultOgImage = `${siteUrl}${ogType === "article" ? articleImage.src : heroImage.src}`;
+  const selectedOgImage = ogImage || (ogType === "article" ? articleImage : heroImage);
+  const defaultOgImage = `${siteUrl}${selectedOgImage.src}`;
   const ldJsonBlocks = (Array.isArray(ldJson) ? ldJson : [ldJson])
     .map((block) => `<script type="application/ld+json">${JSON.stringify(block)}</script>`)
     .join("\n");
@@ -131,8 +158,8 @@ ${faviconTags}
 <meta property="og:type" content="${ogType}" />
 <meta property="og:url" content="${canonical}" />
 <meta property="og:image" content="${defaultOgImage}" />
-<meta property="og:image:width" content="${ogType === "article" ? articleImage.width : heroImage.width}" />
-<meta property="og:image:height" content="${ogType === "article" ? articleImage.height : heroImage.height}" />
+<meta property="og:image:width" content="${selectedOgImage.width}" />
+<meta property="og:image:height" content="${selectedOgImage.height}" />
 <meta property="og:image:alt" content="${escapeHtml(title)}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="${escapeHtml(title)}" />
@@ -142,6 +169,7 @@ ${faviconTags}
 <link rel="alternate" hreflang="vi-VN" href="${siteUrl}/vi/" />
 <link rel="alternate" hreflang="x-default" href="${siteUrl}/en/" />
 ${extraHead}
+${ga4Head}
 ${ldJsonBlocks}
 <link rel="stylesheet" href="${stylesheetPath}" />
 </head>
@@ -529,6 +557,7 @@ function articlePage(lang, topic, index) {
   const data = topic[lang];
   const title = data.title;
   const description = data.description;
+  const pageImage = articleImageOverrides.get(topic.slug) || articleImage;
   const keywords = [...new Set([...(isVi ? appKeywordsVi : appKeywordsEn), ...data.tags])];
   const canonicalPath = `/${lang}/articles/${topic.slug}.html`;
   const listLinks = topics
@@ -562,7 +591,7 @@ function articlePage(lang, topic, index) {
       "@type": "Article",
       headline: title,
       description,
-      image: [`${siteUrl}${articleImage.src}`],
+      image: [`${siteUrl}${pageImage.src}`],
       author: { "@type": "Organization", name: developerName, url: siteUrl },
       publisher: { "@type": "Organization", name: developerName, logo: { "@type": "ImageObject", url: `${siteUrl}/assets/icons/icon-512.png` } },
       mainEntityOfPage: `${siteUrl}${canonicalPath}`,
@@ -576,7 +605,7 @@ function articlePage(lang, topic, index) {
       "@type": "HowTo",
       name: isVi ? `Cách dùng ${data.focus} với Nomad Translator` : `How to use ${data.focus} with Nomad Translator`,
       description,
-      image: [`${siteUrl}${articleImage.src}`],
+      image: [`${siteUrl}${pageImage.src}`],
       totalTime: "PT5M",
       step: data.steps.map((step, stepIndex) => ({
         "@type": "HowToStep",
@@ -620,9 +649,9 @@ function articlePage(lang, topic, index) {
 
       <figure class="blog-figure blog-figure-top">
         <picture>
-          <source media="(max-width: 760px)" srcset="../../assets/blog/nomad-translator-blog-640.webp" width="${articleImage.mobileWidth}" height="${articleImage.mobileHeight}" />
-          <source media="(max-width: 1440px)" srcset="../../assets/blog/nomad-translator-blog-920.webp" width="${articleImage.desktopWidth}" height="${articleImage.desktopHeight}" />
-          <img src="../../assets/blog/nomad-translator-blog-920.webp" width="${articleImage.desktopWidth}" height="${articleImage.desktopHeight}" alt="${isVi ? `${data.title} - Nomad Translator` : `${data.title} - Nomad Translator`}" loading="${index < 2 ? "eager" : "lazy"}" decoding="async" />
+          <source media="(max-width: 760px)" srcset="../..${pageImage.mobile}" width="${pageImage.mobileWidth}" height="${pageImage.mobileHeight}" />
+          <source media="(max-width: 1440px)" srcset="../..${pageImage.desktop}" width="${pageImage.desktopWidth}" height="${pageImage.desktopHeight}" />
+          <img src="../..${pageImage.desktop}" width="${pageImage.desktopWidth}" height="${pageImage.desktopHeight}" alt="${isVi ? `${data.title} - Nomad Translator` : `${data.title} - Nomad Translator`}" loading="${index < 2 ? "eager" : "lazy"}" decoding="async" />
         </picture>
       </figure>
       <div class="tag-row" aria-label="${isVi ? "Chủ đề" : "Topic tags"}">
@@ -670,6 +699,7 @@ function articlePage(lang, topic, index) {
     canonicalPath,
     stylesheetPath: "../../assets/seo.css",
     ogType: "article",
+    ogImage: pageImage,
     ogLocale: isVi ? "vi_VN" : "en_US",
     extraHead: articleMeta,
     ldJson,
@@ -783,7 +813,7 @@ function staticPage(kind) {
       <b>${appName}</b>
     </div>
     <nav class="nav">
-      <a href="en/">English Home</a>
+      <a href="en/">Home</a>
       <a href="vi/">Tiếng Việt</a>
       <a href="en/articles/">Guides</a>
       <a href="support.html">Support</a>
@@ -839,7 +869,7 @@ function staticPage(kind) {
       <b>${appName}</b>
     </div>
     <nav class="nav">
-      <a href="en/">English Home</a>
+      <a href="en/">Home</a>
       <a href="vi/">Tiếng Việt</a>
       <a href="en/articles/">Guides</a>
       <a href="privacy-policy.html">Privacy</a>
@@ -883,7 +913,7 @@ function staticPage(kind) {
       <b>${appName}</b>
     </div>
     <nav class="nav">
-      <a href="en/">English Home</a>
+      <a href="en/">Home</a>
       <a href="support.html">Support</a>
       <a href="about.html">About</a>
     </nav>
