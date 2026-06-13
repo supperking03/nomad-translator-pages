@@ -266,10 +266,10 @@ ${ga4Head}
     <article>
       <div class="eyebrow">${appName}</div>
       <h1>Choose your language</h1>
-      <p class="intro">Nomad Translator has English and Vietnamese SEO pages. Visitors in Vietnam or Vietnamese browsers are redirected to Vietnamese automatically when JavaScript is enabled.</p>
+      <p class="intro">Nomad Translator is available in English and Vietnamese. Visitors in Vietnam or Vietnamese browsers are redirected to Vietnamese automatically when JavaScript is enabled.</p>
       <div class="article-list">
         <a href="vi/">Tiếng Việt<span>Dành cho người dùng Việt Nam và người thích nội dung tiếng Việt</span></a>
-        <a href="en/">English<span>For international search traffic and App Store visitors</span></a>
+        <a href="en/">English<span>For travelers who prefer English</span></a>
       </div>
     </article>
     <footer>© 2026 ${developerName}</footer>
@@ -320,7 +320,7 @@ function homePage(lang) {
       <h1 class="visually-hidden">${isVi ? "Dịch menu, biển báo, tin nhắn và hội thoại mà không cần mạng." : "Translate menus, signs, messages, and conversations without the internet."}</h1>
       <p class="visually-hidden">${isVi ? "Nomad Translator dành cho khách du lịch muốn dịch ngay trên iPhone bằng văn bản, giọng nói hoặc camera, sau khi tải gói ngôn ngữ một lần." : "Nomad Translator helps travelers translate on iPhone with text, voice, and camera input after downloading a language pack once."}</p>
       <nav class="article-list home-links" aria-label="${isVi ? "Các trang Nomad Translator" : "Nomad Translator pages"}">
-        <a href="articles/">${isVi ? "Blog & hướng dẫn" : "Blog & guides"}<span>${isVi ? "Bộ bài SEO về dịch offline, camera và du lịch" : "Search-focused articles about offline translation, camera tools, and travel use cases"}</span></a>
+        <a href="articles/">${isVi ? "Blog & hướng dẫn" : "Blog & guides"}<span>${isVi ? "Mẹo thực tế về dịch offline, camera và du lịch" : "Practical notes on offline translation, camera tools, and travel use cases"}</span></a>
         <a href="../about.html">${isVi ? "Về Nomad Translator" : "About Nomad Translator"}<span>${isVi ? "Tính năng chính, workflow và trường hợp sử dụng" : "Core features, workflow, and who it helps"}</span></a>
         <a href="../privacy-policy.html">${isVi ? "Quyền riêng tư" : "Privacy"}<span>${isVi ? "Xử lý trên thiết bị, camera, micro và ảnh" : "On-device processing, camera, microphone, and photo permissions"}</span></a>
       </nav>
@@ -463,7 +463,7 @@ const topics = [
     enTags: ["Google Translate offline", "Google Translate offline alternative", "offline translator", "iPhone translator", "travel translator app", "Nomad Translator"],
     enComparison: [
       "Google Translate is a broad general-purpose translator with offline language downloads in supported situations.",
-      "Nomad Translator focuses its pages and workflow on travel moments: menus, signs, short conversations, photos, and language packs prepared before the trip.",
+      "Nomad Translator focuses on travel moments: menus, signs, short conversations, photos, and language packs prepared before the trip.",
       "Nomad Translator is independent and is not affiliated with Google or Google Translate."
     ],
     viTitle: "Alternative cho Google Translate offline khi du lịch",
@@ -572,7 +572,7 @@ const topics = [
   topic({
     slug: "best-offline-translator-apps-compared",
     enTitle: "Best Offline Translator Apps Compared",
-    enDescription: "A search-friendly comparison of offline translator apps, including Google Translate, Microsoft Translator, iTranslate, LibreTranslate, and Nomad Translator.",
+    enDescription: "A practical comparison of offline translator apps, including Google Translate, Microsoft Translator, iTranslate, LibreTranslate, and Nomad Translator.",
     enFocus: "best offline translator apps compared",
     enScenario: "comparing broad translator apps, open-source tools, and travel-first offline translators before installing one",
     enTags: ["best offline translator apps", "Google Translate offline", "Microsoft Translator offline", "iTranslate offline", "LibreTranslate", "Nomad Translator"],
@@ -582,7 +582,7 @@ const topics = [
       "This comparison is informational. Nomad Translator is independent and is not affiliated with the named products."
     ],
     viTitle: "So sánh các app dịch offline tốt",
-    viDescription: "Bài so sánh SEO về các app dịch offline như Google Translate, Microsoft Translator, iTranslate, LibreTranslate và Nomad Translator.",
+    viDescription: "Bài so sánh thực tế về các app dịch offline như Google Translate, Microsoft Translator, iTranslate, LibreTranslate và Nomad Translator.",
     viFocus: "so sánh best offline translator apps",
     viScenario: "so sánh app dịch phổ thông, công cụ open-source và app dịch offline tập trung du lịch trước khi cài",
     viTags: ["bestofflinetranslatorapps", "GoogleTranslateoffline", "MicrosoftTranslatoroffline", "iTranslateoffline", "LibreTranslate", "NomadTranslator"],
@@ -664,8 +664,8 @@ function topic(def) {
         "voice translator"
       ],
       steps: [
-        `Start by downloading the language pack you need before the trip so ${def.enFocus} really works without surprise network prompts.`,
-        `Open Nomad Translator and test one short phrase early, because a quick check makes it easier to trust the workflow when ${def.enScenario}.`,
+        "Start by downloading the language pack you need before the trip, while Wi-Fi is stable and you still have time to test the setup.",
+        `Open Nomad Translator and test one short phrase early, because a quick check makes the workflow easier to trust when ${def.enScenario}.`,
         "Choose the right input mode for the moment: text for accuracy, voice for quick exchanges, and camera for printed content.",
         "Keep translations short and concrete when you are speaking with another person. Simple sentences are easier to confirm on both sides.",
         "Save the app as part of your travel kit, alongside maps, tickets, and hotel details, instead of waiting until you lose signal."
@@ -678,7 +678,7 @@ function topic(def) {
       faq: [
         ["Does Nomad Translator work without internet?", "Yes. After you download the language pack, translation can run on-device without sending your text, voice, or image to a server."],
         ["Is this better than relying on roaming data?", "For many trips, yes. Offline translation removes the friction of unstable signal, roaming costs, and slow loading just when you need an answer quickly."],
-        ["Why make a separate page for this keyword?", `Travelers search for the same need in different ways, so pages around ${def.enFocus} help match those real queries.`]
+        ["Why does this topic matter?", `Travelers often describe this need in different ways. Understanding ${def.enFocus} helps you choose the right translation workflow before you need it under pressure.`]
       ]
     },
     vi: {
@@ -696,7 +696,7 @@ function topic(def) {
         "dịchgiọngnói"
       ],
       steps: [
-        `Hãy tải sẵn gói ngôn ngữ trước chuyến đi để nhu cầu ${def.viFocus} hoạt động đúng lúc mà không bị chặn bởi yêu cầu kết nối mạng.`,
+        "Hãy tải sẵn gói ngôn ngữ trước chuyến đi, khi Wi-Fi còn ổn định và bạn vẫn có thời gian kiểm tra setup.",
         `Mở Nomad Translator và thử một câu ngắn từ sớm, vì kiểm tra nhanh sẽ giúp bạn yên tâm hơn khi ${def.viScenario}.`,
         "Chọn đúng kiểu nhập cho từng tình huống: gõ text khi cần chính xác, nói giọng nói khi cần nhanh, và dùng camera cho nội dung in sẵn.",
         "Giữ câu dịch ngắn và cụ thể khi giao tiếp trực tiếp. Câu đơn giản sẽ dễ kiểm tra và xác nhận hơn cho cả hai bên.",
@@ -710,7 +710,7 @@ function topic(def) {
       faq: [
         ["Nomad Translator có dùng không cần internet không?", "Có. Sau khi tải gói ngôn ngữ, việc dịch có thể chạy ngay trên thiết bị mà không gửi text, giọng nói hay ảnh của bạn lên server."],
         ["Có nên dùng hơn là phụ thuộc roaming không?", "Trong nhiều chuyến đi, có. Dịch offline giúp giảm rủi ro sóng yếu, phí roaming và thời gian chờ đúng lúc bạn cần câu trả lời nhanh."],
-        ["Vì sao cần trang riêng cho từ khóa này?", `Người dùng diễn đạt cùng một nhu cầu theo nhiều cách khác nhau, nên các trang xoay quanh ${def.viFocus} sẽ giúp bắt đúng truy vấn thật.`]
+        ["Vì sao chủ đề này quan trọng?", `Người dùng thường mô tả cùng một nhu cầu theo nhiều cách khác nhau. Hiểu rõ ${def.viFocus} giúp bạn chọn đúng workflow dịch trước khi thật sự cần đến nó.`]
       ]
     }
   };
@@ -741,7 +741,7 @@ function articlePage(lang, topic, index) {
     .join("\n");
   const comparisonBlock = data.comparison.length
     ? `
-      <h2>${isVi ? "Ghi chú so sánh" : "Comparison notes"}</h2>
+      <h2>${isVi ? "So sánh nhanh" : "How it compares"}</h2>
       <ul>
         ${data.comparison.map((note) => `<li>${escapeHtml(note)}</li>`).join("\n")}
       </ul>`
@@ -814,7 +814,7 @@ function articlePage(lang, topic, index) {
       <a href="${appUrl}">${isVi ? "Tải app" : "Download app"}</a>
     </nav>
     <article>
-      <div class="eyebrow">${isVi ? "Nomad Translator Guide" : "Nomad Translator Guide"}</div>
+      <div class="eyebrow">${isVi ? "Hướng dẫn du lịch" : "Travel guide"}</div>
       <h1>${escapeHtml(title)}</h1>
       <p class="intro">${escapeHtml(description)}</p>
 
@@ -830,7 +830,7 @@ function articlePage(lang, topic, index) {
       </div>
 
       <h2>${isVi ? "Khi nào bài toán này xuất hiện?" : "When does this problem show up?"}</h2>
-      <p>${isVi ? `Đây là kiểu tìm kiếm thường xuất hiện khi người dùng cần ${data.focus} trong bối cảnh ${data.scenario}. Khi đó, điều quan trọng không chỉ là dịch đúng, mà còn là mở app đủ nhanh, nhìn đủ rõ và hoạt động được ngay cả khi không có mạng ổn định.` : `This search usually appears when travelers need ${data.focus} in situations like ${data.scenario}. In those moments, the tool needs more than raw translation quality. It needs to open fast, stay readable, and still work when the network is weak or missing.`}</p>
+      <p>${isVi ? `Tình huống này thường xuất hiện khi người dùng cần ${data.focus} trong bối cảnh ${data.scenario}. Khi đó, điều quan trọng không chỉ là dịch đúng, mà còn là mở app đủ nhanh, nhìn đủ rõ và hoạt động được ngay cả khi không có mạng ổn định.` : `This usually comes up when travelers need ${data.focus} in situations like ${data.scenario}. In those moments, the tool needs more than raw translation quality. It needs to open fast, stay readable, and still work when the network is weak or missing.`}</p>
 
       <h2>${isVi ? "Cách dùng Nomad Translator cho workflow này" : "How to use Nomad Translator for this workflow"}</h2>
       <ol>
@@ -887,7 +887,7 @@ function articlePage(lang, topic, index) {
 function articleHub(lang) {
   const isVi = lang === "vi";
   const title = isVi ? "Blog Nomad Translator | Dịch offline khi du lịch" : "Nomad Translator Blog | Offline Translation Guides";
-  const description = isVi ? "Các bài SEO và hướng dẫn về dịch offline, camera translation, giọng nói, app Nomad Translator, dùng online hay offline, free, APK, du lịch và so sánh với các app dịch offline phổ biến." : "Search-friendly guides about offline translation, camera translation, voice translation, the Nomad Translator app, online vs offline use, free searches, APK intent, competitor alternatives, and travel workflows.";
+  const description = isVi ? "Hướng dẫn thực tế về dịch offline, dịch camera, giọng nói, gói ngôn ngữ, quyền riêng tư và cách chọn app dịch phù hợp khi đi du lịch." : "Practical guides for offline translation, camera translation, voice input, language packs, privacy, and choosing a translator app for travel.";
   const list = topics.map((item) => `<a href="${item.slug}.html">${escapeHtml(item[lang].title)}<span>${escapeHtml(item[lang].description)}</span></a>`).join("\n");
   const hubTags = [
     { href: "nomad-translator-app.html", label: isVi ? "#appNomadTranslator" : "#NomadTranslatorApp" },
@@ -937,10 +937,10 @@ function articleHub(lang) {
       <a href="${appUrl}">${isVi ? "Tải app" : "Download app"}</a>
     </nav>
     <article>
-      <div class="eyebrow">${isVi ? "SEO Hub" : "SEO Hub"}</div>
-      <h1>${isVi ? "Bài viết SEO cho Nomad Translator" : "SEO articles for Nomad Translator"}</h1>
+      <div class="eyebrow">${isVi ? "Hướng dẫn" : "Guides"}</div>
+      <h1>${isVi ? "Hướng dẫn dịch offline khi đi du lịch" : "Offline translation guides for travel"}</h1>
       <p class="intro">${escapeHtml(description)}</p>
-      <div class="tag-row" aria-label="${isVi ? "Hashtag SEO" : "SEO hashtags"}">
+      <div class="tag-row" aria-label="${isVi ? "Chủ đề phổ biến" : "Popular topics"}">
         ${hubTags.map((tag) => `<a href="${tag.href}">${tag.label}</a>`).join("\n")}
       </div>
       <div class="article-list">
