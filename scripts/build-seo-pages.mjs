@@ -902,7 +902,7 @@ function staticPage(kind) {
       <h2>5. Changes</h2>
       <p>This page may be updated from time to time to reflect product or policy changes. The latest version is always published here.</p>
       <h2>6. Contact</h2>
-      <p>If you have privacy questions, email <a href="mailto:kelvinngo@theluxenomad.com">kelvinngo@theluxenomad.com</a>.</p>
+      <p>If you have privacy questions, email <a href="mailto:kiengo.uit@gmail.com">kiengo.uit@gmail.com</a>.</p>
     </article>
     <footer>© 2026 ${developerName}</footer>
   </div>`
