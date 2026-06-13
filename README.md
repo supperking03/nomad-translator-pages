@@ -25,8 +25,8 @@ The generator rewrites the landing pages, article pages, aliases, sitemap, robot
 
 ## Publishing
 
-This repo is set up to work on GitHub Pages. The generated metadata assumes the site base URL is:
+This repo is configured for the custom domain:
 
-`https://supperking03.github.io/nomad-translator-pages`
+`https://nomad-translator.com`
 
-If you publish under a different domain later, update `siteUrl` in [scripts/build-seo-pages.mjs](/Users/kelvin/Downloads/nomad-translator-pages/scripts/build-seo-pages.mjs).
+If you move the site later, update `siteUrl` in [scripts/build-seo-pages.mjs](/Users/kelvin/Downloads/nomad-translator-pages/scripts/build-seo-pages.mjs).

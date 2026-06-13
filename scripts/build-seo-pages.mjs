@@ -2,8 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const siteUrl = "https://supperking03.github.io/nomad-translator-pages";
-const siteBasePath = "/nomad-translator-pages";
+const siteUrl = "https://nomad-translator.com";
+const siteBasePath = "";
 const appUrl = "https://apps.apple.com/app/id6766855589";
 const lastModified = "2026-06-13";
 const developerName = "Minh Kien Ngo";
@@ -581,7 +581,7 @@ function articleHub(lang) {
 }
 
 function redirectPage(target) {
-  const canonicalTarget = target.startsWith(siteBasePath)
+  const canonicalTarget = siteBasePath && target.startsWith(siteBasePath)
     ? target.slice(siteBasePath.length) || "/"
     : target;
   return `<!DOCTYPE html>
@@ -1044,16 +1044,16 @@ function generate() {
   writeFile(path.join(root, "vi/index.html"), homePage("vi"));
   writeFile(path.join(root, "en/articles/index.html"), articleHub("en"));
   writeFile(path.join(root, "vi/articles/index.html"), articleHub("vi"));
-  writeFile(path.join(root, "articles/index.html"), redirectPage("/nomad-translator-pages/en/articles/"));
+  writeFile(path.join(root, "articles/index.html"), redirectPage("/en/articles/"));
   writeFile(path.join(root, "about.html"), staticPage("about"));
   writeFile(path.join(root, "support.html"), staticPage("support"));
   writeFile(path.join(root, "privacy-policy.html"), staticPage("privacy"));
-  writeFile(path.join(root, "privacy.html"), redirectPage("/nomad-translator-pages/privacy-policy.html"));
+  writeFile(path.join(root, "privacy.html"), redirectPage("/privacy-policy.html"));
 
   topics.forEach((entry, index) => {
     writeFile(path.join(root, "en/articles", `${entry.slug}.html`), articlePage("en", entry, index));
     writeFile(path.join(root, "vi/articles", `${entry.slug}.html`), articlePage("vi", entry, index));
-    writeFile(path.join(root, "articles", `${entry.slug}.html`), redirectPage(`/nomad-translator-pages/en/articles/${entry.slug}.html`));
+    writeFile(path.join(root, "articles", `${entry.slug}.html`), redirectPage(`/en/articles/${entry.slug}.html`));
   });
 
   writeFile(path.join(root, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml`);
@@ -1086,7 +1086,7 @@ function generate() {
 
   writeFile(path.join(root, "llms.txt"), `# ${appName}\n\n- Home: ${siteUrl}/en/\n- Vietnamese home: ${siteUrl}/vi/\n- App Store: ${appUrl}\n- Support: ${siteUrl}/support.html\n- Privacy policy: ${siteUrl}/privacy-policy.html\n- SEO articles hub: ${siteUrl}/en/articles/\n\nNomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, and quick travel conversations.`);
 
-  writeFile(path.join(root, "README.md"), `# nomad-translator-pages\n\nStatic SEO and support site for Nomad Translator.\n\n## Structure\n\n- \`/\` language chooser with auto-redirect\n- \`/en/\` English landing page\n- \`/vi/\` Vietnamese landing page\n- \`/en/articles/\` English SEO hub\n- \`/vi/articles/\` Vietnamese SEO hub\n- \`/about.html\` app overview\n- \`/support.html\` support page\n- \`/privacy-policy.html\` privacy page\n\n## Rebuild pages\n\nRun:\n\n\`\`\`bash\nnode scripts/build-seo-pages.mjs\n\`\`\`\n\nThe generator rewrites the landing pages, article pages, aliases, sitemap, robots, and supporting metadata files.\n\n## Publishing\n\nThis repo is set up to work on GitHub Pages. The generated metadata assumes the site base URL is:\n\n\`${siteUrl}\`\n\nIf you publish under a different domain later, update \`siteUrl\` in [scripts/build-seo-pages.mjs](/Users/kelvin/Downloads/nomad-translator-pages/scripts/build-seo-pages.mjs).`);
+  writeFile(path.join(root, "README.md"), `# nomad-translator-pages\n\nStatic SEO and support site for Nomad Translator.\n\n## Structure\n\n- \`/\` language chooser with auto-redirect\n- \`/en/\` English landing page\n- \`/vi/\` Vietnamese landing page\n- \`/en/articles/\` English SEO hub\n- \`/vi/articles/\` Vietnamese SEO hub\n- \`/about.html\` app overview\n- \`/support.html\` support page\n- \`/privacy-policy.html\` privacy page\n\n## Rebuild pages\n\nRun:\n\n\`\`\`bash\nnode scripts/build-seo-pages.mjs\n\`\`\`\n\nThe generator rewrites the landing pages, article pages, aliases, sitemap, robots, and supporting metadata files.\n\n## Publishing\n\nThis repo is configured for the custom domain:\n\n\`${siteUrl}\`\n\nIf you move the site later, update \`siteUrl\` in [scripts/build-seo-pages.mjs](/Users/kelvin/Downloads/nomad-translator-pages/scripts/build-seo-pages.mjs).`);
 }
 
 generate();
