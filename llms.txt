@@ -1,0 +1,10 @@
+# Nomad Translator
+
+- Home: https://minhkienngo.github.io/nomad-translator-pages/en/
+- Vietnamese home: https://minhkienngo.github.io/nomad-translator-pages/vi/
+- App Store: https://apps.apple.com/app/id6766855589
+- Support: https://minhkienngo.github.io/nomad-translator-pages/support.html
+- Privacy policy: https://minhkienngo.github.io/nomad-translator-pages/privacy-policy.html
+- SEO articles hub: https://minhkienngo.github.io/nomad-translator-pages/en/articles/
+
+Nomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, and quick travel conversations.
