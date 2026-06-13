@@ -1023,12 +1023,11 @@ function staticPage(kind) {
       <h1>An offline translator built for practical travel moments</h1>
       <p class="intro">Nomad Translator helps you translate text, voice, and photos on iPhone with downloadable language packs and on-device processing.</p>
       <figure class="blog-figure">
-        <div class="placeholder">
-          <div>
-            <strong>About page image placeholder</strong>
-            <span>Add one polished composite later: text translation, voice translation, camera OCR, and the language pack screen.</span>
-          </div>
-        </div>
+        <picture>
+          <source media="(max-width: 760px)" srcset="./assets/blog/nomad-translator-blog-640.webp" width="${articleImage.mobileWidth}" height="${articleImage.mobileHeight}" />
+          <source media="(max-width: 1440px)" srcset="./assets/blog/nomad-translator-blog-920.webp" width="${articleImage.desktopWidth}" height="${articleImage.desktopHeight}" />
+          <img src="./assets/blog/nomad-translator-blog-920.webp" width="${articleImage.desktopWidth}" height="${articleImage.desktopHeight}" alt="Nomad Translator offline translation app preview" loading="lazy" decoding="async" />
+        </picture>
       </figure>
       <h2>What the app focuses on</h2>
       <p>Nomad Translator is designed for travelers who need a translation tool that still works when data is weak, slow, or unavailable. Instead of assuming a stable connection, it centers the experience around language pack downloads, fast access, and clear translated output.</p>
@@ -1262,28 +1261,6 @@ ol, ul { padding-left: 22px; }
 
 li { margin: 8px 0; }
 
-.placeholder {
-  min-height: 260px;
-  border: 2px dashed rgba(92, 138, 184, 0.46);
-  border-radius: 16px;
-  background:
-    linear-gradient(135deg, rgba(22, 217, 255, .08), rgba(29, 78, 216, .12)),
-    rgba(8, 19, 35, 0.94);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 24px;
-  margin: 28px 0;
-  color: var(--muted);
-}
-
-.placeholder strong {
-  display: block;
-  color: #f5fbff;
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -1444,7 +1421,6 @@ li { margin: 8px 0; }
   .wrap { padding: 24px 16px 56px; }
   article { padding: 24px 18px; }
   .hero-card { padding: 0; }
-  .placeholder { min-height: 210px; }
 }
 `;
 
@@ -1495,7 +1471,7 @@ function generate() {
     display: "standalone"
   }, null, 2));
 
-  writeFile(path.join(root, "llms.txt"), `# ${appName}\n\n- Home: ${siteUrl}/en/\n- Vietnamese home: ${siteUrl}/vi/\n- App Store: ${appUrl}\n- Support: ${siteUrl}/support.html\n- Privacy policy: ${siteUrl}/privacy-policy.html\n- SEO articles hub: ${siteUrl}/en/articles/\n\nNomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, and quick travel conversations.`);
+  writeFile(path.join(root, "llms.txt"), `# ${appName}\n\n- Home: ${siteUrl}/en/\n- Vietnamese home: ${siteUrl}/vi/\n- App Store: ${appUrl}\n- Support: ${siteUrl}/support.html\n- Privacy policy: ${siteUrl}/privacy-policy.html\n- Travel translation guides: ${siteUrl}/en/articles/\n\nNomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, and quick travel conversations.`);
 
   writeFile(path.join(root, "README.md"), `# nomad-translator-pages\n\nStatic SEO and support site for Nomad Translator.\n\n## Structure\n\n- \`/\` language chooser with auto-redirect\n- \`/en/\` English landing page\n- \`/vi/\` Vietnamese landing page\n- \`/en/articles/\` English SEO hub\n- \`/vi/articles/\` Vietnamese SEO hub\n- \`/about.html\` app overview\n- \`/support.html\` support page\n- \`/privacy-policy.html\` privacy page\n\n## Rebuild pages\n\nRun:\n\n\`\`\`bash\nnode scripts/build-seo-pages.mjs\n\`\`\`\n\nThe generator rewrites the landing pages, article pages, aliases, sitemap, robots, and supporting metadata files.\n\n## Publishing\n\nThis repo is configured for the custom domain:\n\n\`${siteUrl}\`\n\nIf you move the site later, update \`siteUrl\` in [scripts/build-seo-pages.mjs](/Users/kelvin/Downloads/nomad-translator-pages/scripts/build-seo-pages.mjs).`);
 }

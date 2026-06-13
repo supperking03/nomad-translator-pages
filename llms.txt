@@ -5,6 +5,6 @@
 - App Store: https://apps.apple.com/app/id6766855589
 - Support: https://nomad-translator.com/support.html
 - Privacy policy: https://nomad-translator.com/privacy-policy.html
-- SEO articles hub: https://nomad-translator.com/en/articles/
+- Travel translation guides: https://nomad-translator.com/en/articles/
 
 Nomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, and quick travel conversations.

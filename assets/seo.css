@@ -103,28 +103,6 @@ ol, ul { padding-left: 22px; }
 
 li { margin: 8px 0; }
 
-.placeholder {
-  min-height: 260px;
-  border: 2px dashed rgba(92, 138, 184, 0.46);
-  border-radius: 16px;
-  background:
-    linear-gradient(135deg, rgba(22, 217, 255, .08), rgba(29, 78, 216, .12)),
-    rgba(8, 19, 35, 0.94);
-  display: grid;
-  place-items: center;
-  text-align: center;
-  padding: 24px;
-  margin: 28px 0;
-  color: var(--muted);
-}
-
-.placeholder strong {
-  display: block;
-  color: #f5fbff;
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -285,6 +263,5 @@ li { margin: 8px 0; }
   .wrap { padding: 24px 16px 56px; }
   article { padding: 24px 18px; }
   .hero-card { padding: 0; }
-  .placeholder { min-height: 210px; }
 }
 
