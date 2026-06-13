@@ -85,7 +85,16 @@ const appKeywordsEn = [
   "menu translation app",
   "nomad translator online",
   "nomad translator free",
-  "nomad translator apk"
+  "nomad translator apk",
+  "Google Translate offline alternative",
+  "Microsoft Translator offline alternative",
+  "iTranslate offline alternative",
+  "LibreTranslate offline alternative",
+  "F-Droid Offline Translator alternative",
+  "Offline Language Translator alternative",
+  "Translator Offline alternative",
+  "Transeee offline translator alternative",
+  "best offline translator apps"
 ];
 
 const appKeywordsVi = [
@@ -101,7 +110,16 @@ const appKeywordsVi = [
   "gói ngôn ngữ offline",
   "nomad translator online",
   "nomad translator free",
-  "nomad translator apk"
+  "nomad translator apk",
+  "Google Translate offline alternative",
+  "Microsoft Translator offline alternative",
+  "iTranslate offline alternative",
+  "LibreTranslate offline alternative",
+  "F-Droid Offline Translator alternative",
+  "Offline Language Translator alternative",
+  "Translator Offline alternative",
+  "Transeee offline translator alternative",
+  "best offline translator apps"
 ];
 
 function ensureDir(dir) {
@@ -437,6 +455,144 @@ const topics = [
     viScenario: "chuẩn bị công cụ dịch trước chuyến bay dài, qua cửa khẩu hoặc ở vùng xa"
   }),
   topic({
+    slug: "google-translate-offline-alternative",
+    enTitle: "Google Translate Offline Alternative for Travel",
+    enDescription: "A comparison guide for travelers searching Google Translate offline and wanting an iPhone translator built around private, on-device travel workflows.",
+    enFocus: "Google Translate offline alternative",
+    enScenario: "comparing Google Translate offline language downloads with a privacy-first travel translator on iPhone",
+    enTags: ["Google Translate offline", "Google Translate offline alternative", "offline translator", "iPhone translator", "travel translator app", "Nomad Translator"],
+    enComparison: [
+      "Google Translate is a broad general-purpose translator with offline language downloads in supported situations.",
+      "Nomad Translator focuses its pages and workflow on travel moments: menus, signs, short conversations, photos, and language packs prepared before the trip.",
+      "Nomad Translator is independent and is not affiliated with Google or Google Translate."
+    ],
+    viTitle: "Alternative cho Google Translate offline khi du lịch",
+    viDescription: "Bài so sánh cho người tìm Google Translate offline nhưng muốn một app iPhone tập trung vào dịch du lịch, riêng tư và xử lý trên thiết bị.",
+    viFocus: "Google Translate offline alternative",
+    viScenario: "so sánh tải ngôn ngữ offline của Google Translate với app dịch du lịch ưu tiên riêng tư trên iPhone",
+    viTags: ["GoogleTranslateoffline", "GoogleTranslatealternative", "appdịchoffline", "iPhonetranslator", "appdịchdulịch", "NomadTranslator"],
+    viComparison: [
+      "Google Translate là trình dịch phổ thông lớn, có hỗ trợ tải ngôn ngữ offline trong các trường hợp được hỗ trợ.",
+      "Nomad Translator tập trung vào bối cảnh du lịch: menu, biển báo, hội thoại ngắn, ảnh và gói ngôn ngữ chuẩn bị trước chuyến đi.",
+      "Nomad Translator là app độc lập, không liên kết với Google hay Google Translate."
+    ]
+  }),
+  topic({
+    slug: "microsoft-translator-offline-alternative",
+    enTitle: "Microsoft Translator Offline Alternative",
+    enDescription: "What to compare when you search Microsoft Translator offline and need a lightweight iPhone app for travel translation without steady data.",
+    enFocus: "Microsoft Translator offline alternative",
+    enScenario: "checking whether Microsoft Translator offline language packs or a travel-first iPhone app fits the trip better",
+    enTags: ["Microsoft Translator offline", "Microsoft Translator alternative", "offline translator", "translator without internet", "iPhone translator", "Nomad Translator"],
+    enComparison: [
+      "Microsoft Translator supports offline language packs for many common translation needs.",
+      "Nomad Translator is positioned for travelers who want a simple on-device workflow for text, voice, camera, menus, signs, and photos.",
+      "Nomad Translator is independent and is not affiliated with Microsoft or Microsoft Translator."
+    ],
+    viTitle: "Alternative cho Microsoft Translator offline",
+    viDescription: "Những điểm nên so sánh khi bạn tìm Microsoft Translator offline nhưng cần app iPhone nhẹ cho dịch du lịch không phụ thuộc mạng.",
+    viFocus: "Microsoft Translator offline alternative",
+    viScenario: "kiểm tra gói ngôn ngữ offline của Microsoft Translator hay app iPhone tập trung du lịch phù hợp hơn",
+    viTags: ["MicrosoftTranslatoroffline", "MicrosoftTranslatoralternative", "appdịchoffline", "dịchkhôngcầninternet", "iPhonetranslator", "NomadTranslator"],
+    viComparison: [
+      "Microsoft Translator có hỗ trợ gói ngôn ngữ offline cho nhiều nhu cầu dịch phổ biến.",
+      "Nomad Translator được định vị cho khách du lịch cần workflow đơn giản trên thiết bị cho text, giọng nói, camera, menu, biển báo và ảnh.",
+      "Nomad Translator là app độc lập, không liên kết với Microsoft hay Microsoft Translator."
+    ]
+  }),
+  topic({
+    slug: "itranslate-offline-alternative",
+    enTitle: "iTranslate Offline Alternative for iPhone",
+    enDescription: "A practical iTranslate offline alternative guide for iPhone users who care about travel speed, camera translation, and prepared language packs.",
+    enFocus: "iTranslate offline alternative",
+    enScenario: "comparing iTranslate offline mode with an iPhone travel translator prepared before flights, restaurants, and remote trips",
+    enTags: ["iTranslate offline", "iTranslate alternative", "offline translator iOS", "iPhone translator", "camera translator", "Nomad Translator"],
+    enComparison: [
+      "iTranslate offers translation features including offline mode in supported plans and languages.",
+      "Nomad Translator focuses on a travel kit workflow: download packs, test phrases, scan menus, read signs, and keep short conversations moving.",
+      "Nomad Translator is independent and is not affiliated with iTranslate."
+    ],
+    viTitle: "Alternative cho iTranslate offline trên iPhone",
+    viDescription: "Hướng dẫn cho người tìm iTranslate offline nhưng ưu tiên tốc độ khi đi du lịch, dịch camera và gói ngôn ngữ chuẩn bị sẵn.",
+    viFocus: "iTranslate offline alternative",
+    viScenario: "so sánh iTranslate offline với app dịch du lịch iPhone chuẩn bị trước chuyến bay, nhà hàng và vùng xa",
+    viTags: ["iTranslateoffline", "iTranslatealternative", "offlinetranslatoriOS", "iPhonetranslator", "dịchcamera", "NomadTranslator"],
+    viComparison: [
+      "iTranslate cung cấp nhiều tính năng dịch, bao gồm offline mode trong các gói và ngôn ngữ được hỗ trợ.",
+      "Nomad Translator tập trung vào workflow du lịch: tải gói ngôn ngữ, thử câu ngắn, scan menu, đọc biển báo và xử lý hội thoại nhanh.",
+      "Nomad Translator là app độc lập, không liên kết với iTranslate."
+    ]
+  }),
+  topic({
+    slug: "libretranslate-offline-alternative",
+    enTitle: "LibreTranslate Offline Alternative for Travelers",
+    enDescription: "LibreTranslate is useful for self-hosted translation. This guide explains when travelers may prefer an offline iPhone app instead.",
+    enFocus: "LibreTranslate offline alternative",
+    enScenario: "choosing between self-hosted translation tools and a ready-to-use iPhone travel translator",
+    enTags: ["LibreTranslate offline", "LibreTranslate alternative", "self hosted translation", "offline translator app", "travel translator", "Nomad Translator"],
+    enComparison: [
+      "LibreTranslate is known as an open-source translation API that can be self-hosted for more control.",
+      "Nomad Translator is aimed at travelers who want an app they can open quickly without setting up a server or API.",
+      "Nomad Translator is independent and is not affiliated with LibreTranslate."
+    ],
+    viTitle: "Alternative cho LibreTranslate offline khi đi du lịch",
+    viDescription: "LibreTranslate hữu ích cho self-hosted translation. Bài này giải thích khi nào khách du lịch nên dùng app iPhone offline thay thế.",
+    viFocus: "LibreTranslate offline alternative",
+    viScenario: "chọn giữa công cụ dịch self-hosted và app dịch du lịch iPhone dùng ngay",
+    viTags: ["LibreTranslateoffline", "LibreTranslatealternative", "selfhostedtranslation", "appdịchoffline", "traveltranslator", "NomadTranslator"],
+    viComparison: [
+      "LibreTranslate được biết đến như một API dịch open-source có thể self-host để kiểm soát tốt hơn.",
+      "Nomad Translator hướng tới khách du lịch muốn mở app dùng ngay mà không cần dựng server hay API.",
+      "Nomad Translator là app độc lập, không liên kết với LibreTranslate."
+    ]
+  }),
+  topic({
+    slug: "f-droid-offline-translator-iphone-alternative",
+    enTitle: "F-Droid Offline Translator Alternative for iPhone",
+    enDescription: "People searching F-Droid Offline Translator often want on-device translation. This page explains the iPhone travel-app alternative.",
+    enFocus: "F-Droid Offline Translator alternative",
+    enScenario: "searching Android open-source offline translators but needing a practical iPhone option for travel",
+    enTags: ["F-Droid Offline Translator", "Offline Translator F-Droid", "offline translator GitHub", "offline translator iOS", "iPhone translator", "Nomad Translator"],
+    enComparison: [
+      "F-Droid Offline Translator results usually point to Android and open-source workflows.",
+      "Nomad Translator is for iPhone users who want a travel-focused offline translator with text, voice, camera, and photos.",
+      "Nomad Translator is independent and is not affiliated with F-Droid or any F-Droid package."
+    ],
+    viTitle: "Alternative iPhone cho F-Droid Offline Translator",
+    viDescription: "Người tìm F-Droid Offline Translator thường muốn dịch trên thiết bị. Trang này giải thích lựa chọn iPhone cho nhu cầu du lịch.",
+    viFocus: "F-Droid Offline Translator alternative",
+    viScenario: "tìm app dịch offline open-source trên Android nhưng cần lựa chọn thực tế cho iPhone khi du lịch",
+    viTags: ["FDroidOfflineTranslator", "OfflineTranslatorFDroid", "offlinetranslatorGitHub", "offlinetranslatoriOS", "iPhonetranslator", "NomadTranslator"],
+    viComparison: [
+      "Kết quả F-Droid Offline Translator thường liên quan đến Android và workflow open-source.",
+      "Nomad Translator dành cho người dùng iPhone cần app dịch offline cho du lịch với text, giọng nói, camera và ảnh.",
+      "Nomad Translator là app độc lập, không liên kết với F-Droid hay package nào trên F-Droid."
+    ]
+  }),
+  topic({
+    slug: "best-offline-translator-apps-compared",
+    enTitle: "Best Offline Translator Apps Compared",
+    enDescription: "A search-friendly comparison of offline translator apps, including Google Translate, Microsoft Translator, iTranslate, LibreTranslate, and Nomad Translator.",
+    enFocus: "best offline translator apps compared",
+    enScenario: "comparing broad translator apps, open-source tools, and travel-first offline translators before installing one",
+    enTags: ["best offline translator apps", "Google Translate offline", "Microsoft Translator offline", "iTranslate offline", "LibreTranslate", "Nomad Translator"],
+    enComparison: [
+      "Google Translate, Microsoft Translator, iTranslate, LibreTranslate, F-Droid Offline Translator, Offline Language Translator, and Transeee all appear in offline translator searches for different platforms and workflows.",
+      "Nomad Translator competes on the travel use case: fast access, prepared language packs, camera translation, voice input, and privacy-focused on-device use.",
+      "This comparison is informational. Nomad Translator is independent and is not affiliated with the named products."
+    ],
+    viTitle: "So sánh các app dịch offline tốt",
+    viDescription: "Bài so sánh SEO về các app dịch offline như Google Translate, Microsoft Translator, iTranslate, LibreTranslate và Nomad Translator.",
+    viFocus: "so sánh best offline translator apps",
+    viScenario: "so sánh app dịch phổ thông, công cụ open-source và app dịch offline tập trung du lịch trước khi cài",
+    viTags: ["bestofflinetranslatorapps", "GoogleTranslateoffline", "MicrosoftTranslatoroffline", "iTranslateoffline", "LibreTranslate", "NomadTranslator"],
+    viComparison: [
+      "Google Translate, Microsoft Translator, iTranslate, LibreTranslate, F-Droid Offline Translator, Offline Language Translator và Transeee đều xuất hiện trong search offline translator với các nền tảng và workflow khác nhau.",
+      "Nomad Translator cạnh tranh ở use case du lịch: mở nhanh, gói ngôn ngữ chuẩn bị sẵn, dịch camera, nhập giọng nói và xử lý riêng tư trên thiết bị.",
+      "Bài so sánh này chỉ mang tính thông tin. Nomad Translator là app độc lập và không liên kết với các sản phẩm được nhắc tên."
+    ]
+  }),
+  topic({
     slug: "nomad-translator-app",
     enTitle: "Nomad Translator App",
     enDescription: "What the Nomad Translator app does, who it helps, and why travelers use it for offline text, voice, and camera translation.",
@@ -498,6 +654,7 @@ function topic(def) {
       description: def.enDescription,
       focus: def.enFocus,
       scenario: def.enScenario,
+      comparison: def.enComparison || [],
       tags: def.enTags || [
         "Nomad Translator",
         def.enFocus,
@@ -529,6 +686,7 @@ function topic(def) {
       description: def.viDescription,
       focus: def.viFocus,
       scenario: def.viScenario,
+      comparison: def.viComparison || [],
       tags: def.viTags || [
         "NomadTranslator",
         def.viFocus.replace(/\s+/g, ""),
@@ -581,6 +739,13 @@ function articlePage(lang, topic, index) {
     .slice(0, 8)
     .map((tag) => `<a href="./">${isVi ? "#" : "#"}${escapeHtml(tag.replace(/\s+/g, ""))}</a>`)
     .join("\n");
+  const comparisonBlock = data.comparison.length
+    ? `
+      <h2>${isVi ? "Ghi chú so sánh" : "Comparison notes"}</h2>
+      <ul>
+        ${data.comparison.map((note) => `<li>${escapeHtml(note)}</li>`).join("\n")}
+      </ul>`
+    : "";
   const breadcrumbJson = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -676,6 +841,7 @@ function articlePage(lang, topic, index) {
       <ul>
         ${data.tips.map((tip) => `<li>${escapeHtml(tip)}</li>`).join("\n")}
       </ul>
+      ${comparisonBlock}
 
       <h2>${isVi ? "Tại sao Nomad Translator hợp với nhu cầu này" : "Why Nomad Translator fits this use case"}</h2>
       <p>${isVi ? "Nomad Translator được xây quanh nhu cầu dịch thực dụng khi đi đường: tải gói ngôn ngữ một lần, dịch văn bản và giọng nói trên thiết bị, dùng camera để trích văn bản, rồi hiển thị kết quả gọn gàng để bạn phản ứng nhanh hơn trong bối cảnh thật." : "Nomad Translator is built around practical travel translation: download a language pack once, translate text and voice on-device, use the camera for printed text, and keep the result clean enough to act on quickly in the real world."}</p>
@@ -721,7 +887,7 @@ function articlePage(lang, topic, index) {
 function articleHub(lang) {
   const isVi = lang === "vi";
   const title = isVi ? "Blog Nomad Translator | Dịch offline khi du lịch" : "Nomad Translator Blog | Offline Translation Guides";
-  const description = isVi ? "Các bài SEO và hướng dẫn về dịch offline, camera translation, giọng nói, app Nomad Translator, dùng online hay offline, free, APK và du lịch." : "Search-friendly guides about offline translation, camera translation, voice translation, the Nomad Translator app, online vs offline use, free searches, APK intent, and travel workflows.";
+  const description = isVi ? "Các bài SEO và hướng dẫn về dịch offline, camera translation, giọng nói, app Nomad Translator, dùng online hay offline, free, APK, du lịch và so sánh với các app dịch offline phổ biến." : "Search-friendly guides about offline translation, camera translation, voice translation, the Nomad Translator app, online vs offline use, free searches, APK intent, competitor alternatives, and travel workflows.";
   const list = topics.map((item) => `<a href="${item.slug}.html">${escapeHtml(item[lang].title)}<span>${escapeHtml(item[lang].description)}</span></a>`).join("\n");
   const hubTags = [
     { href: "nomad-translator-app.html", label: isVi ? "#appNomadTranslator" : "#NomadTranslatorApp" },
@@ -730,7 +896,11 @@ function articleHub(lang) {
     { href: "nomad-translator-apk-and-ios-options.html", label: isVi ? "#NomadTranslatorAPK" : "#NomadTranslatorAPK" },
     { href: "best-offline-translator-app-for-iphone.html", label: isVi ? "#appDichOffline" : "#OfflineTranslator" },
     { href: "offline-camera-translator-for-signs-and-menus.html", label: isVi ? "#dichCamera" : "#CameraTranslator" },
-    { href: "offline-voice-translator-for-travel.html", label: isVi ? "#dichGiongNoi" : "#VoiceTranslator" }
+    { href: "offline-voice-translator-for-travel.html", label: isVi ? "#dichGiongNoi" : "#VoiceTranslator" },
+    { href: "google-translate-offline-alternative.html", label: "#GoogleTranslateOffline" },
+    { href: "microsoft-translator-offline-alternative.html", label: "#MicrosoftTranslatorOffline" },
+    { href: "itranslate-offline-alternative.html", label: "#iTranslateOffline" },
+    { href: "best-offline-translator-apps-compared.html", label: "#BestOfflineTranslatorApps" }
   ];
   const ldJson = [
     {
