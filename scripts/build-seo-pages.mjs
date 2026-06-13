@@ -60,6 +60,10 @@ const ga4Head = `<script async src="https://www.googletagmanager.com/gtag/js?id=
 
   gtag('config', 'G-7DTZDZJPXL');
 </script>`;
+const analyticsResourceHints = `<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+<link rel="dns-prefetch" href="//www.googletagmanager.com" />
+<link rel="dns-prefetch" href="//www.google-analytics.com" />`;
 
 const faviconTags = `<link rel="icon" href="${siteBasePath}/favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="${siteBasePath}/assets/icons/favicon-32x32.png" />
@@ -126,6 +130,7 @@ function page({
   stylesheetPath,
   ogType = "website",
   ogImage = null,
+  alternateLinks = null,
   bodyClass = "",
   ogLocale,
   ldJson,
@@ -136,6 +141,14 @@ function page({
   const canonical = `${siteUrl}${canonicalPath}`;
   const selectedOgImage = ogImage || (ogType === "article" ? articleImage : heroImage);
   const defaultOgImage = `${siteUrl}${selectedOgImage.src}`;
+  const hreflangLinks = alternateLinks || [
+    { hreflang: "en", href: `${siteUrl}/en/` },
+    { hreflang: "vi-VN", href: `${siteUrl}/vi/` },
+    { hreflang: "x-default", href: `${siteUrl}/en/` }
+  ];
+  const alternateTags = hreflangLinks
+    .map((link) => `<link rel="alternate" hreflang="${link.hreflang}" href="${link.href}" />`)
+    .join("\n");
   const ldJsonBlocks = (Array.isArray(ldJson) ? ldJson : [ldJson])
     .map((block) => `<script type="application/ld+json">${JSON.stringify(block)}</script>`)
     .join("\n");
@@ -165,9 +178,8 @@ ${faviconTags}
 <meta name="twitter:title" content="${escapeHtml(title)}" />
 <meta name="twitter:description" content="${escapeHtml(description)}" />
 <meta name="twitter:image" content="${defaultOgImage}" />
-<link rel="alternate" hreflang="en" href="${siteUrl}/en/" />
-<link rel="alternate" hreflang="vi-VN" href="${siteUrl}/vi/" />
-<link rel="alternate" hreflang="x-default" href="${siteUrl}/en/" />
+${alternateTags}
+${analyticsResourceHints}
 ${extraHead}
 ${ga4Head}
 ${ldJsonBlocks}
@@ -198,6 +210,9 @@ ${faviconTags}
 <meta property="og:type" content="website" />
 <meta property="og:url" content="${siteUrl}/" />
 <meta property="og:image" content="${siteUrl}${heroImage.src}" />
+<meta property="og:image:width" content="${heroImage.width}" />
+<meta property="og:image:height" content="${heroImage.height}" />
+<meta property="og:image:alt" content="${appName} | Offline Travel Translator" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="${appName} | Offline Travel Translator" />
 <meta name="twitter:description" content="${appDescriptionEn}" />
@@ -205,6 +220,8 @@ ${faviconTags}
 <link rel="alternate" hreflang="en" href="${siteUrl}/en/" />
 <link rel="alternate" hreflang="vi-VN" href="${siteUrl}/vi/" />
 <link rel="alternate" hreflang="x-default" href="${siteUrl}/en/" />
+${analyticsResourceHints}
+${ga4Head}
 <script type="application/ld+json">${JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -248,14 +265,6 @@ function homePage(lang) {
   const title = isVi ? `${appName} | App dịch offline cho du lịch` : `${appName} | Offline Travel Translator for iPhone`;
   const description = isVi ? appDescriptionVi : appDescriptionEn;
   const keywords = isVi ? appKeywordsVi : appKeywordsEn;
-  const homeTags = [
-    { href: "articles/nomad-translator-app.html", label: isVi ? "#appNomadTranslator" : "#NomadTranslatorApp" },
-    { href: "articles/nomad-translator-online-vs-offline.html", label: isVi ? "#NomadTranslatorOnline" : "#NomadTranslatorOnline" },
-    { href: "articles/is-nomad-translator-free.html", label: isVi ? "#NomadTranslatorFree" : "#NomadTranslatorFree" },
-    { href: "articles/nomad-translator-apk-and-ios-options.html", label: isVi ? "#NomadTranslatorAPK" : "#NomadTranslatorAPK" },
-    { href: "articles/best-offline-translator-app-for-iphone.html", label: isVi ? "#appDichOffline" : "#OfflineTranslator" },
-    { href: "articles/offline-camera-translator-for-signs-and-menus.html", label: isVi ? "#dichCamera" : "#CameraTranslator" }
-  ];
   const ldJson = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -292,9 +301,6 @@ function homePage(lang) {
     <main>
       <h1 class="visually-hidden">${isVi ? "Dịch menu, biển báo, tin nhắn và hội thoại mà không cần mạng." : "Translate menus, signs, messages, and conversations without the internet."}</h1>
       <p class="visually-hidden">${isVi ? "Nomad Translator dành cho khách du lịch muốn dịch ngay trên iPhone bằng văn bản, giọng nói hoặc camera, sau khi tải gói ngôn ngữ một lần." : "Nomad Translator helps travelers translate on iPhone with text, voice, and camera input after downloading a language pack once."}</p>
-      <div class="tag-row" aria-label="${isVi ? "Hashtag SEO nổi bật" : "Featured SEO hashtags"}">
-        ${homeTags.map((tag) => `<a href="${tag.href}">${tag.label}</a>`).join("\n")}
-      </div>
       <nav class="article-list home-links" aria-label="${isVi ? "Các trang Nomad Translator" : "Nomad Translator pages"}">
         <a href="articles/">${isVi ? "Blog & hướng dẫn" : "Blog & guides"}<span>${isVi ? "Bộ bài SEO về dịch offline, camera và du lịch" : "Search-focused articles about offline translation, camera tools, and travel use cases"}</span></a>
         <a href="../about.html">${isVi ? "Về Nomad Translator" : "About Nomad Translator"}<span>${isVi ? "Tính năng chính, workflow và trường hợp sử dụng" : "Core features, workflow, and who it helps"}</span></a>
@@ -700,6 +706,11 @@ function articlePage(lang, topic, index) {
     stylesheetPath: "../../assets/seo.css",
     ogType: "article",
     ogImage: pageImage,
+    alternateLinks: [
+      { hreflang: "en", href: `${siteUrl}/en/articles/${topic.slug}.html` },
+      { hreflang: "vi-VN", href: `${siteUrl}/vi/articles/${topic.slug}.html` },
+      { hreflang: "x-default", href: `${siteUrl}/en/articles/${topic.slug}.html` }
+    ],
     ogLocale: isVi ? "vi_VN" : "en_US",
     extraHead: articleMeta,
     ldJson,
@@ -721,15 +732,28 @@ function articleHub(lang) {
     { href: "offline-camera-translator-for-signs-and-menus.html", label: isVi ? "#dichCamera" : "#CameraTranslator" },
     { href: "offline-voice-translator-for-travel.html", label: isVi ? "#dichGiongNoi" : "#VoiceTranslator" }
   ];
-  const ldJson = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: title,
-    description,
-    url: `${siteUrl}/${lang}/articles/`,
-    inLanguage: isVi ? "vi-VN" : "en",
-    publisher: { "@type": "Organization", name: developerName, url: siteUrl, logo: `${siteUrl}/assets/icons/icon-512.png` }
-  };
+  const ldJson = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: title,
+      description,
+      url: `${siteUrl}/${lang}/articles/`,
+      inLanguage: isVi ? "vi-VN" : "en",
+      publisher: { "@type": "Organization", name: developerName, url: siteUrl, logo: `${siteUrl}/assets/icons/icon-512.png` }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: isVi ? "Danh sách bài viết Nomad Translator" : "Nomad Translator article list",
+      itemListElement: topics.map((item, itemIndex) => ({
+        "@type": "ListItem",
+        position: itemIndex + 1,
+        name: item[lang].title,
+        url: `${siteUrl}/${lang}/articles/${item.slug}.html`
+      }))
+    }
+  ];
   const content = `
   <div class="wrap">
     <div class="top">
@@ -762,6 +786,11 @@ function articleHub(lang) {
     keywords: isVi ? appKeywordsVi : appKeywordsEn,
     canonicalPath: `/${lang}/articles/`,
     stylesheetPath: "../../assets/seo.css",
+    alternateLinks: [
+      { hreflang: "en", href: `${siteUrl}/en/articles/` },
+      { hreflang: "vi-VN", href: `${siteUrl}/vi/articles/` },
+      { hreflang: "x-default", href: `${siteUrl}/en/articles/` }
+    ],
     ogLocale: isVi ? "vi_VN" : "en_US",
     ldJson,
     content
@@ -853,6 +882,13 @@ function staticPage(kind) {
   }
 
   if (kind === "support") {
+    const supportFaq = [
+      ["Does the app work without internet?", "Yes. Once the language pack is downloaded, translation runs offline on your device."],
+      ["How do I prepare before a trip?", "Open the app while on stable Wi-Fi, download the language pack you need, and test text, voice, and camera translation once before departure."],
+      ["Can I translate photos and screenshots?", "Yes. You can use the camera or choose an image from your photo library for text extraction and translation."],
+      ["Why does translation speed vary?", "Because the work happens on-device, translation time can vary by phone model, input length, and language pair."],
+      ["Which permissions does the app request?", "Camera, microphone, and photo library access are only used to support camera translation, voice input, and importing images for OCR."]
+    ];
     return page({
       lang: "en",
       title: `Support | ${appName}`,
@@ -861,7 +897,18 @@ function staticPage(kind) {
       canonicalPath: "/support.html",
       stylesheetPath: "assets/seo.css",
       ogLocale: "en_US",
-      ldJson: { "@context": "https://schema.org", "@type": "ContactPage", name: `Support | ${appName}`, url: `${siteUrl}/support.html` },
+      ldJson: [
+        { "@context": "https://schema.org", "@type": "ContactPage", name: `Support | ${appName}`, url: `${siteUrl}/support.html`, email: "kiengo.uit@gmail.com" },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: supportFaq.map(([question, answer]) => ({
+            "@type": "Question",
+            name: question,
+            acceptedAnswer: { "@type": "Answer", text: answer }
+          }))
+        }
+      ],
       content: `
   <div class="wrap">
     <div class="top">
