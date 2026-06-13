@@ -44,6 +44,8 @@ const faviconTags = `<link rel="icon" href="${siteBasePath}/favicon.ico" sizes="
 <meta name="theme-color" content="#0F172A" />`;
 
 const appKeywordsEn = [
+  "Nomad Translator",
+  "Nomad Translator app",
   "offline translator",
   "travel translator app",
   "offline translation app for iphone",
@@ -51,10 +53,15 @@ const appKeywordsEn = [
   "voice translator",
   "language pack translator",
   "translator without internet",
-  "menu translation app"
+  "menu translation app",
+  "nomad translator online",
+  "nomad translator free",
+  "nomad translator apk"
 ];
 
 const appKeywordsVi = [
+  "Nomad Translator",
+  "app Nomad Translator",
   "app dịch offline",
   "app dịch du lịch",
   "dịch không cần internet",
@@ -62,7 +69,10 @@ const appKeywordsVi = [
   "dịch giọng nói",
   "dịch thực đơn",
   "app dịch iphone",
-  "gói ngôn ngữ offline"
+  "gói ngôn ngữ offline",
+  "nomad translator online",
+  "nomad translator free",
+  "nomad translator apk"
 ];
 
 function ensureDir(dir) {
@@ -93,11 +103,15 @@ function page({
   bodyClass = "",
   ogLocale,
   ldJson,
+  extraHead = "",
   content,
   noIndex = false
 }) {
   const canonical = `${siteUrl}${canonicalPath}`;
   const defaultOgImage = `${siteUrl}${ogType === "article" ? articleImage.src : heroImage.src}`;
+  const ldJsonBlocks = (Array.isArray(ldJson) ? ldJson : [ldJson])
+    .map((block) => `<script type="application/ld+json">${JSON.stringify(block)}</script>`)
+    .join("\n");
   return `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
@@ -127,7 +141,8 @@ ${faviconTags}
 <link rel="alternate" hreflang="en" href="${siteUrl}/en/" />
 <link rel="alternate" hreflang="vi-VN" href="${siteUrl}/vi/" />
 <link rel="alternate" hreflang="x-default" href="${siteUrl}/en/" />
-<script type="application/ld+json">${JSON.stringify(ldJson)}</script>
+${extraHead}
+${ldJsonBlocks}
 <link rel="stylesheet" href="${stylesheetPath}" />
 </head>
 <body class="${bodyClass}">
@@ -205,6 +220,14 @@ function homePage(lang) {
   const title = isVi ? `${appName} | App dịch offline cho du lịch` : `${appName} | Offline Travel Translator for iPhone`;
   const description = isVi ? appDescriptionVi : appDescriptionEn;
   const keywords = isVi ? appKeywordsVi : appKeywordsEn;
+  const homeTags = [
+    { href: "articles/nomad-translator-app.html", label: isVi ? "#appNomadTranslator" : "#NomadTranslatorApp" },
+    { href: "articles/nomad-translator-online-vs-offline.html", label: isVi ? "#NomadTranslatorOnline" : "#NomadTranslatorOnline" },
+    { href: "articles/is-nomad-translator-free.html", label: isVi ? "#NomadTranslatorFree" : "#NomadTranslatorFree" },
+    { href: "articles/nomad-translator-apk-and-ios-options.html", label: isVi ? "#NomadTranslatorAPK" : "#NomadTranslatorAPK" },
+    { href: "articles/best-offline-translator-app-for-iphone.html", label: isVi ? "#appDichOffline" : "#OfflineTranslator" },
+    { href: "articles/offline-camera-translator-for-signs-and-menus.html", label: isVi ? "#dichCamera" : "#CameraTranslator" }
+  ];
   const ldJson = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -241,6 +264,9 @@ function homePage(lang) {
     <main>
       <h1 class="visually-hidden">${isVi ? "Dịch menu, biển báo, tin nhắn và hội thoại mà không cần mạng." : "Translate menus, signs, messages, and conversations without the internet."}</h1>
       <p class="visually-hidden">${isVi ? "Nomad Translator dành cho khách du lịch muốn dịch ngay trên iPhone bằng văn bản, giọng nói hoặc camera, sau khi tải gói ngôn ngữ một lần." : "Nomad Translator helps travelers translate on iPhone with text, voice, and camera input after downloading a language pack once."}</p>
+      <div class="tag-row" aria-label="${isVi ? "Hashtag SEO nổi bật" : "Featured SEO hashtags"}">
+        ${homeTags.map((tag) => `<a href="${tag.href}">${tag.label}</a>`).join("\n")}
+      </div>
       <nav class="article-list home-links" aria-label="${isVi ? "Các trang Nomad Translator" : "Nomad Translator pages"}">
         <a href="articles/">${isVi ? "Blog & hướng dẫn" : "Blog & guides"}<span>${isVi ? "Bộ bài SEO về dịch offline, camera và du lịch" : "Search-focused articles about offline translation, camera tools, and travel use cases"}</span></a>
         <a href="../about.html">${isVi ? "Về Nomad Translator" : "About Nomad Translator"}<span>${isVi ? "Tính năng chính, workflow và trường hợp sử dụng" : "Core features, workflow, and who it helps"}</span></a>
@@ -375,6 +401,58 @@ const topics = [
     viDescription: "Vì sao gói ngôn ngữ quan trọng với dịch offline và cách chuẩn bị điện thoại trước chuyến bay hoặc hành trình vùng xa.",
     viFocus: "tải gói ngôn ngữ để dịch offline",
     viScenario: "chuẩn bị công cụ dịch trước chuyến bay dài, qua cửa khẩu hoặc ở vùng xa"
+  }),
+  topic({
+    slug: "nomad-translator-app",
+    enTitle: "Nomad Translator App",
+    enDescription: "What the Nomad Translator app does, who it helps, and why travelers use it for offline text, voice, and camera translation.",
+    enFocus: "Nomad Translator app",
+    enScenario: "comparing the app store listing with real travel translation needs",
+    enTags: ["Nomad Translator", "Nomad Translator app", "offline translator", "travel translator app", "camera translator", "voice translator"],
+    viTitle: "App Nomad Translator",
+    viDescription: "Nomad Translator là app gì, phù hợp với ai và vì sao khách du lịch dùng nó cho dịch offline bằng text, giọng nói và camera.",
+    viFocus: "app Nomad Translator",
+    viScenario: "so sánh app trên App Store với nhu cầu dịch thật khi đi du lịch",
+    viTags: ["NomadTranslator", "appNomadTranslator", "appdịchoffline", "appdịchdulịch", "dịchcamera", "dịchgiọngnói"]
+  }),
+  topic({
+    slug: "nomad-translator-online-vs-offline",
+    enTitle: "Nomad Translator Online vs Offline",
+    enDescription: "If you are searching for Nomad Translator online, this guide explains when browser translation helps and when an offline app is better.",
+    enFocus: "Nomad Translator online",
+    enScenario: "choosing between a browser-based translator and an offline travel app before or during a trip",
+    enTags: ["Nomad Translator online", "online translator", "offline translator", "travel translator app", "translator without internet", "Nomad Translator"],
+    viTitle: "Nomad Translator online hay offline",
+    viDescription: "Nếu bạn đang tìm Nomad Translator online, bài này giải thích khi nào dịch trên web đủ dùng và khi nào app offline tiện hơn.",
+    viFocus: "Nomad Translator online",
+    viScenario: "chọn giữa trình dịch trên web và app dịch offline trước hoặc trong chuyến đi",
+    viTags: ["NomadTranslatoronline", "onlinetranslator", "appdịchoffline", "traveltranslator", "dịchkhôngcầninternet", "NomadTranslator"]
+  }),
+  topic({
+    slug: "is-nomad-translator-free",
+    enTitle: "Is Nomad Translator Free?",
+    enDescription: "A simple guide for people searching Nomad Translator free, including what to expect from the app and why offline translation still matters.",
+    enFocus: "Nomad Translator free",
+    enScenario: "checking whether the app can be downloaded and used without paying before a trip",
+    enTags: ["Nomad Translator free", "free translator app", "offline translator", "travel translator app", "Nomad Translator app", "no internet translator"],
+    viTitle: "Nomad Translator có miễn phí không?",
+    viDescription: "Hướng dẫn nhanh cho người đang tìm Nomad Translator free, gồm kỳ vọng thực tế về app và lý do dịch offline vẫn quan trọng.",
+    viFocus: "Nomad Translator free",
+    viScenario: "kiểm tra xem app có thể tải và dùng miễn phí trước chuyến đi hay không",
+    viTags: ["NomadTranslatorfree", "freetranslatorapp", "appdịchoffline", "appdịchdulịch", "NomadTranslatorapp", "dịchkhôngcầnmạng"]
+  }),
+  topic({
+    slug: "nomad-translator-apk-and-ios-options",
+    enTitle: "Nomad Translator APK and iPhone Options",
+    enDescription: "People searching Nomad Translator APK often want a quick install path. This page explains the app context and what to look for on iPhone or Android.",
+    enFocus: "Nomad Translator APK",
+    enScenario: "trying to find the right install route after seeing the app name in search results",
+    enTags: ["Nomad Translator APK", "translator apk", "Nomad Translator app", "offline translator app", "travel translator", "Nomad Translator"],
+    viTitle: "Nomad Translator APK và lựa chọn cài app",
+    viDescription: "Người tìm Nomad Translator APK thường muốn cài thật nhanh. Bài này giải thích ngữ cảnh app và những gì nên kiểm tra trên iPhone hoặc Android.",
+    viFocus: "Nomad Translator APK",
+    viScenario: "muốn tìm đường cài app đúng sau khi thấy tên app trên kết quả tìm kiếm",
+    viTags: ["NomadTranslatorAPK", "translatorapk", "NomadTranslatorapp", "appdịchoffline", "traveltranslator", "NomadTranslator"]
   })
 ];
 
@@ -386,6 +464,14 @@ function topic(def) {
       description: def.enDescription,
       focus: def.enFocus,
       scenario: def.enScenario,
+      tags: def.enTags || [
+        "Nomad Translator",
+        def.enFocus,
+        "offline translator",
+        "travel translator app",
+        "camera translator",
+        "voice translator"
+      ],
       steps: [
         `Start by downloading the language pack you need before the trip so ${def.enFocus} really works without surprise network prompts.`,
         `Open Nomad Translator and test one short phrase early, because a quick check makes it easier to trust the workflow when ${def.enScenario}.`,
@@ -409,6 +495,14 @@ function topic(def) {
       description: def.viDescription,
       focus: def.viFocus,
       scenario: def.viScenario,
+      tags: def.viTags || [
+        "NomadTranslator",
+        def.viFocus.replace(/\s+/g, ""),
+        "appdịchoffline",
+        "appdịchdulịch",
+        "dịchcamera",
+        "dịchgiọngnói"
+      ],
       steps: [
         `Hãy tải sẵn gói ngôn ngữ trước chuyến đi để nhu cầu ${def.viFocus} hoạt động đúng lúc mà không bị chặn bởi yêu cầu kết nối mạng.`,
         `Mở Nomad Translator và thử một câu ngắn từ sớm, vì kiểm tra nhanh sẽ giúp bạn yên tâm hơn khi ${def.viScenario}.`,
@@ -435,28 +529,76 @@ function articlePage(lang, topic, index) {
   const data = topic[lang];
   const title = data.title;
   const description = data.description;
-  const keywords = isVi ? appKeywordsVi : appKeywordsEn;
+  const keywords = [...new Set([...(isVi ? appKeywordsVi : appKeywordsEn), ...data.tags])];
   const canonicalPath = `/${lang}/articles/${topic.slug}.html`;
   const listLinks = topics
     .filter((item) => item.slug !== topic.slug)
     .slice(0, 4)
     .map((item) => `<a href="${item.slug}.html">${escapeHtml(item[lang].title)}</a>`)
     .join("\n");
-
-  const ldJson = {
+  const articleMeta = [
+    ...data.tags.map((tag) => `<meta property="article:tag" content="${escapeHtml(tag)}" />`),
+    `<meta property="article:published_time" content="${lastModified}T00:00:00+07:00" />`,
+    `<meta property="article:modified_time" content="${lastModified}T00:00:00+07:00" />`,
+    `<meta property="article:section" content="${isVi ? "Bài viết" : "Articles"}" />`
+  ].join("\n");
+  const tagLinks = data.tags
+    .slice(0, 8)
+    .map((tag) => `<a href="./">${isVi ? "#" : "#"}${escapeHtml(tag.replace(/\s+/g, ""))}</a>`)
+    .join("\n");
+  const breadcrumbJson = {
     "@context": "https://schema.org",
-    "@type": "Article",
-    headline: title,
-    description,
-    image: [`${siteUrl}${articleImage.src}`],
-    author: { "@type": "Organization", name: developerName, url: siteUrl },
-    publisher: { "@type": "Organization", name: developerName, logo: { "@type": "ImageObject", url: `${siteUrl}/assets/icons/icon-512.png` } },
-    mainEntityOfPage: `${siteUrl}${canonicalPath}`,
-    inLanguage: isVi ? "vi-VN" : "en",
-    keywords,
-    datePublished: lastModified,
-    dateModified: lastModified
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: isVi ? "Trang chủ" : "Home", item: `${siteUrl}/${lang}/` },
+      { "@type": "ListItem", position: 2, name: isVi ? "Bài viết" : "Articles", item: `${siteUrl}/${lang}/articles/` },
+      { "@type": "ListItem", position: 3, name: title, item: `${siteUrl}${canonicalPath}` }
+    ]
   };
+
+  const ldJson = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description,
+      image: [`${siteUrl}${articleImage.src}`],
+      author: { "@type": "Organization", name: developerName, url: siteUrl },
+      publisher: { "@type": "Organization", name: developerName, logo: { "@type": "ImageObject", url: `${siteUrl}/assets/icons/icon-512.png` } },
+      mainEntityOfPage: `${siteUrl}${canonicalPath}`,
+      inLanguage: isVi ? "vi-VN" : "en",
+      keywords,
+      datePublished: lastModified,
+      dateModified: lastModified
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      name: isVi ? `Cách dùng ${data.focus} với Nomad Translator` : `How to use ${data.focus} with Nomad Translator`,
+      description,
+      image: [`${siteUrl}${articleImage.src}`],
+      totalTime: "PT5M",
+      step: data.steps.map((step, stepIndex) => ({
+        "@type": "HowToStep",
+        position: stepIndex + 1,
+        name: step,
+        text: step
+      }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: data.faq.map(([question, answer]) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer
+        }
+      }))
+    },
+    breadcrumbJson
+  ];
 
   const content = `
   <div class="wrap">
@@ -483,6 +625,9 @@ function articlePage(lang, topic, index) {
           <img src="../../assets/blog/nomad-translator-blog-920.webp" width="${articleImage.desktopWidth}" height="${articleImage.desktopHeight}" alt="${isVi ? `${data.title} - Nomad Translator` : `${data.title} - Nomad Translator`}" loading="${index < 2 ? "eager" : "lazy"}" decoding="async" />
         </picture>
       </figure>
+      <div class="tag-row" aria-label="${isVi ? "Chủ đề" : "Topic tags"}">
+        ${tagLinks}
+      </div>
 
       <h2>${isVi ? "Khi nào bài toán này xuất hiện?" : "When does this problem show up?"}</h2>
       <p>${isVi ? `Đây là kiểu tìm kiếm thường xuất hiện khi người dùng cần ${data.focus} trong bối cảnh ${data.scenario}. Khi đó, điều quan trọng không chỉ là dịch đúng, mà còn là mở app đủ nhanh, nhìn đủ rõ và hoạt động được ngay cả khi không có mạng ổn định.` : `This search usually appears when travelers need ${data.focus} in situations like ${data.scenario}. In those moments, the tool needs more than raw translation quality. It needs to open fast, stay readable, and still work when the network is weak or missing.`}</p>
@@ -526,6 +671,7 @@ function articlePage(lang, topic, index) {
     stylesheetPath: "../../assets/seo.css",
     ogType: "article",
     ogLocale: isVi ? "vi_VN" : "en_US",
+    extraHead: articleMeta,
     ldJson,
     content
   });
@@ -534,8 +680,17 @@ function articlePage(lang, topic, index) {
 function articleHub(lang) {
   const isVi = lang === "vi";
   const title = isVi ? "Blog Nomad Translator | Dịch offline khi du lịch" : "Nomad Translator Blog | Offline Translation Guides";
-  const description = isVi ? "Các bài SEO và hướng dẫn về dịch offline, camera translation, giọng nói và du lịch với Nomad Translator." : "Search-friendly guides about offline translation, camera translation, voice translation, and travel workflows with Nomad Translator.";
+  const description = isVi ? "Các bài SEO và hướng dẫn về dịch offline, camera translation, giọng nói, app Nomad Translator, dùng online hay offline, free, APK và du lịch." : "Search-friendly guides about offline translation, camera translation, voice translation, the Nomad Translator app, online vs offline use, free searches, APK intent, and travel workflows.";
   const list = topics.map((item) => `<a href="${item.slug}.html">${escapeHtml(item[lang].title)}<span>${escapeHtml(item[lang].description)}</span></a>`).join("\n");
+  const hubTags = [
+    { href: "nomad-translator-app.html", label: isVi ? "#appNomadTranslator" : "#NomadTranslatorApp" },
+    { href: "nomad-translator-online-vs-offline.html", label: isVi ? "#NomadTranslatorOnline" : "#NomadTranslatorOnline" },
+    { href: "is-nomad-translator-free.html", label: isVi ? "#NomadTranslatorFree" : "#NomadTranslatorFree" },
+    { href: "nomad-translator-apk-and-ios-options.html", label: isVi ? "#NomadTranslatorAPK" : "#NomadTranslatorAPK" },
+    { href: "best-offline-translator-app-for-iphone.html", label: isVi ? "#appDichOffline" : "#OfflineTranslator" },
+    { href: "offline-camera-translator-for-signs-and-menus.html", label: isVi ? "#dichCamera" : "#CameraTranslator" },
+    { href: "offline-voice-translator-for-travel.html", label: isVi ? "#dichGiongNoi" : "#VoiceTranslator" }
+  ];
   const ldJson = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -561,6 +716,9 @@ function articleHub(lang) {
       <div class="eyebrow">${isVi ? "SEO Hub" : "SEO Hub"}</div>
       <h1>${isVi ? "Bài viết SEO cho Nomad Translator" : "SEO articles for Nomad Translator"}</h1>
       <p class="intro">${escapeHtml(description)}</p>
+      <div class="tag-row" aria-label="${isVi ? "Hashtag SEO" : "SEO hashtags"}">
+        ${hubTags.map((tag) => `<a href="${tag.href}">${tag.label}</a>`).join("\n")}
+      </div>
       <div class="article-list">
         ${list}
       </div>
@@ -753,13 +911,14 @@ function staticPage(kind) {
 
 const css = `
 :root {
-  --accent: #0f766e;
-  --ink: #0f172a;
-  --muted: #5b6474;
-  --line: #dde5ee;
-  --bg: #f6f8fb;
-  --panel: #ffffff;
-  --soft: #eefaf7;
+  --accent: #16d9ff;
+  --accent-strong: #08bfe6;
+  --ink: #edf6ff;
+  --muted: #93a9c3;
+  --line: rgba(44, 86, 126, 0.72);
+  --bg: #06101d;
+  --panel: #0a1627;
+  --soft: rgba(12, 28, 48, 0.92);
 }
 
 * { box-sizing: border-box; }
@@ -769,8 +928,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 28%),
-    linear-gradient(180deg, #fbfefe 0%, var(--bg) 100%);
+    radial-gradient(circle at top left, rgba(22, 217, 255, 0.15), transparent 24%),
+    radial-gradient(circle at top right, rgba(16, 72, 145, 0.18), transparent 30%),
+    linear-gradient(180deg, #050c18 0%, var(--bg) 100%);
   line-height: 1.68;
 }
 
@@ -816,7 +976,7 @@ article, .hero-card {
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 34px;
-  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.28);
 }
 
 .eyebrow {
@@ -833,7 +993,7 @@ h1 {
 }
 
 .intro {
-  color: #334155;
+  color: #c8dbef;
   font-size: 18px;
   margin-bottom: 26px;
 }
@@ -849,7 +1009,7 @@ h3 {
   margin: 24px 0 6px;
 }
 
-p, li, span { color: #334155; }
+p, li, span { color: #c8dbef; }
 
 ol, ul { padding-left: 22px; }
 
@@ -857,11 +1017,11 @@ li { margin: 8px 0; }
 
 .placeholder {
   min-height: 260px;
-  border: 2px dashed #b8c6d4;
+  border: 2px dashed rgba(92, 138, 184, 0.46);
   border-radius: 16px;
   background:
-    linear-gradient(135deg, rgba(15, 118, 110, .08), rgba(14, 165, 233, .08)),
-    #fff;
+    linear-gradient(135deg, rgba(22, 217, 255, .08), rgba(29, 78, 216, .12)),
+    rgba(8, 19, 35, 0.94);
   display: grid;
   place-items: center;
   text-align: center;
@@ -872,7 +1032,7 @@ li { margin: 8px 0; }
 
 .placeholder strong {
   display: block;
-  color: var(--ink);
+  color: #f5fbff;
   font-size: 18px;
   margin-bottom: 6px;
 }
@@ -889,9 +1049,9 @@ li { margin: 8px 0; }
   align-items: center;
   min-height: 30px;
   padding: 5px 10px;
-  border: 1px solid rgba(15, 118, 110, .18);
+  border: 1px solid rgba(22, 217, 255, .24);
   border-radius: 999px;
-  background: var(--soft);
+  background: rgba(9, 29, 49, 0.94);
   color: var(--accent);
   font-size: 13px;
   font-weight: 800;
@@ -903,7 +1063,7 @@ li { margin: 8px 0; }
   padding: 24px;
   border-radius: 18px;
   background: var(--soft);
-  border: 1px solid #c6ede6;
+  border: 1px solid rgba(22, 217, 255, 0.18);
 }
 
 .cta h2 { margin-top: 0; }
@@ -916,10 +1076,11 @@ li { margin: 8px 0; }
   margin-top: 8px;
   padding: 12px 18px;
   border-radius: 12px;
-  background: var(--accent);
-  color: #fff;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: #03111f;
   text-decoration: none;
   font-weight: 800;
+  box-shadow: 0 10px 28px rgba(22, 217, 255, 0.24);
 }
 
 .related, .article-list {
@@ -930,15 +1091,18 @@ li { margin: 8px 0; }
 .related a, .article-list a {
   display: block;
   padding: 14px 16px;
-  background: #fff;
+  background: rgba(10, 22, 39, 0.98);
   border: 1px solid var(--line);
   border-radius: 14px;
   text-decoration: none;
-  color: var(--ink);
+  color: #f2f8ff;
   font-weight: 700;
 }
 
-.related a:hover, .article-list a:hover { border-color: var(--accent); }
+.related a:hover, .article-list a:hover {
+  border-color: rgba(22, 217, 255, 0.46);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
 
 .article-list span {
   display: block;
@@ -958,7 +1122,7 @@ li { margin: 8px 0; }
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--ink);
+  color: #f2f8ff;
   text-decoration: none;
   font-weight: 900;
 }
