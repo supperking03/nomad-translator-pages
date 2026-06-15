@@ -1475,6 +1475,17 @@ const localizedTopicCopy = {
   }
 };
 
+function localizedTags(lang, focus) {
+  const common = {
+    en: ["offline translator", "travel translator app", "camera translator", "voice translator"],
+    vi: ["app dịch offline", "app dịch du lịch", "dịch không cần internet", "dịch camera"],
+    de: ["Offline Übersetzer", "Reise Übersetzer App", "Übersetzer ohne Internet", "Kamera Übersetzer"],
+    fr: ["traducteur hors ligne", "application de traduction de voyage", "traduction sans internet", "traduction avec appareil photo"],
+    es: ["traductor sin conexión", "app traductor para viajar", "traductor sin internet", "traductor con cámara"]
+  };
+  return [...new Set([focus, ...common[lang], "Nomad Translator"].filter(Boolean))];
+}
+
 function localizedTopicData(def, lang) {
   const focus = localizedTopicFocus[def.slug]?.[lang] || def.enFocus;
   const copy = localizedTopicCopy[lang];
@@ -1485,13 +1496,7 @@ function localizedTopicData(def, lang) {
     focus,
     scenario: copy.scenario,
     comparison: def.enComparison?.length ? copy.comparison : [],
-    tags: [
-      focus,
-      locales[lang].keywords.at(-6),
-      locales[lang].keywords.at(-5),
-      locales[lang].keywords.at(-4),
-      "Nomad Translator"
-    ].filter(Boolean),
+    tags: localizedTags(lang, focus),
     steps: copy.steps(focus),
     tips: copy.tips,
     faq: copy.faq(focus)
@@ -1540,14 +1545,7 @@ function topic(def) {
       focus: def.viFocus,
       scenario: def.viScenario,
       comparison: def.viComparison || [],
-      tags: def.viTags || [
-        "NomadTranslator",
-        def.viFocus.replace(/\s+/g, ""),
-        "appdịchoffline",
-        "appdịchdulịch",
-        "dịchcamera",
-        "dịchgiọngnói"
-      ],
+      tags: localizedTags("vi", def.viFocus),
       steps: [
         "Hãy tải sẵn gói ngôn ngữ trước chuyến đi, khi Wi-Fi còn ổn định và bạn vẫn có thời gian kiểm tra setup.",
         `Mở Nomad Translator và thử một câu ngắn từ sớm, vì kiểm tra nhanh sẽ giúp bạn yên tâm hơn khi ${def.viScenario}.`,
@@ -1599,7 +1597,7 @@ function articlePage(lang, topic, index) {
   ].join("\n");
   const tagLinks = data.tags
     .slice(0, 8)
-    .map((tag) => `<a href="./">#${escapeHtml(tag.replace(/\s+/g, ""))}</a>`)
+    .map((tag) => `<a href="./">#${escapeHtml(tag)}</a>`)
     .join("\n");
   const comparisonBlock = data.comparison.length
     ? `
@@ -1744,28 +1742,28 @@ function articlePage(lang, topic, index) {
 }
 
 function articleHub(lang) {
-  const isVi = lang === "vi";
   const l = locales[lang];
   const title = l.blogTitle;
   const description = l.blogDescription;
   const list = topics.map((item) => `<a href="${item.slug}.html">${escapeHtml(item[lang].title)}<span>${escapeHtml(item[lang].description)}</span></a>`).join("\n");
-  const hubTags = [
-    { href: "nomad-translator-app.html", label: isVi ? "#appNomadTranslator" : "#NomadTranslatorApp" },
-    { href: "nomad-translator-online-vs-offline.html", label: isVi ? "#NomadTranslatorOnline" : "#NomadTranslatorOnline" },
-    { href: "is-nomad-translator-free.html", label: isVi ? "#NomadTranslatorFree" : "#NomadTranslatorFree" },
-    { href: "nomad-translator-apk-and-ios-options.html", label: isVi ? "#NomadTranslatorAPK" : "#NomadTranslatorAPK" },
-    { href: "best-offline-translator-app-for-iphone.html", label: isVi ? "#appDichOffline" : "#OfflineTranslator" },
-    { href: "offline-camera-translator-for-signs-and-menus.html", label: isVi ? "#dichCamera" : "#CameraTranslator" },
-    { href: "offline-voice-translator-for-travel.html", label: isVi ? "#dichGiongNoi" : "#VoiceTranslator" },
-    { href: "best-translator-app-for-japan-travel.html", label: isVi ? "#duLichNhatBan" : "#JapanTravel" },
-    { href: "best-translator-app-for-korea-travel.html", label: isVi ? "#duLichHanQuoc" : "#KoreaTravel" },
-    { href: "best-translator-app-for-thailand-travel.html", label: isVi ? "#duLichThaiLan" : "#ThailandTravel" },
-    { href: "best-translator-app-for-europe-travel.html", label: isVi ? "#duLichChauAu" : "#EuropeTravel" },
-    { href: "google-translate-offline-alternative.html", label: "#GoogleTranslateOffline" },
-    { href: "microsoft-translator-offline-alternative.html", label: "#MicrosoftTranslatorOffline" },
-    { href: "itranslate-offline-alternative.html", label: "#iTranslateOffline" },
-    { href: "best-offline-translator-apps-compared.html", label: "#BestOfflineTranslatorApps" }
+  const hubLabels = {
+    en: ["Nomad Translator app", "offline translator", "camera translator", "voice translator", "Japan travel", "Korea travel", "Thailand travel", "Europe travel"],
+    vi: ["app Nomad Translator", "app dịch offline", "dịch camera", "dịch giọng nói", "du lịch Nhật Bản", "du lịch Hàn Quốc", "du lịch Thái Lan", "du lịch châu Âu"],
+    de: ["Nomad Translator App", "Offline Übersetzer", "Kamera Übersetzer", "Sprachübersetzer", "Japan Reise", "Korea Reise", "Thailand Reise", "Europa Reise"],
+    fr: ["application Nomad Translator", "traducteur hors ligne", "traduction avec appareil photo", "traducteur vocal", "voyage au Japon", "voyage en Corée", "voyage en Thaïlande", "voyage en Europe"],
+    es: ["app Nomad Translator", "traductor sin conexión", "traductor con cámara", "traductor de voz", "viaje a Japón", "viaje a Corea", "viaje a Tailandia", "viaje por Europa"]
+  };
+  const hubTargets = [
+    "nomad-translator-app.html",
+    "best-offline-translator-app-for-iphone.html",
+    "offline-camera-translator-for-signs-and-menus.html",
+    "offline-voice-translator-for-travel.html",
+    "best-translator-app-for-japan-travel.html",
+    "best-translator-app-for-korea-travel.html",
+    "best-translator-app-for-thailand-travel.html",
+    "best-translator-app-for-europe-travel.html"
   ];
+  const hubTags = hubTargets.map((href, itemIndex) => ({ href, label: `#${hubLabels[lang][itemIndex]}` }));
   const ldJson = [
     {
       "@context": "https://schema.org",
