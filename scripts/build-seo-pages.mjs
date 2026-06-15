@@ -159,6 +159,13 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
+function languageFlagLink(currentLang, href) {
+  const isVi = currentLang === "vi";
+  const currentLabel = isVi ? "Tiếng Việt" : "English";
+  const targetLabel = isVi ? "English" : "Tiếng Việt";
+  return `<a class="flag-lang" href="${href}" aria-label="${currentLabel}. Switch to ${targetLabel}"><span aria-hidden="true">${isVi ? "🇻🇳" : "🇺🇸"}</span><span class="visually-hidden">${currentLabel}</span></a>`;
+}
+
 function page({
   lang,
   title,
@@ -287,9 +294,9 @@ ${ga4Head}
       <div class="eyebrow">${appName}</div>
       <h1>Choose your language</h1>
       <p class="intro">Nomad Translator is available in English and Vietnamese. Visitors in Vietnam or Vietnamese browsers are redirected to Vietnamese automatically when JavaScript is enabled.</p>
-      <div class="article-list">
-        <a href="vi/">Tiếng Việt<span>Dành cho người dùng Việt Nam và người thích nội dung tiếng Việt</span></a>
-        <a href="en/">English<span>For travelers who prefer English</span></a>
+      <div class="language-grid">
+        <a class="language-card" href="vi/" aria-label="Tiếng Việt"><span aria-hidden="true">🇻🇳</span><span class="visually-hidden">Tiếng Việt</span></a>
+        <a class="language-card" href="en/" aria-label="English"><span aria-hidden="true">🇺🇸</span><span class="visually-hidden">English</span></a>
       </div>
     </article>
     <footer>© 2026 ${developerName}</footer>
@@ -321,8 +328,8 @@ function homePage(lang) {
     <nav class="nav home-nav">
       <a class="home-brand" href="./"><img src="../assets/icons/app-icon-96.png" width="96" height="96" alt="${appName} icon" /><span>${appName}</span></a>
       <div class="home-actions">
-        <a href="../${isVi ? "en" : "vi"}/">${isVi ? "English" : "Tiếng Việt"}</a>
         <a class="btn" href="${appUrl}">${isVi ? "Tải app" : "Download app"}</a>
+        ${languageFlagLink(lang, `../${isVi ? "en" : "vi"}/`)}
       </div>
     </nav>
 
@@ -962,6 +969,7 @@ function articlePage(lang, topic, index) {
       <a href="../../about.html">${isVi ? "Giới thiệu" : "About"}</a>
       <a href="../../support.html">${isVi ? "Hỗ trợ" : "Support"}</a>
       <a href="${appUrl}">${isVi ? "Tải app" : "Download app"}</a>
+      ${languageFlagLink(lang, `../../${isVi ? "en" : "vi"}/articles/${topic.slug}.html`)}
     </nav>
     <article>
       <div class="eyebrow">${isVi ? "Hướng dẫn du lịch" : "Travel guide"}</div>
@@ -1089,6 +1097,7 @@ function articleHub(lang) {
       <a href="../../about.html">${isVi ? "Giới thiệu" : "About"}</a>
       <a href="../../support.html">${isVi ? "Hỗ trợ" : "Support"}</a>
       <a href="${appUrl}">${isVi ? "Tải app" : "Download app"}</a>
+      ${languageFlagLink(lang, `../../${isVi ? "en" : "vi"}/articles/`)}
     </nav>
     <article>
       <div class="eyebrow">${isVi ? "Hướng dẫn" : "Guides"}</div>
@@ -1167,10 +1176,10 @@ function staticPage(kind) {
     </div>
     <nav class="nav">
       <a href="en/">Home</a>
-      <a href="vi/">Tiếng Việt</a>
       <a href="en/articles/">Guides</a>
       <a href="support.html">Support</a>
       <a href="${appUrl}">Download app</a>
+      ${languageFlagLink("en", "vi/")}
     </nav>
     <article>
       <div class="eyebrow">About ${appName}</div>
@@ -1240,9 +1249,9 @@ function staticPage(kind) {
     </div>
     <nav class="nav">
       <a href="en/">Home</a>
-      <a href="vi/">Tiếng Việt</a>
       <a href="en/articles/">Guides</a>
       <a href="privacy-policy.html">Privacy</a>
+      ${languageFlagLink("en", "vi/")}
     </nav>
     <article>
       <div class="eyebrow">Support</div>
@@ -1286,6 +1295,7 @@ function staticPage(kind) {
       <a href="en/">Home</a>
       <a href="support.html">Support</a>
       <a href="about.html">About</a>
+      ${languageFlagLink("en", "vi/")}
     </nav>
     <article>
       <div class="eyebrow">Privacy Policy</div>
@@ -1362,6 +1372,7 @@ a { color: var(--accent); }
 
 .nav {
   display: flex;
+  align-items: center;
   gap: 14px;
   flex-wrap: wrap;
   margin: 8px 0 32px;
@@ -1370,6 +1381,50 @@ a { color: var(--accent); }
 }
 
 .nav a { text-decoration: none; }
+
+.flag-lang {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  margin-left: auto;
+  border: 1px solid rgba(22, 217, 255, .28);
+  border-radius: 999px;
+  background: rgba(9, 29, 49, .92);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 12px 28px rgba(0, 0, 0, .22);
+  font-size: 23px;
+  line-height: 1;
+}
+
+.flag-lang:hover {
+  border-color: rgba(22, 217, 255, .62);
+  transform: translateY(-1px);
+}
+
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.language-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 96px;
+  border: 1px solid rgba(22, 217, 255, .24);
+  border-radius: 18px;
+  background: rgba(9, 29, 49, .94);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .24);
+  font-size: 38px;
+  text-decoration: none;
+}
+
+.language-card:hover {
+  border-color: rgba(22, 217, 255, .62);
+  transform: translateY(-1px);
+}
 
 article, .hero-card {
   background: var(--panel);
