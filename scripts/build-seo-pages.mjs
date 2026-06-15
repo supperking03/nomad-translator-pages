@@ -49,7 +49,18 @@ const menuCameraArticleImage = {
 };
 const articleImageOverrides = new Map([
   ["best-app-to-translate-menus-while-traveling", menuCameraArticleImage],
+  ["chinese-menu-translator", menuCameraArticleImage],
+  ["japanese-menu-translator", menuCameraArticleImage],
+  ["korean-menu-translator", menuCameraArticleImage],
+  ["thai-menu-translator", menuCameraArticleImage],
+  ["vietnamese-menu-translator", menuCameraArticleImage],
   ["offline-camera-translator-for-signs-and-menus", menuCameraArticleImage],
+  ["offline-ocr-translator", menuCameraArticleImage],
+  ["read-chinese-menus", menuCameraArticleImage],
+  ["read-chinese-signs", menuCameraArticleImage],
+  ["translate-chinese-images", menuCameraArticleImage],
+  ["translate-chinese-screenshot", menuCameraArticleImage],
+  ["chinese-food-translation-guide", menuCameraArticleImage],
   ["translate-photos-without-internet", menuCameraArticleImage]
 ]);
 const ga4Head = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-7DTZDZJPXL"></script>
@@ -104,7 +115,19 @@ const appKeywordsEn = [
   "best translator app for France",
   "best translator app for Italy",
   "best translator app for Spain",
-  "best translator app for Europe travel"
+  "best translator app for Europe travel",
+  "Chinese menu translator",
+  "Japanese menu translator",
+  "Korean menu translator",
+  "Thai menu translator",
+  "Vietnamese menu translator",
+  "translate without internet",
+  "offline translator for travel",
+  "offline OCR translator",
+  "translate at airport without internet",
+  "airplane mode translator",
+  "read Chinese menus",
+  "translate Chinese images"
 ];
 
 const appKeywordsVi = [
@@ -139,7 +162,19 @@ const appKeywordsVi = [
   "best translator app for France",
   "best translator app for Italy",
   "best translator app for Spain",
-  "best translator app for Europe travel"
+  "best translator app for Europe travel",
+  "Chinese menu translator",
+  "Japanese menu translator",
+  "Korean menu translator",
+  "Thai menu translator",
+  "Vietnamese menu translator",
+  "translate without internet",
+  "offline translator for travel",
+  "offline OCR translator",
+  "translate at airport without internet",
+  "airplane mode translator",
+  "read Chinese menus",
+  "translate Chinese images"
 ];
 
 function ensureDir(dir) {
@@ -427,6 +462,71 @@ const topics = [
     viScenario: "gọi món tự tin khi không thể trông chờ vào bản dịch tiếng Anh hoặc giải thích từ nhân viên"
   }),
   topic({
+    slug: "chinese-menu-translator",
+    enTitle: "Chinese Menu Translator for Travel",
+    enDescription: "How to read Chinese menus with camera translation, offline OCR, and short food words before ordering in a restaurant.",
+    enFocus: "Chinese menu translator",
+    enScenario: "reading Chinese restaurant menus, handwritten specials, dish names, ingredients, and prices before ordering",
+    enTags: ["Chinese menu translator", "read Chinese menus", "Chinese food translation", "menu translation app", "offline camera translator", "Nomad Translator"],
+    viTitle: "Dịch menu tiếng Trung khi đi du lịch",
+    viDescription: "Cách đọc menu tiếng Trung bằng dịch camera, OCR offline và từ khóa món ăn ngắn trước khi gọi món trong nhà hàng.",
+    viFocus: "dịch menu tiếng Trung",
+    viScenario: "đọc menu nhà hàng tiếng Trung, món đặc biệt viết tay, tên món, nguyên liệu và giá trước khi gọi món",
+    viTags: ["dịchmenutiếngTrung", "readChinesemenus", "Chinesefoodtranslation", "dịchmenu", "dịchcameraoffline", "NomadTranslator"]
+  }),
+  topic({
+    slug: "japanese-menu-translator",
+    enTitle: "Japanese Menu Translator for Restaurants",
+    enDescription: "A travel guide to translating Japanese menus, ramen tickets, izakaya specials, allergy notes, and set-meal details offline.",
+    enFocus: "Japanese menu translator",
+    enScenario: "ordering ramen, sushi, izakaya dishes, set meals, convenience-store food, or allergy-safe items in Japan",
+    enTags: ["Japanese menu translator", "Japan food translation", "translate Japanese menu", "offline translator", "camera translator", "Nomad Translator"],
+    viTitle: "Dịch menu tiếng Nhật trong nhà hàng",
+    viDescription: "Hướng dẫn dịch menu tiếng Nhật, vé ramen, món izakaya, ghi chú dị ứng và set ăn khi không có mạng ổn định.",
+    viFocus: "dịch menu tiếng Nhật",
+    viScenario: "gọi ramen, sushi, món izakaya, set ăn, đồ convenience store hoặc món phù hợp dị ứng ở Nhật",
+    viTags: ["dịchmenutiếngNhật", "Japanfoodtranslation", "translateJapanesemenu", "appdịchoffline", "dịchcamera", "NomadTranslator"]
+  }),
+  topic({
+    slug: "korean-menu-translator",
+    enTitle: "Korean Menu Translator for Cafes and BBQ",
+    enDescription: "Translate Korean menus, cafe boards, BBQ cuts, spicy labels, and restaurant instructions with a camera-first offline workflow.",
+    enFocus: "Korean menu translator",
+    enScenario: "reading Hangul menus, cafe boards, BBQ cuts, sauce notes, spicy levels, and self-service restaurant instructions",
+    enTags: ["Korean menu translator", "Korean food translation", "translate Korean menu", "offline translator", "camera translator", "Nomad Translator"],
+    viTitle: "Dịch menu tiếng Hàn cho quán ăn và cafe",
+    viDescription: "Dịch menu tiếng Hàn, bảng cafe, món nướng, mức cay và hướng dẫn nhà hàng bằng workflow camera offline.",
+    viFocus: "dịch menu tiếng Hàn",
+    viScenario: "đọc menu Hangul, bảng cafe, thịt nướng, ghi chú nước sốt, mức cay và hướng dẫn tự phục vụ",
+    viTags: ["dịchmenutiếngHàn", "Koreanfoodtranslation", "translateKoreanmenu", "appdịchoffline", "dịchcamera", "NomadTranslator"]
+  }),
+  topic({
+    slug: "thai-menu-translator",
+    enTitle: "Thai Menu Translator for Street Food",
+    enDescription: "How to translate Thai menus, night-market signs, spice levels, ingredients, and food stall boards while traveling.",
+    enFocus: "Thai menu translator",
+    enScenario: "ordering street food, reading Thai food stall boards, checking spice levels, ingredients, seafood names, and prices",
+    enTags: ["Thai menu translator", "Thai food translation", "translate Thai menu", "street food translator", "offline camera translator", "Nomad Translator"],
+    viTitle: "Dịch menu tiếng Thái khi ăn street food",
+    viDescription: "Cách dịch menu tiếng Thái, biển chợ đêm, mức cay, nguyên liệu và bảng quán ăn khi đi du lịch.",
+    viFocus: "dịch menu tiếng Thái",
+    viScenario: "gọi món đường phố, đọc bảng quán tiếng Thái, xem mức cay, nguyên liệu, tên hải sản và giá",
+    viTags: ["dịchmenutiếngThái", "Thaifoodtranslation", "translateThaimenu", "streetfoodtranslator", "dịchcameraoffline", "NomadTranslator"]
+  }),
+  topic({
+    slug: "vietnamese-menu-translator",
+    enTitle: "Vietnamese Menu Translator for Local Food",
+    enDescription: "Translate Vietnamese menus, street-food signs, noodle names, toppings, prices, and cafe boards with camera translation.",
+    enFocus: "Vietnamese menu translator",
+    enScenario: "reading Vietnamese noodle menus, cafe boards, street-food signs, toppings, prices, and local dish names",
+    enTags: ["Vietnamese menu translator", "Vietnamese food translation", "translate Vietnamese menu", "travel translator app", "camera translator", "Nomad Translator"],
+    viTitle: "Dịch menu tiếng Việt cho khách du lịch",
+    viDescription: "Dịch menu tiếng Việt, biển món đường phố, tên bún phở, topping, giá và bảng quán cafe bằng camera translation.",
+    viFocus: "dịch menu tiếng Việt",
+    viScenario: "đọc menu bún phở, bảng cafe, biển món đường phố, topping, giá và tên món địa phương",
+    viTags: ["dịchmenutiếngViệt", "Vietnamesefoodtranslation", "translateVietnamesemenu", "traveltranslatorapp", "dịchcamera", "NomadTranslator"]
+  }),
+  topic({
     slug: "translate-signs-offline-on-iphone",
     enTitle: "How to Translate Signs Offline on iPhone",
     enDescription: "Translate signs offline on iPhone with camera tools, OCR, and language packs for travel days without steady data.",
@@ -436,6 +536,110 @@ const topics = [
     viDescription: "Dịch biển báo offline trên iPhone bằng camera, OCR và gói ngôn ngữ cho những ngày di chuyển không có mạng ổn định.",
     viFocus: "dịch biển báo offline trên iPhone",
     viScenario: "tìm lối ra, sân ga, cảnh báo và thông tin công cộng thật nhanh"
+  }),
+  topic({
+    slug: "translate-without-internet",
+    enTitle: "How to Translate Without Internet",
+    enDescription: "Prepare offline language packs, camera translation, voice input, and short phrases so translation still works when data disappears.",
+    enFocus: "translate without internet",
+    enScenario: "losing signal abroad, entering subway stations, landing without a local SIM, or traveling through remote areas",
+    enTags: ["translate without internet", "translator without internet", "offline translator", "offline translation app", "travel translator app", "Nomad Translator"],
+    viTitle: "Cách dịch không cần internet khi đi du lịch",
+    viDescription: "Chuẩn bị gói ngôn ngữ offline, dịch camera, nhập giọng nói và câu ngắn để vẫn dịch được khi mất mạng.",
+    viFocus: "dịch không cần internet",
+    viScenario: "mất sóng ở nước ngoài, xuống tàu điện ngầm, vừa hạ cánh chưa có SIM địa phương hoặc đi vùng xa",
+    viTags: ["dịchkhôngcầninternet", "translatorwithoutinternet", "appdịchoffline", "offlinetranslationapp", "traveltranslatorapp", "NomadTranslator"]
+  }),
+  topic({
+    slug: "offline-translator-for-travel",
+    enTitle: "Offline Translator for Travel",
+    enDescription: "What makes an offline translator useful for real trips: downloaded languages, fast camera input, short voice phrases, and privacy.",
+    enFocus: "offline translator for travel",
+    enScenario: "building a travel toolkit before flights, border crossings, hotel check-in, restaurants, taxis, and remote day trips",
+    enTags: ["offline translator for travel", "travel translator app", "offline translator", "translator without internet", "camera translator", "Nomad Translator"],
+    viTitle: "App dịch offline cho chuyến đi",
+    viDescription: "Những gì làm app dịch offline hữu ích khi đi thật: gói ngôn ngữ, camera nhanh, câu giọng nói ngắn và riêng tư.",
+    viFocus: "app dịch offline cho chuyến đi",
+    viScenario: "chuẩn bị bộ công cụ trước chuyến bay, qua cửa khẩu, check-in khách sạn, đi nhà hàng, taxi và tour vùng xa",
+    viTags: ["offlinetranslatorfortravel", "traveltranslatorapp", "appdịchoffline", "translatorwithoutinternet", "dịchcamera", "NomadTranslator"]
+  }),
+  topic({
+    slug: "offline-ocr-translator",
+    enTitle: "Offline OCR Translator for Travel Photos",
+    enDescription: "Use offline OCR translation to extract text from menus, signs, labels, receipts, screenshots, and travel documents on your phone.",
+    enFocus: "offline OCR translator",
+    enScenario: "extracting text from photos of menus, signs, labels, receipts, screenshots, printed notices, and travel documents",
+    enTags: ["offline OCR translator", "OCR translator", "translate photos offline", "camera translator", "image translator", "Nomad Translator"],
+    viTitle: "Dịch OCR offline cho ảnh du lịch",
+    viDescription: "Dùng OCR offline để trích chữ từ menu, biển báo, nhãn, hóa đơn, screenshot và giấy tờ du lịch trên điện thoại.",
+    viFocus: "dịch OCR offline",
+    viScenario: "trích chữ từ ảnh menu, biển báo, nhãn mác, hóa đơn, screenshot, thông báo in sẵn và giấy tờ du lịch",
+    viTags: ["offlineOCRtranslator", "OCRtranslator", "dịchảnhoffline", "dịchcamera", "imagetranslator", "NomadTranslator"]
+  }),
+  topic({
+    slug: "translate-at-airport-without-internet",
+    enTitle: "Translate at the Airport Without Internet",
+    enDescription: "How offline translation helps with airport signs, baggage notices, immigration forms, gate changes, and quick staff questions.",
+    enFocus: "translate at airport without internet",
+    enScenario: "landing without data, reading airport signs, baggage notices, immigration forms, gate changes, and quick staff questions",
+    enTags: ["translate at airport without internet", "airport translator", "offline translator", "travel translator app", "airplane mode translator", "Nomad Translator"],
+    viTitle: "Dịch ở sân bay khi không có internet",
+    viDescription: "Cách dịch offline hỗ trợ đọc biển sân bay, thông báo hành lý, form nhập cảnh, đổi cổng và hỏi nhân viên thật nhanh.",
+    viFocus: "dịch ở sân bay không cần internet",
+    viScenario: "vừa hạ cánh chưa có data, đọc biển sân bay, thông báo hành lý, form nhập cảnh, đổi cổng và hỏi nhân viên",
+    viTags: ["translateatairportwithoutinternet", "airporttranslator", "appdịchoffline", "traveltranslatorapp", "airplanemodetranslator", "NomadTranslator"]
+  }),
+  topic({
+    slug: "travel-without-roaming-data",
+    enTitle: "Travel Without Roaming Data",
+    enDescription: "Plan translation, maps, tickets, and key phrases before a trip so you can move around without depending on roaming data.",
+    enFocus: "travel without roaming data",
+    enScenario: "avoiding roaming fees, landing with no local SIM, crossing borders, or saving battery and data during long travel days",
+    enTags: ["travel without roaming data", "offline translator", "translator without internet", "offline travel apps", "travel translator app", "Nomad Translator"],
+    viTitle: "Đi du lịch không cần roaming data",
+    viDescription: "Chuẩn bị dịch thuật, bản đồ, vé và câu quan trọng trước chuyến đi để không phụ thuộc roaming data.",
+    viFocus: "du lịch không cần roaming data",
+    viScenario: "tránh phí roaming, vừa hạ cánh chưa có SIM địa phương, qua biên giới hoặc tiết kiệm pin và data",
+    viTags: ["travelwithoutroamingdata", "appdịchoffline", "translatorwithoutinternet", "offlinetravelapps", "traveltranslatorapp", "NomadTranslator"]
+  }),
+  topic({
+    slug: "airplane-mode-translator",
+    enTitle: "Airplane Mode Translator",
+    enDescription: "What a translator app can still do in airplane mode after language packs are downloaded, from text to camera translation.",
+    enFocus: "airplane mode translator",
+    enScenario: "using translation during flights, on arrival, in transit, or anywhere you keep cellular data turned off",
+    enTags: ["airplane mode translator", "translation while flying", "offline translator", "translator without internet", "language packs", "Nomad Translator"],
+    viTitle: "App dịch khi bật airplane mode",
+    viDescription: "App dịch còn làm được gì khi bật airplane mode sau khi tải gói ngôn ngữ, từ dịch text đến dịch camera.",
+    viFocus: "app dịch airplane mode",
+    viScenario: "dịch khi đang bay, vừa hạ cánh, transit hoặc bất cứ lúc nào bạn tắt dữ liệu di động",
+    viTags: ["airplanemodetranslator", "translationwhileflying", "appdịchoffline", "translatorwithoutinternet", "languagepacks", "NomadTranslator"]
+  }),
+  topic({
+    slug: "translation-while-flying",
+    enTitle: "Translation While Flying",
+    enDescription: "Use offline translation during flights for arrival cards, saved screenshots, food menus, announcements, and phrases you want ready after landing.",
+    enFocus: "translation while flying",
+    enScenario: "reading arrival cards, saved screenshots, in-flight menus, airline notices, and phrases before landing",
+    enTags: ["translation while flying", "airplane mode translator", "offline translator", "travel translator app", "translate without internet", "Nomad Translator"],
+    viTitle: "Dịch khi đang bay",
+    viDescription: "Dùng dịch offline trên chuyến bay cho phiếu nhập cảnh, screenshot đã lưu, menu, thông báo và câu cần dùng sau khi hạ cánh.",
+    viFocus: "dịch khi đang bay",
+    viScenario: "đọc phiếu nhập cảnh, screenshot đã lưu, menu trên máy bay, thông báo hãng bay và câu cần chuẩn bị trước khi hạ cánh",
+    viTags: ["translationwhileflying", "airplanemodetranslator", "appdịchoffline", "traveltranslatorapp", "translatewithoutinternet", "NomadTranslator"]
+  }),
+  topic({
+    slug: "emergency-travel-translation",
+    enTitle: "Emergency Travel Translation Without Signal",
+    enDescription: "Prepare short offline phrases for pharmacies, clinics, lost items, transport issues, hotel problems, and urgent travel help.",
+    enFocus: "emergency travel translation",
+    enScenario: "asking for a pharmacy, clinic, police help, lost items, transport changes, hotel issues, or urgent directions without signal",
+    enTags: ["emergency travel translation", "offline translator", "travel emergency phrases", "translator without internet", "voice translator", "Nomad Translator"],
+    viTitle: "Dịch tình huống khẩn cấp khi đi du lịch",
+    viDescription: "Chuẩn bị câu offline ngắn cho nhà thuốc, phòng khám, mất đồ, sự cố di chuyển, khách sạn và trợ giúp khẩn cấp.",
+    viFocus: "dịch khẩn cấp khi du lịch",
+    viScenario: "hỏi nhà thuốc, phòng khám, cảnh sát, đồ thất lạc, đổi phương tiện, sự cố khách sạn hoặc hỏi đường gấp khi không có sóng",
+    viTags: ["emergencytraveltranslation", "appdịchoffline", "travelemergencyphrases", "translatorwithoutinternet", "dịchgiọngnói", "NomadTranslator"]
   }),
   topic({
     slug: "best-japanese-translator-app-for-travel",
@@ -523,6 +727,71 @@ const topics = [
     viFocus: "app dịch tốt khi du lịch Trung Quốc",
     viScenario: "đọc menu tiếng Trung, biển giao thông, form khách sạn, nhãn sản phẩm và câu hỏi ngắn khi roaming không ổn định",
     viTags: ["appdịchTrungQuốc", "Chinatraveltranslator", "appdịchtiếngTrung", "appdịchoffline", "dịchcamera", "NomadTranslator"]
+  }),
+  topic({
+    slug: "read-chinese-menus",
+    enTitle: "How to Read Chinese Menus While Traveling",
+    enDescription: "A simple guide to reading Chinese menus with camera translation, dish categories, ingredients, prices, and offline preparation.",
+    enFocus: "read Chinese menus",
+    enScenario: "choosing dishes from Chinese menus, spotting meat or seafood words, checking prices, and avoiding ingredients you cannot eat",
+    enTags: ["read Chinese menus", "Chinese menu translator", "Chinese food translation", "translate Chinese menu", "offline camera translator", "Nomad Translator"],
+    viTitle: "Cách đọc menu tiếng Trung khi đi du lịch",
+    viDescription: "Hướng dẫn đọc menu tiếng Trung bằng dịch camera, nhóm món, nguyên liệu, giá và chuẩn bị offline trước khi ăn.",
+    viFocus: "đọc menu tiếng Trung",
+    viScenario: "chọn món từ menu tiếng Trung, nhận ra từ về thịt hoặc hải sản, xem giá và tránh nguyên liệu không ăn được",
+    viTags: ["readChinesemenus", "Chinesemenutranslator", "Chinesefoodtranslation", "translateChinesemenu", "dịchcameraoffline", "NomadTranslator"]
+  }),
+  topic({
+    slug: "read-chinese-signs",
+    enTitle: "How to Read Chinese Signs Offline",
+    enDescription: "Use camera translation to understand Chinese transit signs, warnings, shop notices, hotel instructions, and printed information.",
+    enFocus: "read Chinese signs",
+    enScenario: "reading Chinese metro signs, warning notices, shop labels, hotel instructions, ticket machines, and public information",
+    enTags: ["read Chinese signs", "Chinese sign translator", "translate Chinese signs", "offline camera translator", "travel translator app", "Nomad Translator"],
+    viTitle: "Cách đọc biển báo tiếng Trung offline",
+    viDescription: "Dùng dịch camera để hiểu biển tàu xe, cảnh báo, thông báo cửa hàng, hướng dẫn khách sạn và thông tin in sẵn bằng tiếng Trung.",
+    viFocus: "đọc biển báo tiếng Trung",
+    viScenario: "đọc biển metro tiếng Trung, cảnh báo, nhãn cửa hàng, hướng dẫn khách sạn, máy bán vé và thông tin công cộng",
+    viTags: ["readChinesesigns", "Chinesesigntranslator", "translateChinesesigns", "dịchcameraoffline", "traveltranslatorapp", "NomadTranslator"]
+  }),
+  topic({
+    slug: "translate-chinese-images",
+    enTitle: "Translate Chinese Images on iPhone",
+    enDescription: "Translate Chinese text from photos of menus, signs, labels, receipts, screenshots, and travel documents with an offline-first workflow.",
+    enFocus: "translate Chinese images",
+    enScenario: "understanding Chinese photos of menus, signs, receipts, product labels, hotel notes, ticket machines, and travel documents",
+    enTags: ["translate Chinese images", "Chinese image translator", "translate Chinese photo", "offline OCR translator", "camera translator", "Nomad Translator"],
+    viTitle: "Dịch ảnh tiếng Trung trên iPhone",
+    viDescription: "Dịch chữ tiếng Trung từ ảnh menu, biển báo, nhãn, hóa đơn, screenshot và giấy tờ du lịch bằng workflow ưu tiên offline.",
+    viFocus: "dịch ảnh tiếng Trung",
+    viScenario: "hiểu ảnh tiếng Trung của menu, biển báo, hóa đơn, nhãn sản phẩm, ghi chú khách sạn, máy bán vé và giấy tờ du lịch",
+    viTags: ["translateChineseimages", "Chineseimagetranslator", "translateChinesephoto", "offlineOCRtranslator", "dịchcamera", "NomadTranslator"]
+  }),
+  topic({
+    slug: "translate-chinese-screenshot",
+    enTitle: "Translate a Chinese Screenshot Offline",
+    enDescription: "How to translate Chinese screenshots from apps, booking pages, maps, delivery screens, ticket machines, and saved travel notes.",
+    enFocus: "translate Chinese screenshot",
+    enScenario: "reading saved Chinese screenshots from booking apps, maps, delivery pages, ticket machines, chat messages, and travel notes",
+    enTags: ["translate Chinese screenshot", "Chinese screenshot translator", "translate screenshots offline", "offline OCR translator", "iPhone translator", "Nomad Translator"],
+    viTitle: "Dịch screenshot tiếng Trung offline",
+    viDescription: "Cách dịch screenshot tiếng Trung từ app đặt chỗ, bản đồ, giao đồ ăn, máy bán vé và ghi chú du lịch đã lưu.",
+    viFocus: "dịch screenshot tiếng Trung",
+    viScenario: "đọc screenshot tiếng Trung từ app đặt chỗ, bản đồ, trang giao đồ ăn, máy bán vé, tin nhắn và ghi chú du lịch",
+    viTags: ["translateChinesescreenshot", "Chinesescreenshottranslator", "translatescreenshotsoffline", "offlineOCRtranslator", "iPhonetranslator", "NomadTranslator"]
+  }),
+  topic({
+    slug: "chinese-food-translation-guide",
+    enTitle: "Chinese Food Translation Guide for Travelers",
+    enDescription: "A practical guide to translating Chinese dish names, cooking styles, spice levels, meat words, allergens, and restaurant notes.",
+    enFocus: "Chinese food translation guide",
+    enScenario: "understanding Chinese dish names, cooking methods, spice levels, meat words, allergens, regional foods, and restaurant notes",
+    enTags: ["Chinese food translation guide", "Chinese menu translator", "read Chinese menus", "Chinese dish names", "food translator app", "Nomad Translator"],
+    viTitle: "Hướng dẫn dịch món ăn tiếng Trung",
+    viDescription: "Hướng dẫn thực tế để dịch tên món Trung, cách chế biến, mức cay, từ về thịt, dị ứng và ghi chú nhà hàng.",
+    viFocus: "hướng dẫn dịch món ăn tiếng Trung",
+    viScenario: "hiểu tên món Trung, cách nấu, mức cay, từ về thịt, dị ứng, món vùng miền và ghi chú nhà hàng",
+    viTags: ["Chinesefoodtranslationguide", "Chinesemenutranslator", "readChinesemenus", "Chinesedishnames", "foodtranslatorapp", "NomadTranslator"]
   }),
   topic({
     slug: "best-translator-app-for-taiwan-travel",
