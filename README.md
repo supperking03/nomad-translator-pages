@@ -7,8 +7,14 @@ Static SEO and support site for Nomad Translator.
 - `/` language chooser with auto-redirect
 - `/en/` English landing page
 - `/vi/` Vietnamese landing page
-- `/en/articles/` English SEO hub
-- `/vi/articles/` Vietnamese SEO hub
+- `/de/` German landing page
+- `/fr/` French landing page
+- `/es/` Spanish landing page
+- `/en/articles/` English guide hub
+- `/vi/articles/` Vietnamese guide hub
+- `/de/articles/` German guide hub
+- `/fr/articles/` French guide hub
+- `/es/articles/` Spanish guide hub
 - `/about.html` app overview
 - `/support.html` support page
 - `/privacy-policy.html` privacy page

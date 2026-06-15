@@ -1,7 +1,10 @@
 # Nomad Translator
 
-- Home: https://nomad-translator.com/en/
+- English home: https://nomad-translator.com/en/
 - Vietnamese home: https://nomad-translator.com/vi/
+- German home: https://nomad-translator.com/de/
+- French home: https://nomad-translator.com/fr/
+- Spanish home: https://nomad-translator.com/es/
 - App Store: https://apps.apple.com/app/id6766855589
 - Support: https://nomad-translator.com/support.html
 - Privacy policy: https://nomad-translator.com/privacy-policy.html

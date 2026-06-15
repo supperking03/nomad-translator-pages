@@ -177,6 +177,230 @@ const appKeywordsVi = [
   "translate Chinese images"
 ];
 
+const localeOrder = ["en", "vi", "de", "fr", "es"];
+const locales = {
+  en: {
+    label: "English",
+    flag: "🇺🇸",
+    hreflang: "en",
+    ogLocale: "en_US",
+    appDescription: appDescriptionEn,
+    keywords: appKeywordsEn,
+    homeTitle: `${appName} | Offline Travel Translator for iPhone`,
+    homeHiddenTitle: "Translate menus, signs, messages, and conversations without the internet.",
+    homeHiddenDescription: "Nomad Translator helps travelers translate on iPhone with text, voice, and camera input after downloading a language pack once.",
+    downloadApp: "Download app",
+    downloadStore: "Download on the App Store",
+    home: "Home",
+    articles: "Articles",
+    allArticles: "All articles",
+    about: "About",
+    support: "Support",
+    guides: "Guides",
+    travelGuide: "Travel guide",
+    blogTitle: "Nomad Translator Blog | Offline Translation Guides",
+    blogHeading: "Offline translation guides for travel",
+    blogDescription: "Practical guides for offline translation, camera translation, voice input, language packs, privacy, and choosing a translator app for travel.",
+    popularTopics: "Popular topics",
+    topicTags: "Topic tags",
+    problemHeading: "When does this problem show up?",
+    workflowHeading: "How to use Nomad Translator for this workflow",
+    tipsHeading: "What to prioritize",
+    fitHeading: "Why Nomad Translator fits this use case",
+    faqHeading: "Frequently asked questions",
+    ctaHeading: "Download Nomad Translator",
+    ctaText: "Get an offline translator ready before your next trip so you are not depending on signal strength or roaming charges.",
+    relatedHeading: "Related articles",
+    comparisonHeading: "How it compares",
+    articleSection: "Articles",
+    breadcrumbHome: "Home",
+    breadcrumbArticles: "Articles",
+    homeLinksLabel: "Nomad Translator pages",
+    homeGuidesTitle: "Blog & guides",
+    homeGuidesText: "Practical notes on offline translation, camera tools, and travel use cases",
+    homeAboutTitle: "About Nomad Translator",
+    homeAboutText: "Core features, workflow, and who it helps",
+    homePrivacyTitle: "Privacy",
+    homePrivacyText: "On-device processing, camera, microphone, and photo permissions"
+  },
+  vi: {
+    label: "Tiếng Việt",
+    flag: "🇻🇳",
+    hreflang: "vi-VN",
+    ogLocale: "vi_VN",
+    appDescription: appDescriptionVi,
+    keywords: appKeywordsVi,
+    homeTitle: `${appName} | App dịch offline cho du lịch`,
+    homeHiddenTitle: "Dịch menu, biển báo, tin nhắn và hội thoại mà không cần mạng.",
+    homeHiddenDescription: "Nomad Translator dành cho khách du lịch muốn dịch ngay trên iPhone bằng văn bản, giọng nói hoặc camera, sau khi tải gói ngôn ngữ một lần.",
+    downloadApp: "Tải app",
+    downloadStore: "Tải trên App Store",
+    home: "Trang chủ",
+    articles: "Bài viết",
+    allArticles: "Tất cả bài viết",
+    about: "Giới thiệu",
+    support: "Hỗ trợ",
+    guides: "Hướng dẫn",
+    travelGuide: "Hướng dẫn du lịch",
+    blogTitle: "Blog Nomad Translator | Dịch offline khi du lịch",
+    blogHeading: "Hướng dẫn dịch offline khi đi du lịch",
+    blogDescription: "Hướng dẫn thực tế về dịch offline, dịch camera, giọng nói, gói ngôn ngữ, quyền riêng tư và cách chọn app dịch phù hợp khi đi du lịch.",
+    popularTopics: "Chủ đề phổ biến",
+    topicTags: "Chủ đề",
+    problemHeading: "Khi nào bài toán này xuất hiện?",
+    workflowHeading: "Cách dùng Nomad Translator cho workflow này",
+    tipsHeading: "Điểm nên ưu tiên",
+    fitHeading: "Tại sao Nomad Translator hợp với nhu cầu này",
+    faqHeading: "Câu hỏi thường gặp",
+    ctaHeading: "Tải Nomad Translator",
+    ctaText: "Chuẩn bị sẵn bộ dịch offline trước chuyến đi tiếp theo để bạn không phải phụ thuộc vào sóng hay roaming.",
+    relatedHeading: "Bài liên quan",
+    comparisonHeading: "So sánh nhanh",
+    articleSection: "Bài viết",
+    breadcrumbHome: "Trang chủ",
+    breadcrumbArticles: "Bài viết",
+    homeLinksLabel: "Các trang Nomad Translator",
+    homeGuidesTitle: "Blog & hướng dẫn",
+    homeGuidesText: "Mẹo thực tế về dịch offline, camera và du lịch",
+    homeAboutTitle: "Về Nomad Translator",
+    homeAboutText: "Tính năng chính, workflow và trường hợp sử dụng",
+    homePrivacyTitle: "Quyền riêng tư",
+    homePrivacyText: "Xử lý trên thiết bị, camera, micro và ảnh"
+  },
+  de: {
+    label: "Deutsch",
+    flag: "🇩🇪",
+    hreflang: "de",
+    ogLocale: "de_DE",
+    appDescription: "Nomad Translator ist eine Offline-Reiseübersetzer-App für iPhone mit Text-, Sprach- und Kameraübersetzung auf dem Gerät sowie herunterladbaren Sprachpaketen.",
+    keywords: [...appKeywordsEn, "Offline Übersetzer", "Übersetzer App ohne Internet", "Reise Übersetzer App", "Kamera Übersetzer", "Menü Übersetzer", "Fotos offline übersetzen"],
+    homeTitle: `${appName} | Offline Reiseübersetzer für iPhone`,
+    homeHiddenTitle: "Menüs, Schilder, Nachrichten und Gespräche ohne Internet übersetzen.",
+    homeHiddenDescription: "Nomad Translator hilft Reisenden auf dem iPhone mit Text-, Sprach- und Kameraübersetzung, nachdem ein Sprachpaket einmal geladen wurde.",
+    downloadApp: "App laden",
+    downloadStore: "Im App Store laden",
+    home: "Start",
+    articles: "Artikel",
+    allArticles: "Alle Artikel",
+    about: "Über uns",
+    support: "Support",
+    guides: "Ratgeber",
+    travelGuide: "Reiseratgeber",
+    blogTitle: "Nomad Translator Blog | Offline-Übersetzung auf Reisen",
+    blogHeading: "Ratgeber für Offline-Übersetzung auf Reisen",
+    blogDescription: "Praktische Ratgeber zu Offline-Übersetzung, Kameraübersetzung, Spracheingabe, Sprachpaketen, Datenschutz und der passenden Übersetzer-App für Reisen.",
+    popularTopics: "Beliebte Themen",
+    topicTags: "Themen",
+    problemHeading: "Wann taucht dieses Problem auf?",
+    workflowHeading: "So nutzt du Nomad Translator für diesen Ablauf",
+    tipsHeading: "Worauf du achten solltest",
+    fitHeading: "Warum Nomad Translator zu diesem Anwendungsfall passt",
+    faqHeading: "Häufige Fragen",
+    ctaHeading: "Nomad Translator laden",
+    ctaText: "Bereite einen Offline-Übersetzer vor der nächsten Reise vor, damit du nicht von Empfang oder Roaming abhängig bist.",
+    relatedHeading: "Ähnliche Artikel",
+    comparisonHeading: "Kurzer Vergleich",
+    articleSection: "Artikel",
+    breadcrumbHome: "Start",
+    breadcrumbArticles: "Artikel",
+    homeLinksLabel: "Nomad Translator Seiten",
+    homeGuidesTitle: "Blog & Ratgeber",
+    homeGuidesText: "Praktische Hinweise zu Offline-Übersetzung, Kamera-Tools und Reise-Situationen",
+    homeAboutTitle: "Über Nomad Translator",
+    homeAboutText: "Kernfunktionen, Ablauf und für wen die App gedacht ist",
+    homePrivacyTitle: "Datenschutz",
+    homePrivacyText: "Verarbeitung auf dem Gerät, Kamera-, Mikrofon- und Foto-Berechtigungen"
+  },
+  fr: {
+    label: "Français",
+    flag: "🇫🇷",
+    hreflang: "fr",
+    ogLocale: "fr_FR",
+    appDescription: "Nomad Translator est une application de traduction de voyage hors ligne pour iPhone avec traduction de texte, voix et appareil photo sur l'appareil, plus des packs de langues téléchargeables.",
+    keywords: [...appKeywordsEn, "traducteur hors ligne", "application de traduction sans internet", "traducteur de voyage", "traduction avec appareil photo", "traduire un menu", "traduire des photos hors ligne"],
+    homeTitle: `${appName} | Traducteur de voyage hors ligne pour iPhone`,
+    homeHiddenTitle: "Traduire menus, panneaux, messages et conversations sans internet.",
+    homeHiddenDescription: "Nomad Translator aide les voyageurs à traduire sur iPhone par texte, voix et appareil photo après avoir téléchargé un pack de langue.",
+    downloadApp: "Télécharger l'app",
+    downloadStore: "Télécharger sur l'App Store",
+    home: "Accueil",
+    articles: "Articles",
+    allArticles: "Tous les articles",
+    about: "À propos",
+    support: "Support",
+    guides: "Guides",
+    travelGuide: "Guide de voyage",
+    blogTitle: "Blog Nomad Translator | Traduction hors ligne en voyage",
+    blogHeading: "Guides de traduction hors ligne pour voyager",
+    blogDescription: "Guides pratiques sur la traduction hors ligne, la traduction par appareil photo, la voix, les packs de langues, la confidentialité et le choix d'une app de traduction pour voyager.",
+    popularTopics: "Sujets populaires",
+    topicTags: "Sujets",
+    problemHeading: "Quand ce besoin apparaît-il ?",
+    workflowHeading: "Comment utiliser Nomad Translator pour ce cas",
+    tipsHeading: "À prioriser",
+    fitHeading: "Pourquoi Nomad Translator convient à ce besoin",
+    faqHeading: "Questions fréquentes",
+    ctaHeading: "Télécharger Nomad Translator",
+    ctaText: "Préparez un traducteur hors ligne avant votre prochain voyage pour ne pas dépendre du réseau ou du roaming.",
+    relatedHeading: "Articles liés",
+    comparisonHeading: "Comparaison rapide",
+    articleSection: "Articles",
+    breadcrumbHome: "Accueil",
+    breadcrumbArticles: "Articles",
+    homeLinksLabel: "Pages Nomad Translator",
+    homeGuidesTitle: "Blog & guides",
+    homeGuidesText: "Conseils pratiques sur la traduction hors ligne, l'appareil photo et les cas de voyage",
+    homeAboutTitle: "À propos de Nomad Translator",
+    homeAboutText: "Fonctions principales, workflow et profils concernés",
+    homePrivacyTitle: "Confidentialité",
+    homePrivacyText: "Traitement sur l'appareil, permissions caméra, micro et photos"
+  },
+  es: {
+    label: "Español",
+    flag: "🇪🇸",
+    hreflang: "es",
+    ogLocale: "es_ES",
+    appDescription: "Nomad Translator es una app de traducción de viaje sin conexión para iPhone con traducción de texto, voz y cámara en el dispositivo, además de paquetes de idiomas descargables.",
+    keywords: [...appKeywordsEn, "traductor sin conexión", "app traductor sin internet", "traductor para viajar", "traductor con cámara", "traducir menú", "traducir fotos sin conexión"],
+    homeTitle: `${appName} | Traductor de viaje sin conexión para iPhone`,
+    homeHiddenTitle: "Traduce menús, señales, mensajes y conversaciones sin internet.",
+    homeHiddenDescription: "Nomad Translator ayuda a viajeros a traducir en iPhone con texto, voz y cámara después de descargar un paquete de idioma.",
+    downloadApp: "Descargar app",
+    downloadStore: "Descargar en App Store",
+    home: "Inicio",
+    articles: "Artículos",
+    allArticles: "Todos los artículos",
+    about: "Acerca de",
+    support: "Soporte",
+    guides: "Guías",
+    travelGuide: "Guía de viaje",
+    blogTitle: "Blog de Nomad Translator | Traducción sin conexión para viajar",
+    blogHeading: "Guías de traducción sin conexión para viajar",
+    blogDescription: "Guías prácticas sobre traducción sin conexión, traducción con cámara, voz, paquetes de idiomas, privacidad y cómo elegir una app de traducción para viajar.",
+    popularTopics: "Temas populares",
+    topicTags: "Temas",
+    problemHeading: "¿Cuándo aparece esta necesidad?",
+    workflowHeading: "Cómo usar Nomad Translator para este flujo",
+    tipsHeading: "Qué priorizar",
+    fitHeading: "Por qué Nomad Translator encaja con este caso",
+    faqHeading: "Preguntas frecuentes",
+    ctaHeading: "Descargar Nomad Translator",
+    ctaText: "Prepara un traductor sin conexión antes de tu próximo viaje para no depender de la señal ni del roaming.",
+    relatedHeading: "Artículos relacionados",
+    comparisonHeading: "Comparación rápida",
+    articleSection: "Artículos",
+    breadcrumbHome: "Inicio",
+    breadcrumbArticles: "Artículos",
+    homeLinksLabel: "Páginas de Nomad Translator",
+    homeGuidesTitle: "Blog y guías",
+    homeGuidesText: "Consejos prácticos sobre traducción sin conexión, cámara y situaciones de viaje",
+    homeAboutTitle: "Acerca de Nomad Translator",
+    homeAboutText: "Funciones principales, flujo y a quién ayuda",
+    homePrivacyTitle: "Privacidad",
+    homePrivacyText: "Procesamiento en el dispositivo, permisos de cámara, micrófono y fotos"
+  }
+};
+
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
 }
@@ -194,11 +418,30 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-function languageFlagLink(currentLang, href) {
-  const isVi = currentLang === "vi";
-  const currentLabel = isVi ? "Tiếng Việt" : "English";
-  const targetLabel = isVi ? "English" : "Tiếng Việt";
-  return `<a class="flag-lang" href="${href}" aria-label="${currentLabel}. Switch to ${targetLabel}"><span aria-hidden="true">${isVi ? "🇻🇳" : "🇺🇸"}</span><span class="visually-hidden">${currentLabel}</span></a>`;
+function alternateLinksFor(pathForLang) {
+  return [
+    ...localeOrder.map((lang) => ({ hreflang: locales[lang].hreflang, href: `${siteUrl}${pathForLang(lang)}` })),
+    { hreflang: "x-default", href: `${siteUrl}${pathForLang("en")}` }
+  ];
+}
+
+function languageSelector(currentLang, hrefForLang) {
+  const current = locales[currentLang];
+  const options = localeOrder
+    .map((lang) => {
+      const l = locales[lang];
+      const currentClass = lang === currentLang ? " is-current" : "";
+      return `<a class="language-option${currentClass}" href="${hrefForLang(lang)}" hreflang="${l.hreflang}" aria-label="${l.label}"><span aria-hidden="true">${l.flag}</span><span>${l.label}</span></a>`;
+    })
+    .join("\n");
+  return `<details class="language-switcher">
+    <summary aria-label="${current.label}"><span aria-hidden="true">${current.flag}</span><span class="visually-hidden">${current.label}</span></summary>
+    <div class="language-menu">${options}</div>
+  </details>`;
+}
+
+function languageFlagLink(currentLang) {
+  return languageSelector(currentLang, (lang) => `${lang}/`);
 }
 
 function page({
@@ -222,8 +465,7 @@ function page({
   const selectedOgImage = ogImage || (ogType === "article" ? articleImage : heroImage);
   const defaultOgImage = `${siteUrl}${selectedOgImage.src}`;
   const hreflangLinks = alternateLinks || [
-    { hreflang: "en", href: `${siteUrl}/en/` },
-    { hreflang: "vi-VN", href: `${siteUrl}/vi/` },
+    ...localeOrder.map((item) => ({ hreflang: locales[item].hreflang, href: `${siteUrl}/${item}/` })),
     { hreflang: "x-default", href: `${siteUrl}/en/` }
   ];
   const alternateTags = hreflangLinks
@@ -297,9 +539,7 @@ ${faviconTags}
 <meta name="twitter:title" content="${appName} | Offline Travel Translator" />
 <meta name="twitter:description" content="${appDescriptionEn}" />
 <meta name="twitter:image" content="${siteUrl}${heroImage.src}" />
-<link rel="alternate" hreflang="en" href="${siteUrl}/en/" />
-<link rel="alternate" hreflang="vi-VN" href="${siteUrl}/vi/" />
-<link rel="alternate" hreflang="x-default" href="${siteUrl}/en/" />
+${alternateLinksFor((lang) => `/${lang}/`).map((link) => `<link rel="alternate" hreflang="${link.hreflang}" href="${link.href}" />`).join("\n")}
 ${analyticsResourceHints}
 ${ga4Head}
 <script type="application/ld+json">${JSON.stringify({
@@ -308,7 +548,7 @@ ${ga4Head}
     name: appName,
     url: siteUrl,
     description: appDescriptionEn,
-    inLanguage: ["en", "vi-VN"]
+    inLanguage: localeOrder.map((lang) => locales[lang].hreflang)
   })}</script>
 <link rel="stylesheet" href="assets/seo.css" />
 <script>
@@ -318,8 +558,13 @@ ${ga4Head}
     var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
     var tz = "";
     try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
-    var isVietnam = tz === "Asia/Ho_Chi_Minh" || tz === "Asia/Saigon" || langs.some(function (lang) { return /^vi\\b/i.test(lang); });
-    window.location.replace(isVietnam ? "${siteBasePath}/vi/" : "${siteBasePath}/en/");
+    var first = (langs[0] || "").toLowerCase();
+    var target = "en";
+    if (tz === "Asia/Ho_Chi_Minh" || tz === "Asia/Saigon" || langs.some(function (lang) { return /^vi\\b/i.test(lang); })) target = "vi";
+    else if (/^de\\b/.test(first)) target = "de";
+    else if (/^fr\\b/.test(first)) target = "fr";
+    else if (/^es\\b/.test(first)) target = "es";
+    window.location.replace("${siteBasePath}/" + target + "/");
   })();
 </script>
 </head>
@@ -328,10 +573,9 @@ ${ga4Head}
     <article>
       <div class="eyebrow">${appName}</div>
       <h1>Choose your language</h1>
-      <p class="intro">Nomad Translator is available in English and Vietnamese. Visitors in Vietnam or Vietnamese browsers are redirected to Vietnamese automatically when JavaScript is enabled.</p>
+      <p class="intro">Nomad Translator is available in English, Vietnamese, German, French, and Spanish. When JavaScript is enabled, visitors are sent to the closest language automatically.</p>
       <div class="language-grid">
-        <a class="language-card" href="vi/" aria-label="Tiếng Việt"><span aria-hidden="true">🇻🇳</span><span class="visually-hidden">Tiếng Việt</span></a>
-        <a class="language-card" href="en/" aria-label="English"><span aria-hidden="true">🇺🇸</span><span class="visually-hidden">English</span></a>
+        ${localeOrder.map((lang) => `<a class="language-card" href="${lang}/" aria-label="${locales[lang].label}"><span aria-hidden="true">${locales[lang].flag}</span><span class="visually-hidden">${locales[lang].label}</span></a>`).join("\n")}
       </div>
     </article>
     <footer>© 2026 ${developerName}</footer>
@@ -341,10 +585,10 @@ ${ga4Head}
 }
 
 function homePage(lang) {
-  const isVi = lang === "vi";
-  const title = isVi ? `${appName} | App dịch offline cho du lịch` : `${appName} | Offline Travel Translator for iPhone`;
-  const description = isVi ? appDescriptionVi : appDescriptionEn;
-  const keywords = isVi ? appKeywordsVi : appKeywordsEn;
+  const l = locales[lang];
+  const title = l.homeTitle;
+  const description = l.appDescription;
+  const keywords = l.keywords;
   const ldJson = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -363,8 +607,8 @@ function homePage(lang) {
     <nav class="nav home-nav">
       <a class="home-brand" href="./"><img src="../assets/icons/app-icon-96.png" width="96" height="96" alt="${appName} icon" /><span>${appName}</span></a>
       <div class="home-actions">
-        <a class="btn" href="${appUrl}">${isVi ? "Tải app" : "Download app"}</a>
-        ${languageFlagLink(lang, `../${isVi ? "en" : "vi"}/`)}
+        <a class="btn" href="${appUrl}">${l.downloadApp}</a>
+        ${languageSelector(lang, (targetLang) => `../${targetLang}/`)}
       </div>
     </nav>
 
@@ -379,12 +623,12 @@ function homePage(lang) {
     </section>
 
     <main>
-      <h1 class="visually-hidden">${isVi ? "Dịch menu, biển báo, tin nhắn và hội thoại mà không cần mạng." : "Translate menus, signs, messages, and conversations without the internet."}</h1>
-      <p class="visually-hidden">${isVi ? "Nomad Translator dành cho khách du lịch muốn dịch ngay trên iPhone bằng văn bản, giọng nói hoặc camera, sau khi tải gói ngôn ngữ một lần." : "Nomad Translator helps travelers translate on iPhone with text, voice, and camera input after downloading a language pack once."}</p>
-      <nav class="article-list home-links" aria-label="${isVi ? "Các trang Nomad Translator" : "Nomad Translator pages"}">
-        <a href="articles/">${isVi ? "Blog & hướng dẫn" : "Blog & guides"}<span>${isVi ? "Mẹo thực tế về dịch offline, camera và du lịch" : "Practical notes on offline translation, camera tools, and travel use cases"}</span></a>
-        <a href="../about.html">${isVi ? "Về Nomad Translator" : "About Nomad Translator"}<span>${isVi ? "Tính năng chính, workflow và trường hợp sử dụng" : "Core features, workflow, and who it helps"}</span></a>
-        <a href="../privacy-policy.html">${isVi ? "Quyền riêng tư" : "Privacy"}<span>${isVi ? "Xử lý trên thiết bị, camera, micro và ảnh" : "On-device processing, camera, microphone, and photo permissions"}</span></a>
+      <h1 class="visually-hidden">${l.homeHiddenTitle}</h1>
+      <p class="visually-hidden">${l.homeHiddenDescription}</p>
+      <nav class="article-list home-links" aria-label="${l.homeLinksLabel}">
+        <a href="articles/">${l.homeGuidesTitle}<span>${l.homeGuidesText}</span></a>
+        <a href="../about.html">${l.homeAboutTitle}<span>${l.homeAboutText}</span></a>
+        <a href="../privacy-policy.html">${l.homePrivacyTitle}<span>${l.homePrivacyText}</span></a>
       </nav>
     </main>
 
@@ -392,13 +636,14 @@ function homePage(lang) {
   </div>`;
 
   return page({
-    lang: isVi ? "vi" : "en",
+    lang,
     title,
     description,
     keywords,
     canonicalPath: `/${lang}/`,
     stylesheetPath: "../assets/seo.css",
-    ogLocale: isVi ? "vi_VN" : "en_US",
+    alternateLinks: alternateLinksFor((item) => `/${item}/`),
+    ogLocale: l.ogLocale,
     bodyClass: "home-page",
     ldJson,
     content
@@ -1072,9 +1317,191 @@ const topics = [
   })
 ];
 
-function topic(def) {
+const localizedTopicFocus = {
+  "best-offline-translator-app-for-iphone": {
+    de: "Beste Offline-Übersetzer-App für iPhone",
+    fr: "meilleure application de traduction hors ligne pour iPhone",
+    es: "mejor app de traducción sin conexión para iPhone"
+  },
+  "travel-translator-app-without-internet": {
+    de: "Reiseübersetzer-App ohne Internet",
+    fr: "application de traduction de voyage sans internet",
+    es: "app traductor de viaje sin internet"
+  },
+  "offline-voice-translator-for-travel": {
+    de: "Offline-Sprachübersetzer für Reisen",
+    fr: "traducteur vocal hors ligne pour voyager",
+    es: "traductor de voz sin conexión para viajar"
+  },
+  "offline-camera-translator-for-signs-and-menus": {
+    de: "Offline-Kameraübersetzer für Schilder und Speisekarten",
+    fr: "traducteur caméra hors ligne pour panneaux et menus",
+    es: "traductor con cámara sin conexión para señales y menús"
+  },
+  "best-app-to-translate-menus-while-traveling": {
+    de: "Beste App zum Übersetzen von Speisekarten auf Reisen",
+    fr: "meilleure app pour traduire les menus en voyage",
+    es: "mejor app para traducir menús al viajar"
+  },
+  "chinese-menu-translator": { de: "Chinesische Speisekarten übersetzen", fr: "traducteur de menu chinois", es: "traductor de menús chinos" },
+  "japanese-menu-translator": { de: "Japanische Speisekarten übersetzen", fr: "traducteur de menu japonais", es: "traductor de menús japoneses" },
+  "korean-menu-translator": { de: "Koreanische Speisekarten übersetzen", fr: "traducteur de menu coréen", es: "traductor de menús coreanos" },
+  "thai-menu-translator": { de: "Thailändische Speisekarten übersetzen", fr: "traducteur de menu thaï", es: "traductor de menús tailandeses" },
+  "vietnamese-menu-translator": { de: "Vietnamesische Speisekarten übersetzen", fr: "traducteur de menu vietnamien", es: "traductor de menús vietnamitas" },
+  "translate-signs-offline-on-iphone": { de: "Schilder offline auf dem iPhone übersetzen", fr: "traduire des panneaux hors ligne sur iPhone", es: "traducir señales sin conexión en iPhone" },
+  "translate-without-internet": { de: "ohne Internet übersetzen", fr: "traduire sans internet", es: "traducir sin internet" },
+  "offline-translator-for-travel": { de: "Offline-Übersetzer für Reisen", fr: "traducteur hors ligne pour voyager", es: "traductor sin conexión para viajar" },
+  "offline-ocr-translator": { de: "Offline-OCR-Übersetzer für Reisefotos", fr: "traducteur OCR hors ligne pour photos de voyage", es: "traductor OCR sin conexión para fotos de viaje" },
+  "translate-at-airport-without-internet": { de: "am Flughafen ohne Internet übersetzen", fr: "traduire à l'aéroport sans internet", es: "traducir en el aeropuerto sin internet" },
+  "travel-without-roaming-data": { de: "reisen ohne Roaming-Daten", fr: "voyager sans données en roaming", es: "viajar sin datos de roaming" },
+  "airplane-mode-translator": { de: "Übersetzer im Flugmodus", fr: "traducteur en mode avion", es: "traductor en modo avión" },
+  "translation-while-flying": { de: "Übersetzung während des Fluges", fr: "traduction pendant le vol", es: "traducción durante el vuelo" },
+  "emergency-travel-translation": { de: "Notfall-Übersetzung auf Reisen", fr: "traduction d'urgence en voyage", es: "traducción de emergencia en viajes" },
+  "best-japanese-translator-app-for-travel": { de: "Beste Japanisch-Übersetzer-App für Reisen", fr: "meilleure app de traduction japonais pour voyager", es: "mejor app de traducción japonés para viajar" },
+  "best-korean-translator-app-for-travel": { de: "Beste Koreanisch-Übersetzer-App für Reisen", fr: "meilleure app de traduction coréen pour voyager", es: "mejor app de traducción coreano para viajar" },
+  "best-translator-app-for-japan-travel": { de: "Beste Übersetzer-App für Japan-Reisen", fr: "meilleure app de traduction pour voyager au Japon", es: "mejor app traductor para viajar a Japón" },
+  "best-translator-app-for-korea-travel": { de: "Beste Übersetzer-App für Korea-Reisen", fr: "meilleure app de traduction pour voyager en Corée", es: "mejor app traductor para viajar a Corea" },
+  "best-translator-app-for-thailand-travel": { de: "Beste Übersetzer-App für Thailand-Reisen", fr: "meilleure app de traduction pour voyager en Thaïlande", es: "mejor app traductor para viajar a Tailandia" },
+  "best-translator-app-for-vietnam-travel": { de: "Beste Übersetzer-App für Vietnam-Reisen", fr: "meilleure app de traduction pour voyager au Vietnam", es: "mejor app traductor para viajar a Vietnam" },
+  "best-translator-app-for-china-travel": { de: "Beste Übersetzer-App für China-Reisen", fr: "meilleure app de traduction pour voyager en Chine", es: "mejor app traductor para viajar a China" },
+  "read-chinese-menus": { de: "chinesische Speisekarten lesen", fr: "lire les menus chinois", es: "leer menús chinos" },
+  "read-chinese-signs": { de: "chinesische Schilder offline lesen", fr: "lire les panneaux chinois hors ligne", es: "leer señales en chino sin conexión" },
+  "translate-chinese-images": { de: "chinesische Bilder auf dem iPhone übersetzen", fr: "traduire des images chinoises sur iPhone", es: "traducir imágenes en chino en iPhone" },
+  "translate-chinese-screenshot": { de: "chinesische Screenshots offline übersetzen", fr: "traduire une capture d'écran chinoise hors ligne", es: "traducir una captura en chino sin conexión" },
+  "chinese-food-translation-guide": { de: "Chinesisches Essen übersetzen: Reiseführer", fr: "guide de traduction des plats chinois", es: "guía para traducir comida china" },
+  "best-translator-app-for-taiwan-travel": { de: "Beste Übersetzer-App für Taiwan-Reisen", fr: "meilleure app de traduction pour voyager à Taïwan", es: "mejor app traductor para viajar a Taiwán" },
+  "best-translator-app-for-france-travel": { de: "Beste Übersetzer-App für Frankreich-Reisen", fr: "meilleure app de traduction pour voyager en France", es: "mejor app traductor para viajar a Francia" },
+  "best-translator-app-for-italy-travel": { de: "Beste Übersetzer-App für Italien-Reisen", fr: "meilleure app de traduction pour voyager en Italie", es: "mejor app traductor para viajar a Italia" },
+  "best-translator-app-for-spain-travel": { de: "Beste Übersetzer-App für Spanien-Reisen", fr: "meilleure app de traduction pour voyager en Espagne", es: "mejor app traductor para viajar a España" },
+  "best-translator-app-for-europe-travel": { de: "Beste Übersetzer-App für Europa-Reisen", fr: "meilleure app de traduction pour voyager en Europe", es: "mejor app traductor para viajar por Europa" },
+  "translate-photos-without-internet": { de: "Fotos ohne Internet übersetzen", fr: "traduire des photos sans internet", es: "traducir fotos sin internet" },
+  "download-language-pack-for-offline-translation": { de: "Sprachpaket für Offline-Übersetzung herunterladen", fr: "télécharger un pack de langue pour la traduction hors ligne", es: "descargar un paquete de idioma para traducción sin conexión" },
+  "google-translate-offline-alternative": { de: "Alternative zu Google Translate Offline für Reisen", fr: "alternative à Google Translate hors ligne pour voyager", es: "alternativa a Google Translate sin conexión para viajar" },
+  "microsoft-translator-offline-alternative": { de: "Alternative zu Microsoft Translator Offline", fr: "alternative à Microsoft Translator hors ligne", es: "alternativa a Microsoft Translator sin conexión" },
+  "itranslate-offline-alternative": { de: "iTranslate-Offline-Alternative für iPhone", fr: "alternative à iTranslate hors ligne pour iPhone", es: "alternativa a iTranslate sin conexión para iPhone" },
+  "libretranslate-offline-alternative": { de: "LibreTranslate-Offline-Alternative für Reisende", fr: "alternative à LibreTranslate hors ligne pour voyageurs", es: "alternativa a LibreTranslate sin conexión para viajeros" },
+  "f-droid-offline-translator-iphone-alternative": { de: "F-Droid Offline Translator Alternative für iPhone", fr: "alternative iPhone à F-Droid Offline Translator", es: "alternativa iPhone a F-Droid Offline Translator" },
+  "best-offline-translator-apps-compared": { de: "Beste Offline-Übersetzer-Apps im Vergleich", fr: "meilleures apps de traduction hors ligne comparées", es: "mejores apps de traducción sin conexión comparadas" },
+  "nomad-translator-app": { de: "Nomad Translator App", fr: "application Nomad Translator", es: "app Nomad Translator" },
+  "nomad-translator-online-vs-offline": { de: "Nomad Translator online oder offline", fr: "Nomad Translator en ligne ou hors ligne", es: "Nomad Translator online o sin conexión" },
+  "is-nomad-translator-free": { de: "Ist Nomad Translator kostenlos?", fr: "Nomad Translator est-il gratuit ?", es: "¿Nomad Translator es gratis?" },
+  "nomad-translator-apk-and-ios-options": { de: "Nomad Translator APK und iPhone-Optionen", fr: "Nomad Translator APK et options iPhone", es: "Nomad Translator APK y opciones para iPhone" }
+};
+
+const localizedTopicCopy = {
+  de: {
+    scenario: "Reisen mit schwachem Empfang, Restaurants, Flughäfen, Bahnhöfen, Schildern, Speisekarten, Fotos und kurzen Gesprächen",
+    description: (focus) => `Praktischer Ratgeber: ${focus}. So übersetzt du Menüs, Schilder, Fotos, Screenshots und kurze Gespräche auf Reisen auch ohne zuverlässiges Internet.`,
+    steps: (focus) => [
+      "Lade das passende Sprachpaket vor der Reise, solange WLAN stabil ist.",
+      `Teste ${focus} mit einem kurzen Satz oder einem Foto, bevor du es unterwegs brauchst.`,
+      "Nutze Text für genaue Eingaben, Sprache für kurze Fragen und die Kamera für gedruckte Inhalte.",
+      "Halte Sätze kurz und konkret, damit die Übersetzung im echten Gespräch leichter zu prüfen ist.",
+      "Speichere Nomad Translator als Teil deines Reise-Kits neben Karten, Tickets und Hoteldaten."
+    ],
+    tips: [
+      "Offline-Übersetzung ist besonders nützlich, wenn du schnell handeln musst und das Netz unsicher ist.",
+      "Kameraübersetzung hilft bei Speisekarten, Schildern, Etiketten, Warnungen und Ticketautomaten.",
+      "Eine gute Reiseübersetzer-App sollte schnell öffnen, gut lesbar sein und einhändig funktionieren."
+    ],
+    faq: (focus) => [
+      ["Funktioniert Nomad Translator ohne Internet?", "Ja. Nachdem ein Sprachpaket geladen wurde, kann die Übersetzung auf dem Gerät laufen, ohne Text, Stimme oder Bild an einen Server zu senden."],
+      ["Ist das besser als Roaming?", "Für viele Reisen ja. Offline-Übersetzung reduziert Probleme mit schwachem Empfang, Roaming-Kosten und langsamen Ladezeiten."],
+      ["Warum ist dieses Thema wichtig?", `${focus} ist ein häufiger Suchbegriff, wenn Reisende vor Ort schnell verstehen müssen, was vor ihnen steht.`]
+    ],
+    comparison: [
+      "Viele bekannte Übersetzer-Tools decken allgemeine Übersetzung ab und können je nach Sprache oder Plattform Offline-Funktionen bieten.",
+      "Nomad Translator konzentriert sich auf Reise-Situationen: Menüs, Schilder, kurze Gespräche, Fotos und vorbereitete Sprachpakete.",
+      "Nomad Translator ist unabhängig und nicht mit den genannten Produkten verbunden."
+    ],
+    fit: "Nomad Translator ist für praktische Übersetzung unterwegs gebaut: Sprachpaket einmal laden, Text und Sprache auf dem Gerät übersetzen, Kamera für gedruckte Inhalte nutzen und das Ergebnis schnell genug anzeigen, um im echten Moment zu reagieren.",
+    problem: (focus, scenario) => `Dieses Thema taucht oft auf, wenn Reisende ${focus} in Situationen wie ${scenario} brauchen. Dann zählt nicht nur Übersetzungsqualität, sondern auch Tempo, Lesbarkeit und Offline-Zuverlässigkeit.`
+  },
+  fr: {
+    scenario: "voyages avec réseau faible, restaurants, aéroports, gares, panneaux, menus, photos et conversations courtes",
+    description: (focus) => `Guide pratique : ${focus}. Découvrez comment traduire menus, panneaux, photos, captures d'écran et petites conversations en voyage, même sans internet fiable.`,
+    steps: (focus) => [
+      "Téléchargez le pack de langue nécessaire avant le départ, quand le Wi-Fi est encore stable.",
+      `Testez ${focus} avec une phrase courte ou une photo avant d'en avoir besoin sur place.`,
+      "Utilisez le texte pour la précision, la voix pour les questions rapides et l'appareil photo pour les contenus imprimés.",
+      "Gardez des phrases courtes et concrètes pour faciliter la vérification pendant une vraie conversation.",
+      "Gardez Nomad Translator dans votre kit de voyage, avec les cartes, billets et informations d'hôtel."
+    ],
+    tips: [
+      "La traduction hors ligne est la plus utile quand le besoin est immédiat et que le réseau n'est pas fiable.",
+      "La traduction par appareil photo aide pour les menus, panneaux, étiquettes, avertissements et bornes.",
+      "Une bonne app de traduction de voyage doit s'ouvrir vite, rester lisible et fonctionner d'une seule main."
+    ],
+    faq: (focus) => [
+      ["Nomad Translator fonctionne-t-il sans internet ?", "Oui. Après le téléchargement du pack de langue, la traduction peut fonctionner sur l'appareil sans envoyer le texte, la voix ou l'image à un serveur."],
+      ["Est-ce mieux que de dépendre du roaming ?", "Pour beaucoup de voyages, oui. La traduction hors ligne évite les problèmes de réseau faible, de coûts de roaming et de chargement lent."],
+      ["Pourquoi ce sujet est-il important ?", `${focus} correspond à un besoin fréquent quand les voyageurs doivent comprendre rapidement ce qu'ils voient sur place.`]
+    ],
+    comparison: [
+      "Plusieurs outils de traduction connus couvrent la traduction générale et peuvent proposer des fonctions hors ligne selon la langue ou la plateforme.",
+      "Nomad Translator se concentre sur les moments de voyage : menus, panneaux, conversations courtes, photos et packs de langues préparés.",
+      "Nomad Translator est indépendant et n'est pas affilié aux produits cités."
+    ],
+    fit: "Nomad Translator est conçu pour la traduction pratique en déplacement : télécharger un pack de langue, traduire texte et voix sur l'appareil, utiliser l'appareil photo pour les contenus imprimés et afficher un résultat clair pour agir vite.",
+    problem: (focus, scenario) => `Ce besoin apparaît souvent quand des voyageurs cherchent ${focus} dans des situations comme ${scenario}. Il faut alors plus qu'une bonne traduction : il faut de la vitesse, de la lisibilité et un fonctionnement hors ligne.`
+  },
+  es: {
+    scenario: "viajes con poca señal, restaurantes, aeropuertos, estaciones, señales, menús, fotos y conversaciones cortas",
+    description: (focus) => `Guía práctica: ${focus}. Aprende a traducir menús, señales, fotos, capturas y conversaciones breves al viajar, incluso sin internet fiable.`,
+    steps: (focus) => [
+      "Descarga el paquete de idioma antes del viaje, mientras todavía tienes Wi-Fi estable.",
+      `Prueba ${focus} con una frase corta o una foto antes de necesitarlo en la calle.`,
+      "Usa texto para precisión, voz para preguntas rápidas y cámara para contenido impreso.",
+      "Mantén las frases cortas y concretas para que la traducción sea fácil de confirmar en una conversación real.",
+      "Guarda Nomad Translator como parte de tu kit de viaje junto a mapas, billetes y datos del hotel."
+    ],
+    tips: [
+      "La traducción sin conexión importa más cuando la necesidad es inmediata y la señal no es fiable.",
+      "La traducción con cámara ayuda con menús, señales, etiquetas, avisos y máquinas de tickets.",
+      "Una buena app traductora para viajar debe abrir rápido, ser legible y funcionar con una mano."
+    ],
+    faq: (focus) => [
+      ["¿Nomad Translator funciona sin internet?", "Sí. Después de descargar el paquete de idioma, la traducción puede ejecutarse en el dispositivo sin enviar texto, voz o imagen a un servidor."],
+      ["¿Es mejor que depender del roaming?", "Para muchos viajes, sí. La traducción sin conexión reduce problemas de señal débil, costes de roaming y cargas lentas."],
+      ["¿Por qué importa este tema?", `${focus} es una búsqueda habitual cuando los viajeros necesitan entender rápido lo que tienen delante.`]
+    ],
+    comparison: [
+      "Muchas herramientas conocidas cubren traducción general y pueden ofrecer funciones sin conexión según el idioma o la plataforma.",
+      "Nomad Translator se centra en momentos de viaje: menús, señales, conversaciones cortas, fotos y paquetes de idiomas preparados.",
+      "Nomad Translator es independiente y no está afiliado a los productos mencionados."
+    ],
+    fit: "Nomad Translator está pensado para traducción práctica en movimiento: descargar un paquete de idioma, traducir texto y voz en el dispositivo, usar la cámara para contenido impreso y mostrar un resultado claro para reaccionar rápido.",
+    problem: (focus, scenario) => `Esta necesidad aparece cuando viajeros buscan ${focus} en situaciones como ${scenario}. En ese momento no basta con traducir bien: también importan la velocidad, la legibilidad y el uso sin conexión.`
+  }
+};
+
+function localizedTopicData(def, lang) {
+  const focus = localizedTopicFocus[def.slug]?.[lang] || def.enFocus;
+  const copy = localizedTopicCopy[lang];
+  const title = focus.replace(/^([a-zà-ÿ])/u, (match) => match.toUpperCase());
   return {
+    title,
+    description: copy.description(focus),
+    focus,
+    scenario: copy.scenario,
+    comparison: def.enComparison?.length ? copy.comparison : [],
+    tags: [
+      focus,
+      locales[lang].keywords.at(-6),
+      locales[lang].keywords.at(-5),
+      locales[lang].keywords.at(-4),
+      "Nomad Translator"
+    ].filter(Boolean),
+    steps: copy.steps(focus),
+    tips: copy.tips,
+    faq: copy.faq(focus)
+  };
+}
+
+function topic(def) {
+  const entry = {
     slug: def.slug,
+    _def: def,
     en: {
       title: def.enTitle,
       description: def.enDescription,
@@ -1140,15 +1567,24 @@ function topic(def) {
       ]
     }
   };
+  return entry;
 }
+
+topics.forEach((entry) => {
+  entry.de = localizedTopicData(entry._def, "de");
+  entry.fr = localizedTopicData(entry._def, "fr");
+  entry.es = localizedTopicData(entry._def, "es");
+  delete entry._def;
+});
 
 function articlePage(lang, topic, index) {
   const isVi = lang === "vi";
+  const l = locales[lang];
   const data = topic[lang];
   const title = data.title;
   const description = data.description;
   const pageImage = articleImageOverrides.get(topic.slug) || articleImage;
-  const keywords = [...new Set([...(isVi ? appKeywordsVi : appKeywordsEn), ...data.tags])];
+  const keywords = [...new Set([...l.keywords, ...data.tags])];
   const canonicalPath = `/${lang}/articles/${topic.slug}.html`;
   const listLinks = topics
     .filter((item) => item.slug !== topic.slug)
@@ -1159,15 +1595,15 @@ function articlePage(lang, topic, index) {
     ...data.tags.map((tag) => `<meta property="article:tag" content="${escapeHtml(tag)}" />`),
     `<meta property="article:published_time" content="${lastModified}T00:00:00+07:00" />`,
     `<meta property="article:modified_time" content="${lastModified}T00:00:00+07:00" />`,
-    `<meta property="article:section" content="${isVi ? "Bài viết" : "Articles"}" />`
+    `<meta property="article:section" content="${l.articleSection}" />`
   ].join("\n");
   const tagLinks = data.tags
     .slice(0, 8)
-    .map((tag) => `<a href="./">${isVi ? "#" : "#"}${escapeHtml(tag.replace(/\s+/g, ""))}</a>`)
+    .map((tag) => `<a href="./">#${escapeHtml(tag.replace(/\s+/g, ""))}</a>`)
     .join("\n");
   const comparisonBlock = data.comparison.length
     ? `
-      <h2>${isVi ? "So sánh nhanh" : "How it compares"}</h2>
+      <h2>${l.comparisonHeading}</h2>
       <ul>
         ${data.comparison.map((note) => `<li>${escapeHtml(note)}</li>`).join("\n")}
       </ul>`
@@ -1176,8 +1612,8 @@ function articlePage(lang, topic, index) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: isVi ? "Trang chủ" : "Home", item: `${siteUrl}/${lang}/` },
-      { "@type": "ListItem", position: 2, name: isVi ? "Bài viết" : "Articles", item: `${siteUrl}/${lang}/articles/` },
+      { "@type": "ListItem", position: 1, name: l.breadcrumbHome, item: `${siteUrl}/${lang}/` },
+      { "@type": "ListItem", position: 2, name: l.breadcrumbArticles, item: `${siteUrl}/${lang}/articles/` },
       { "@type": "ListItem", position: 3, name: title, item: `${siteUrl}${canonicalPath}` }
     ]
   };
@@ -1192,7 +1628,7 @@ function articlePage(lang, topic, index) {
       author: { "@type": "Organization", name: developerName, url: siteUrl },
       publisher: { "@type": "Organization", name: developerName, logo: { "@type": "ImageObject", url: `${siteUrl}/assets/icons/icon-512.png` } },
       mainEntityOfPage: `${siteUrl}${canonicalPath}`,
-      inLanguage: isVi ? "vi-VN" : "en",
+      inLanguage: l.hreflang,
       keywords,
       datePublished: lastModified,
       dateModified: lastModified
@@ -1200,7 +1636,7 @@ function articlePage(lang, topic, index) {
     {
       "@context": "https://schema.org",
       "@type": "HowTo",
-      name: isVi ? `Cách dùng ${data.focus} với Nomad Translator` : `How to use ${data.focus} with Nomad Translator`,
+      name: `${l.workflowHeading}: ${data.focus}`,
       description,
       image: [`${siteUrl}${pageImage.src}`],
       totalTime: "PT5M",
@@ -1233,15 +1669,15 @@ function articlePage(lang, topic, index) {
       <b>${appName}</b>
     </div>
     <nav class="nav">
-      <a href="../">${isVi ? "Trang chủ" : "Home"}</a>
-      <a href="./">${isVi ? "Tất cả bài viết" : "All articles"}</a>
-      <a href="../../about.html">${isVi ? "Giới thiệu" : "About"}</a>
-      <a href="../../support.html">${isVi ? "Hỗ trợ" : "Support"}</a>
-      <a href="${appUrl}">${isVi ? "Tải app" : "Download app"}</a>
-      ${languageFlagLink(lang, `../../${isVi ? "en" : "vi"}/articles/${topic.slug}.html`)}
+      <a href="../">${l.home}</a>
+      <a href="./">${l.allArticles}</a>
+      <a href="../../about.html">${l.about}</a>
+      <a href="../../support.html">${l.support}</a>
+      <a href="${appUrl}">${l.downloadApp}</a>
+      ${languageSelector(lang, (targetLang) => `../../${targetLang}/articles/${topic.slug}.html`)}
     </nav>
     <article>
-      <div class="eyebrow">${isVi ? "Hướng dẫn du lịch" : "Travel guide"}</div>
+      <div class="eyebrow">${l.travelGuide}</div>
       <h1>${escapeHtml(title)}</h1>
       <p class="intro">${escapeHtml(description)}</p>
 
@@ -1249,40 +1685,40 @@ function articlePage(lang, topic, index) {
         <picture>
           <source media="(max-width: 760px)" srcset="../..${pageImage.mobile}" width="${pageImage.mobileWidth}" height="${pageImage.mobileHeight}" />
           <source media="(max-width: 1440px)" srcset="../..${pageImage.desktop}" width="${pageImage.desktopWidth}" height="${pageImage.desktopHeight}" />
-          <img src="../..${pageImage.desktop}" width="${pageImage.desktopWidth}" height="${pageImage.desktopHeight}" alt="${isVi ? `${data.title} - Nomad Translator` : `${data.title} - Nomad Translator`}" loading="${index < 2 ? "eager" : "lazy"}" decoding="async" />
+          <img src="../..${pageImage.desktop}" width="${pageImage.desktopWidth}" height="${pageImage.desktopHeight}" alt="${data.title} - Nomad Translator" loading="${index < 2 ? "eager" : "lazy"}" decoding="async" />
         </picture>
       </figure>
-      <div class="tag-row" aria-label="${isVi ? "Chủ đề" : "Topic tags"}">
+      <div class="tag-row" aria-label="${l.topicTags}">
         ${tagLinks}
       </div>
 
-      <h2>${isVi ? "Khi nào bài toán này xuất hiện?" : "When does this problem show up?"}</h2>
-      <p>${isVi ? `Tình huống này thường xuất hiện khi người dùng cần ${data.focus} trong bối cảnh ${data.scenario}. Khi đó, điều quan trọng không chỉ là dịch đúng, mà còn là mở app đủ nhanh, nhìn đủ rõ và hoạt động được ngay cả khi không có mạng ổn định.` : `This usually comes up when travelers need ${data.focus} in situations like ${data.scenario}. In those moments, the tool needs more than raw translation quality. It needs to open fast, stay readable, and still work when the network is weak or missing.`}</p>
+      <h2>${l.problemHeading}</h2>
+      <p>${localizedTopicCopy[lang]?.problem ? localizedTopicCopy[lang].problem(data.focus, data.scenario) : isVi ? `Tình huống này thường xuất hiện khi người dùng cần ${data.focus} trong bối cảnh ${data.scenario}. Khi đó, điều quan trọng không chỉ là dịch đúng, mà còn là mở app đủ nhanh, nhìn đủ rõ và hoạt động được ngay cả khi không có mạng ổn định.` : `This usually comes up when travelers need ${data.focus} in situations like ${data.scenario}. In those moments, the tool needs more than raw translation quality. It needs to open fast, stay readable, and still work when the network is weak or missing.`}</p>
 
-      <h2>${isVi ? "Cách dùng Nomad Translator cho workflow này" : "How to use Nomad Translator for this workflow"}</h2>
+      <h2>${l.workflowHeading}</h2>
       <ol>
         ${data.steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("\n")}
       </ol>
 
-      <h2>${isVi ? "Điểm nên ưu tiên" : "What to prioritize"}</h2>
+      <h2>${l.tipsHeading}</h2>
       <ul>
         ${data.tips.map((tip) => `<li>${escapeHtml(tip)}</li>`).join("\n")}
       </ul>
       ${comparisonBlock}
 
-      <h2>${isVi ? "Tại sao Nomad Translator hợp với nhu cầu này" : "Why Nomad Translator fits this use case"}</h2>
-      <p>${isVi ? "Nomad Translator được xây quanh nhu cầu dịch thực dụng khi đi đường: tải gói ngôn ngữ một lần, dịch văn bản và giọng nói trên thiết bị, dùng camera để trích văn bản, rồi hiển thị kết quả gọn gàng để bạn phản ứng nhanh hơn trong bối cảnh thật." : "Nomad Translator is built around practical travel translation: download a language pack once, translate text and voice on-device, use the camera for printed text, and keep the result clean enough to act on quickly in the real world."}</p>
+      <h2>${l.fitHeading}</h2>
+      <p>${localizedTopicCopy[lang]?.fit || (isVi ? "Nomad Translator được xây quanh nhu cầu dịch thực dụng khi đi đường: tải gói ngôn ngữ một lần, dịch văn bản và giọng nói trên thiết bị, dùng camera để trích văn bản, rồi hiển thị kết quả gọn gàng để bạn phản ứng nhanh hơn trong bối cảnh thật." : "Nomad Translator is built around practical travel translation: download a language pack once, translate text and voice on-device, use the camera for printed text, and keep the result clean enough to act on quickly in the real world.")}</p>
 
-      <h2>${isVi ? "Câu hỏi thường gặp" : "Frequently asked questions"}</h2>
+      <h2>${l.faqHeading}</h2>
       ${data.faq.map(([question, answer]) => `<h3>${escapeHtml(question)}</h3><p>${escapeHtml(answer)}</p>`).join("\n")}
 
       <div class="cta">
-        <h2>${isVi ? "Tải Nomad Translator" : "Download Nomad Translator"}</h2>
-        <p>${isVi ? "Chuẩn bị sẵn bộ dịch offline trước chuyến đi tiếp theo để bạn không phải phụ thuộc vào sóng hay roaming." : "Get an offline translator ready before your next trip so you are not depending on signal strength or roaming charges."}</p>
-        <a class="btn" href="${appUrl}">${isVi ? "Tải trên App Store" : "Download on the App Store"}</a>
+        <h2>${l.ctaHeading}</h2>
+        <p>${l.ctaText}</p>
+        <a class="btn" href="${appUrl}">${l.downloadStore}</a>
       </div>
 
-      <h2>${isVi ? "Bài liên quan" : "Related articles"}</h2>
+      <h2>${l.relatedHeading}</h2>
       <div class="related">
         ${listLinks}
       </div>
@@ -1291,7 +1727,7 @@ function articlePage(lang, topic, index) {
   </div>`;
 
   return page({
-    lang: isVi ? "vi" : "en",
+    lang,
     title,
     description,
     keywords,
@@ -1299,12 +1735,8 @@ function articlePage(lang, topic, index) {
     stylesheetPath: "../../assets/seo.css",
     ogType: "article",
     ogImage: pageImage,
-    alternateLinks: [
-      { hreflang: "en", href: `${siteUrl}/en/articles/${topic.slug}.html` },
-      { hreflang: "vi-VN", href: `${siteUrl}/vi/articles/${topic.slug}.html` },
-      { hreflang: "x-default", href: `${siteUrl}/en/articles/${topic.slug}.html` }
-    ],
-    ogLocale: isVi ? "vi_VN" : "en_US",
+    alternateLinks: alternateLinksFor((item) => `/${item}/articles/${topic.slug}.html`),
+    ogLocale: l.ogLocale,
     extraHead: articleMeta,
     ldJson,
     content
@@ -1313,8 +1745,9 @@ function articlePage(lang, topic, index) {
 
 function articleHub(lang) {
   const isVi = lang === "vi";
-  const title = isVi ? "Blog Nomad Translator | Dịch offline khi du lịch" : "Nomad Translator Blog | Offline Translation Guides";
-  const description = isVi ? "Hướng dẫn thực tế về dịch offline, dịch camera, giọng nói, gói ngôn ngữ, quyền riêng tư và cách chọn app dịch phù hợp khi đi du lịch." : "Practical guides for offline translation, camera translation, voice input, language packs, privacy, and choosing a translator app for travel.";
+  const l = locales[lang];
+  const title = l.blogTitle;
+  const description = l.blogDescription;
   const list = topics.map((item) => `<a href="${item.slug}.html">${escapeHtml(item[lang].title)}<span>${escapeHtml(item[lang].description)}</span></a>`).join("\n");
   const hubTags = [
     { href: "nomad-translator-app.html", label: isVi ? "#appNomadTranslator" : "#NomadTranslatorApp" },
@@ -1340,13 +1773,13 @@ function articleHub(lang) {
       name: title,
       description,
       url: `${siteUrl}/${lang}/articles/`,
-      inLanguage: isVi ? "vi-VN" : "en",
+      inLanguage: l.hreflang,
       publisher: { "@type": "Organization", name: developerName, url: siteUrl, logo: `${siteUrl}/assets/icons/icon-512.png` }
     },
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      name: isVi ? "Danh sách bài viết Nomad Translator" : "Nomad Translator article list",
+      name: `${appName} ${l.articles}`,
       itemListElement: topics.map((item, itemIndex) => ({
         "@type": "ListItem",
         position: itemIndex + 1,
@@ -1362,17 +1795,17 @@ function articleHub(lang) {
       <b>${appName}</b>
     </div>
     <nav class="nav">
-      <a href="../">${isVi ? "Trang chủ" : "Home"}</a>
-      <a href="../../about.html">${isVi ? "Giới thiệu" : "About"}</a>
-      <a href="../../support.html">${isVi ? "Hỗ trợ" : "Support"}</a>
-      <a href="${appUrl}">${isVi ? "Tải app" : "Download app"}</a>
-      ${languageFlagLink(lang, `../../${isVi ? "en" : "vi"}/articles/`)}
+      <a href="../">${l.home}</a>
+      <a href="../../about.html">${l.about}</a>
+      <a href="../../support.html">${l.support}</a>
+      <a href="${appUrl}">${l.downloadApp}</a>
+      ${languageSelector(lang, (targetLang) => `../../${targetLang}/articles/`)}
     </nav>
     <article>
-      <div class="eyebrow">${isVi ? "Hướng dẫn" : "Guides"}</div>
-      <h1>${isVi ? "Hướng dẫn dịch offline khi đi du lịch" : "Offline translation guides for travel"}</h1>
+      <div class="eyebrow">${l.guides}</div>
+      <h1>${l.blogHeading}</h1>
       <p class="intro">${escapeHtml(description)}</p>
-      <div class="tag-row" aria-label="${isVi ? "Chủ đề phổ biến" : "Popular topics"}">
+      <div class="tag-row" aria-label="${l.popularTopics}">
         ${hubTags.map((tag) => `<a href="${tag.href}">${tag.label}</a>`).join("\n")}
       </div>
       <div class="article-list">
@@ -1382,18 +1815,14 @@ function articleHub(lang) {
     <footer>© 2026 ${developerName}</footer>
   </div>`;
   return page({
-    lang: isVi ? "vi" : "en",
+    lang,
     title,
     description,
-    keywords: isVi ? appKeywordsVi : appKeywordsEn,
+    keywords: l.keywords,
     canonicalPath: `/${lang}/articles/`,
     stylesheetPath: "../../assets/seo.css",
-    alternateLinks: [
-      { hreflang: "en", href: `${siteUrl}/en/articles/` },
-      { hreflang: "vi-VN", href: `${siteUrl}/vi/articles/` },
-      { hreflang: "x-default", href: `${siteUrl}/en/articles/` }
-    ],
-    ogLocale: isVi ? "vi_VN" : "en_US",
+    alternateLinks: alternateLinksFor((item) => `/${item}/articles/`),
+    ogLocale: l.ogLocale,
     ldJson,
     content
   });
@@ -1651,29 +2080,69 @@ a { color: var(--accent); }
 
 .nav a { text-decoration: none; }
 
-.flag-lang {
+.language-switcher {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  margin-left: auto;
+}
+
+.language-switcher summary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 42px;
   height: 42px;
-  margin-left: auto;
   border: 1px solid rgba(22, 217, 255, .28);
   border-radius: 999px;
   background: rgba(9, 29, 49, .92);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06), 0 12px 28px rgba(0, 0, 0, .22);
   font-size: 23px;
   line-height: 1;
+  cursor: pointer;
+  list-style: none;
 }
 
-.flag-lang:hover {
+.language-switcher summary::-webkit-details-marker { display: none; }
+
+.language-switcher summary:hover {
   border-color: rgba(22, 217, 255, .62);
   transform: translateY(-1px);
 }
 
+.language-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 20;
+  min-width: 190px;
+  padding: 8px;
+  border: 1px solid rgba(22, 217, 255, .24);
+  border-radius: 16px;
+  background: rgba(5, 12, 24, .98);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, .36);
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 12px;
+  color: #edf6ff;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.language-option:hover,
+.language-option.is-current {
+  background: rgba(22, 217, 255, .12);
+  color: var(--accent);
+}
+
 .language-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
   gap: 14px;
 }
 
@@ -1905,10 +2374,10 @@ li { margin: 8px 0; }
 function generate() {
   writeFile(path.join(root, "assets/seo.css"), css);
   writeFile(path.join(root, "index.html"), rootPage());
-  writeFile(path.join(root, "en/index.html"), homePage("en"));
-  writeFile(path.join(root, "vi/index.html"), homePage("vi"));
-  writeFile(path.join(root, "en/articles/index.html"), articleHub("en"));
-  writeFile(path.join(root, "vi/articles/index.html"), articleHub("vi"));
+  localeOrder.forEach((lang) => {
+    writeFile(path.join(root, lang, "index.html"), homePage(lang));
+    writeFile(path.join(root, lang, "articles/index.html"), articleHub(lang));
+  });
   writeFile(path.join(root, "articles/index.html"), redirectPage("/en/articles/"));
   writeFile(path.join(root, "about.html"), staticPage("about"));
   writeFile(path.join(root, "support.html"), staticPage("support"));
@@ -1916,8 +2385,9 @@ function generate() {
   writeFile(path.join(root, "privacy.html"), redirectPage("/privacy-policy.html"));
 
   topics.forEach((entry, index) => {
-    writeFile(path.join(root, "en/articles", `${entry.slug}.html`), articlePage("en", entry, index));
-    writeFile(path.join(root, "vi/articles", `${entry.slug}.html`), articlePage("vi", entry, index));
+    localeOrder.forEach((lang) => {
+      writeFile(path.join(root, lang, "articles", `${entry.slug}.html`), articlePage(lang, entry, index));
+    });
     writeFile(path.join(root, "articles", `${entry.slug}.html`), redirectPage(`/en/articles/${entry.slug}.html`));
   });
 
@@ -1925,16 +2395,14 @@ function generate() {
 
   const sitemapUrls = [
     "/",
-    "/en/",
-    "/vi/",
+    ...localeOrder.map((lang) => `/${lang}/`),
     "/about.html",
     "/support.html",
     "/privacy-policy.html",
-    "/en/articles/",
-    "/vi/articles/",
-    ...topics.flatMap((entry) => [`/en/articles/${entry.slug}.html`, `/vi/articles/${entry.slug}.html`])
+    ...localeOrder.map((lang) => `/${lang}/articles/`),
+    ...topics.flatMap((entry) => localeOrder.map((lang) => `/${lang}/articles/${entry.slug}.html`))
   ];
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls.map((url) => `  <url><loc>${siteUrl}${url}</loc><lastmod>${lastModified}</lastmod><changefreq>${url.includes("/articles/") ? "monthly" : "weekly"}</changefreq><priority>${url === "/" ? "1.0" : url === "/en/" || url === "/vi/" ? "0.9" : url.includes("/articles/") ? "0.7" : "0.6"}</priority></url>`).join("\n")}\n</urlset>`;
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls.map((url) => `  <url><loc>${siteUrl}${url}</loc><lastmod>${lastModified}</lastmod><changefreq>${url.includes("/articles/") ? "monthly" : "weekly"}</changefreq><priority>${url === "/" ? "1.0" : localeOrder.some((lang) => url === `/${lang}/`) ? "0.9" : url.includes("/articles/") ? "0.7" : "0.6"}</priority></url>`).join("\n")}\n</urlset>`;
   writeFile(path.join(root, "sitemap.xml"), sitemap);
 
   writeFile(path.join(root, "site.webmanifest"), JSON.stringify({
@@ -1949,9 +2417,9 @@ function generate() {
     display: "standalone"
   }, null, 2));
 
-  writeFile(path.join(root, "llms.txt"), `# ${appName}\n\n- Home: ${siteUrl}/en/\n- Vietnamese home: ${siteUrl}/vi/\n- App Store: ${appUrl}\n- Support: ${siteUrl}/support.html\n- Privacy policy: ${siteUrl}/privacy-policy.html\n- Travel translation guides: ${siteUrl}/en/articles/\n\nNomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, and quick travel conversations.`);
+  writeFile(path.join(root, "llms.txt"), `# ${appName}\n\n- English home: ${siteUrl}/en/\n- Vietnamese home: ${siteUrl}/vi/\n- German home: ${siteUrl}/de/\n- French home: ${siteUrl}/fr/\n- Spanish home: ${siteUrl}/es/\n- App Store: ${appUrl}\n- Support: ${siteUrl}/support.html\n- Privacy policy: ${siteUrl}/privacy-policy.html\n- Travel translation guides: ${siteUrl}/en/articles/\n\nNomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, and quick travel conversations.`);
 
-  writeFile(path.join(root, "README.md"), `# nomad-translator-pages\n\nStatic SEO and support site for Nomad Translator.\n\n## Structure\n\n- \`/\` language chooser with auto-redirect\n- \`/en/\` English landing page\n- \`/vi/\` Vietnamese landing page\n- \`/en/articles/\` English SEO hub\n- \`/vi/articles/\` Vietnamese SEO hub\n- \`/about.html\` app overview\n- \`/support.html\` support page\n- \`/privacy-policy.html\` privacy page\n\n## Rebuild pages\n\nRun:\n\n\`\`\`bash\nnode scripts/build-seo-pages.mjs\n\`\`\`\n\nThe generator rewrites the landing pages, article pages, aliases, sitemap, robots, and supporting metadata files.\n\n## Publishing\n\nThis repo is configured for the custom domain:\n\n\`${siteUrl}\`\n\nIf you move the site later, update \`siteUrl\` in [scripts/build-seo-pages.mjs](/Users/kelvin/Downloads/nomad-translator-pages/scripts/build-seo-pages.mjs).`);
+  writeFile(path.join(root, "README.md"), `# nomad-translator-pages\n\nStatic SEO and support site for Nomad Translator.\n\n## Structure\n\n- \`/\` language chooser with auto-redirect\n- \`/en/\` English landing page\n- \`/vi/\` Vietnamese landing page\n- \`/de/\` German landing page\n- \`/fr/\` French landing page\n- \`/es/\` Spanish landing page\n- \`/en/articles/\` English guide hub\n- \`/vi/articles/\` Vietnamese guide hub\n- \`/de/articles/\` German guide hub\n- \`/fr/articles/\` French guide hub\n- \`/es/articles/\` Spanish guide hub\n- \`/about.html\` app overview\n- \`/support.html\` support page\n- \`/privacy-policy.html\` privacy page\n\n## Rebuild pages\n\nRun:\n\n\`\`\`bash\nnode scripts/build-seo-pages.mjs\n\`\`\`\n\nThe generator rewrites the landing pages, article pages, aliases, sitemap, robots, and supporting metadata files.\n\n## Publishing\n\nThis repo is configured for the custom domain:\n\n\`${siteUrl}\`\n\nIf you move the site later, update \`siteUrl\` in [scripts/build-seo-pages.mjs](/Users/kelvin/Downloads/nomad-translator-pages/scripts/build-seo-pages.mjs).`);
 }
 
 generate();

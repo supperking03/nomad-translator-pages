@@ -30,6 +30,9 @@
 <meta name="twitter:image" content="https://nomad-translator.com/assets/blog/nomad-translator-hero.webp" />
 <link rel="alternate" hreflang="en" href="https://nomad-translator.com/en/" />
 <link rel="alternate" hreflang="vi-VN" href="https://nomad-translator.com/vi/" />
+<link rel="alternate" hreflang="de" href="https://nomad-translator.com/de/" />
+<link rel="alternate" hreflang="fr" href="https://nomad-translator.com/fr/" />
+<link rel="alternate" hreflang="es" href="https://nomad-translator.com/es/" />
 <link rel="alternate" hreflang="x-default" href="https://nomad-translator.com/en/" />
 <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
 <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
@@ -43,7 +46,7 @@
 
   gtag('config', 'G-7DTZDZJPXL');
 </script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Nomad Translator","url":"https://nomad-translator.com","description":"Nomad Translator is an offline travel translator for iPhone with on-device text, voice, and camera translation plus downloadable language packs.","inLanguage":["en","vi-VN"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Nomad Translator","url":"https://nomad-translator.com","description":"Nomad Translator is an offline travel translator for iPhone with on-device text, voice, and camera translation plus downloadable language packs.","inLanguage":["en","vi-VN","de","fr","es"]}</script>
 <link rel="stylesheet" href="assets/seo.css" />
 <script>
   (function () {
@@ -52,8 +55,13 @@
     var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
     var tz = "";
     try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
-    var isVietnam = tz === "Asia/Ho_Chi_Minh" || tz === "Asia/Saigon" || langs.some(function (lang) { return /^vi\b/i.test(lang); });
-    window.location.replace(isVietnam ? "/vi/" : "/en/");
+    var first = (langs[0] || "").toLowerCase();
+    var target = "en";
+    if (tz === "Asia/Ho_Chi_Minh" || tz === "Asia/Saigon" || langs.some(function (lang) { return /^vi\b/i.test(lang); })) target = "vi";
+    else if (/^de\b/.test(first)) target = "de";
+    else if (/^fr\b/.test(first)) target = "fr";
+    else if (/^es\b/.test(first)) target = "es";
+    window.location.replace("/" + target + "/");
   })();
 </script>
 </head>
@@ -62,10 +70,13 @@
     <article>
       <div class="eyebrow">Nomad Translator</div>
       <h1>Choose your language</h1>
-      <p class="intro">Nomad Translator is available in English and Vietnamese. Visitors in Vietnam or Vietnamese browsers are redirected to Vietnamese automatically when JavaScript is enabled.</p>
+      <p class="intro">Nomad Translator is available in English, Vietnamese, German, French, and Spanish. When JavaScript is enabled, visitors are sent to the closest language automatically.</p>
       <div class="language-grid">
-        <a class="language-card" href="vi/" aria-label="Tiếng Việt"><span aria-hidden="true">🇻🇳</span><span class="visually-hidden">Tiếng Việt</span></a>
         <a class="language-card" href="en/" aria-label="English"><span aria-hidden="true">🇺🇸</span><span class="visually-hidden">English</span></a>
+<a class="language-card" href="vi/" aria-label="Tiếng Việt"><span aria-hidden="true">🇻🇳</span><span class="visually-hidden">Tiếng Việt</span></a>
+<a class="language-card" href="de/" aria-label="Deutsch"><span aria-hidden="true">🇩🇪</span><span class="visually-hidden">Deutsch</span></a>
+<a class="language-card" href="fr/" aria-label="Français"><span aria-hidden="true">🇫🇷</span><span class="visually-hidden">Français</span></a>
+<a class="language-card" href="es/" aria-label="Español"><span aria-hidden="true">🇪🇸</span><span class="visually-hidden">Español</span></a>
       </div>
     </article>
     <footer>© 2026 Minh Kien Ngo</footer>
