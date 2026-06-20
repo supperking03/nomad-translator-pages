@@ -1314,6 +1314,71 @@ const topics = [
     viFocus: "Nomad Translator APK",
     viScenario: "muốn tìm đường cài app đúng sau khi thấy tên app trên kết quả tìm kiếm",
     viTags: ["NomadTranslatorAPK", "translatorapk", "NomadTranslatorapp", "appdịchoffline", "traveltranslator", "NomadTranslator"]
+  }),
+  topic({
+    slug: "arabic-to-english-translator-offline",
+    enTitle: "Arabic to English Translator Offline",
+    enDescription: "A practical guide to translating Arabic to English offline for travel messages, signs, menus, and quick conversations.",
+    enFocus: "Arabic to English translator offline",
+    enScenario: "reading Arabic signs, menus, hotel notes, ride messages, and short travel phrases in English without reliable data",
+    enTags: ["Arabic to English translator", "Arabic English translator offline", "offline Arabic translator", "travel translator app", "camera translator", "Nomad Translator"],
+    viTitle: "Dịch tiếng Ả Rập sang tiếng Anh offline",
+    viDescription: "Hướng dẫn dịch tiếng Ả Rập sang tiếng Anh offline cho tin nhắn du lịch, biển báo, menu và hội thoại ngắn.",
+    viFocus: "dịch tiếng Ả Rập sang tiếng Anh offline",
+    viScenario: "đọc biển báo, menu, ghi chú khách sạn, tin nhắn xe và câu du lịch ngắn từ tiếng Ả Rập sang tiếng Anh khi mạng không ổn định",
+    viTags: ["dịchẢRậpsangAnh", "ArabicEnglishtranslator", "appdịchẢRậpoffline", "appdịchdulịch", "dịchcamera", "NomadTranslator"]
+  }),
+  topic({
+    slug: "english-to-chinese-translator-offline",
+    enTitle: "English to Chinese Translator Offline",
+    enDescription: "How to prepare English to Chinese translation offline for restaurant questions, hotel check-in, taxi rides, and saved screenshots.",
+    enFocus: "English to Chinese translator offline",
+    enScenario: "turning English phrases into Chinese for restaurants, hotels, taxis, ticket counters, and screenshots before or during a trip",
+    enTags: ["English to Chinese translator", "English Chinese translator offline", "Chinese translator app", "offline translator", "travel translator app", "Nomad Translator"],
+    viTitle: "Dịch tiếng Anh sang tiếng Trung offline",
+    viDescription: "Cách chuẩn bị dịch tiếng Anh sang tiếng Trung offline cho nhà hàng, check-in khách sạn, taxi và screenshot đã lưu.",
+    viFocus: "dịch tiếng Anh sang tiếng Trung offline",
+    viScenario: "chuyển câu tiếng Anh sang tiếng Trung cho nhà hàng, khách sạn, taxi, quầy vé và screenshot trước hoặc trong chuyến đi",
+    viTags: ["dịchAnhsangTrung", "EnglishChinesetranslator", "appdịchtiếngTrung", "appdịchoffline", "traveltranslator", "NomadTranslator"]
+  }),
+  topic({
+    slug: "english-to-arabic-translator-for-travel",
+    enTitle: "English to Arabic Translator for Travel",
+    enDescription: "Use English to Arabic translation for travel questions, directions, restaurants, hotels, pharmacies, and offline voice phrases.",
+    enFocus: "English to Arabic translator for travel",
+    enScenario: "asking directions, checking into hotels, ordering food, visiting pharmacies, and preparing Arabic phrases from English",
+    enTags: ["English to Arabic translator", "Arabic translator for travel", "offline Arabic translator", "voice translator", "travel translator app", "Nomad Translator"],
+    viTitle: "Dịch tiếng Anh sang tiếng Ả Rập khi du lịch",
+    viDescription: "Dùng dịch tiếng Anh sang tiếng Ả Rập cho hỏi đường, nhà hàng, khách sạn, nhà thuốc và câu giọng nói offline.",
+    viFocus: "dịch tiếng Anh sang tiếng Ả Rập khi du lịch",
+    viScenario: "hỏi đường, check-in khách sạn, gọi món, vào nhà thuốc và chuẩn bị câu tiếng Ả Rập từ tiếng Anh",
+    viTags: ["dịchAnhsangẢRập", "Arabictranslatortravel", "appdịchẢRập", "dịchgiọngnói", "appdịchdulịch", "NomadTranslator"]
+  }),
+  topic({
+    slug: "english-to-vietnamese-translator-offline",
+    enTitle: "English to Vietnamese Translator Offline",
+    enDescription: "Translate English to Vietnamese offline for local food, ride pickup points, hotel messages, street signs, and simple travel phrases.",
+    enFocus: "English to Vietnamese translator offline",
+    enScenario: "using English phrases in Vietnam for food orders, ride pickup points, hotels, street signs, and local questions",
+    enTags: ["English to Vietnamese translator", "English Vietnamese translator offline", "Vietnamese translator app", "offline translator", "travel translator app", "Nomad Translator"],
+    viTitle: "Dịch tiếng Anh sang tiếng Việt offline",
+    viDescription: "Dịch tiếng Anh sang tiếng Việt offline cho món ăn địa phương, điểm đón xe, tin nhắn khách sạn, biển đường và câu du lịch đơn giản.",
+    viFocus: "dịch tiếng Anh sang tiếng Việt offline",
+    viScenario: "dùng câu tiếng Anh ở Việt Nam để gọi món, hẹn điểm đón xe, xử lý khách sạn, đọc biển đường và hỏi thông tin địa phương",
+    viTags: ["dịchAnhsangViệt", "EnglishVietnamesetranslator", "appdịchtiếngViệt", "appdịchoffline", "appdịchdulịch", "NomadTranslator"]
+  }),
+  topic({
+    slug: "english-to-french-translator-for-travel",
+    enTitle: "English to French Translator for Travel",
+    enDescription: "A travel-focused English to French translator guide for menus, train stations, hotels, pharmacies, and offline camera translation.",
+    enFocus: "English to French translator for travel",
+    enScenario: "turning English into French for menus, rail stations, hotel messages, pharmacy labels, and short questions in France",
+    enTags: ["English to French translator", "French translator for travel", "offline French translator", "camera translator", "travel translator app", "Nomad Translator"],
+    viTitle: "Dịch tiếng Anh sang tiếng Pháp khi du lịch",
+    viDescription: "Hướng dẫn dịch tiếng Anh sang tiếng Pháp cho menu, ga tàu, khách sạn, nhà thuốc và dịch camera offline.",
+    viFocus: "dịch tiếng Anh sang tiếng Pháp khi du lịch",
+    viScenario: "chuyển tiếng Anh sang tiếng Pháp cho menu, ga tàu, tin nhắn khách sạn, nhãn nhà thuốc và câu hỏi ngắn ở Pháp",
+    viTags: ["dịchAnhsangPháp", "EnglishFrenchtranslator", "Frenchtranslatortravel", "dịchcamera", "appdịchdulịch", "NomadTranslator"]
   })
 ];
 
@@ -1385,7 +1450,12 @@ const localizedTopicFocus = {
   "nomad-translator-app": { de: "Nomad Translator App", fr: "application Nomad Translator", es: "app Nomad Translator" },
   "nomad-translator-online-vs-offline": { de: "Nomad Translator online oder offline", fr: "Nomad Translator en ligne ou hors ligne", es: "Nomad Translator online o sin conexión" },
   "is-nomad-translator-free": { de: "Ist Nomad Translator kostenlos?", fr: "Nomad Translator est-il gratuit ?", es: "¿Nomad Translator es gratis?" },
-  "nomad-translator-apk-and-ios-options": { de: "Nomad Translator APK und iPhone-Optionen", fr: "Nomad Translator APK et options iPhone", es: "Nomad Translator APK y opciones para iPhone" }
+  "nomad-translator-apk-and-ios-options": { de: "Nomad Translator APK und iPhone-Optionen", fr: "Nomad Translator APK et options iPhone", es: "Nomad Translator APK y opciones para iPhone" },
+  "arabic-to-english-translator-offline": { de: "Arabisch-Englisch-Übersetzer offline", fr: "traducteur arabe anglais hors ligne", es: "traductor árabe a inglés sin conexión" },
+  "english-to-chinese-translator-offline": { de: "Englisch-Chinesisch-Übersetzer offline", fr: "traducteur anglais chinois hors ligne", es: "traductor inglés a chino sin conexión" },
+  "english-to-arabic-translator-for-travel": { de: "Englisch-Arabisch-Übersetzer für Reisen", fr: "traducteur anglais arabe pour voyager", es: "traductor inglés a árabe para viajar" },
+  "english-to-vietnamese-translator-offline": { de: "Englisch-Vietnamesisch-Übersetzer offline", fr: "traducteur anglais vietnamien hors ligne", es: "traductor inglés a vietnamita sin conexión" },
+  "english-to-french-translator-for-travel": { de: "Englisch-Französisch-Übersetzer für Reisen", fr: "traducteur anglais français pour voyager", es: "traductor inglés a francés para viajar" }
 };
 
 const localizedTopicCopy = {
