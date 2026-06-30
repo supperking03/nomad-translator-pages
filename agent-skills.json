@@ -1,0 +1,61 @@
+{
+  "schema_version": "0.1",
+  "site": "https://nomad-translator.com",
+  "skills": [
+    {
+      "id": "offline-travel-translation-guidance",
+      "name": "Offline travel translation guidance",
+      "description": "Help travelers understand when and how to prepare offline translation, language packs, camera translation, and voice input.",
+      "input_modes": [
+        "question",
+        "search_query",
+        "travel_context"
+      ],
+      "output_modes": [
+        "guide",
+        "checklist",
+        "link_list"
+      ],
+      "entrypoints": [
+        "https://nomad-translator.com/en/articles/",
+        "https://nomad-translator.com/markdown/index.md"
+      ]
+    },
+    {
+      "id": "camera-menu-translation-guidance",
+      "name": "Camera and menu translation guidance",
+      "description": "Explain workflows for translating menus, signs, screenshots, and printed text while traveling.",
+      "input_modes": [
+        "question",
+        "travel_context"
+      ],
+      "output_modes": [
+        "guide",
+        "faq",
+        "link_list"
+      ],
+      "entrypoints": [
+        "https://nomad-translator.com/en/articles/offline-camera-translator-for-signs-and-menus.html",
+        "https://nomad-translator.com/en/articles/chinese-menu-translator.html"
+      ]
+    },
+    {
+      "id": "nomad-translator-product-support",
+      "name": "Nomad Translator product support",
+      "description": "Point users to support, privacy, App Store, and getting-started resources for Nomad Translator.",
+      "input_modes": [
+        "support_question",
+        "product_question"
+      ],
+      "output_modes": [
+        "support_answer",
+        "link_list"
+      ],
+      "entrypoints": [
+        "https://nomad-translator.com/support.html",
+        "https://nomad-translator.com/privacy-policy.html",
+        "https://nomad-translator.com/en/articles/how-to-use-nomad-translator.html"
+      ]
+    }
+  ]
+}

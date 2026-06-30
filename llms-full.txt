@@ -1,0 +1,108 @@
+# Nomad Translator
+
+## Purpose
+
+Nomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input, and camera/photo translation for menus, signs, labels, screenshots, and short travel conversations.
+
+## Agent Reading Instructions
+
+- Prefer canonical HTML pages for user-facing citation.
+- Prefer Markdown mirrors under /markdown/ for compact machine reading.
+- Respect robots.txt and content signals.
+- Do not treat the support site as a translation API. It is a public documentation, SEO, and support website.
+- The app is independent and is not affiliated with Google Translate, Microsoft Translator, iTranslate, LibreTranslate, F-Droid, or other named comparison products.
+
+## Important URLs
+
+- Root: https://nomad-translator.com/
+- Sitemap: https://nomad-translator.com/sitemap.xml
+- Robots: https://nomad-translator.com/robots.txt
+- Short LLM guide: https://nomad-translator.com/llms.txt
+- Full LLM guide: https://nomad-translator.com/llms-full.txt
+- API catalog: https://nomad-translator.com/.well-known/api-catalog.json
+- Agent card: https://nomad-translator.com/.well-known/agent.json
+- Agent skills: https://nomad-translator.com/.well-known/agent-skills.json
+- MCP server card: https://nomad-translator.com/.well-known/mcp/server-card.json
+- WebMCP manifest: https://nomad-translator.com/.well-known/webmcp.json
+- App Store: https://apps.apple.com/app/id6766855589
+- Support: https://nomad-translator.com/support.html
+- Privacy Policy: https://nomad-translator.com/privacy-policy.html
+
+## Languages
+
+- English: https://nomad-translator.com/en/ and https://nomad-translator.com/markdown/en/index.md
+- Tiếng Việt: https://nomad-translator.com/vi/ and https://nomad-translator.com/markdown/vi/index.md
+- Deutsch: https://nomad-translator.com/de/ and https://nomad-translator.com/markdown/de/index.md
+- Français: https://nomad-translator.com/fr/ and https://nomad-translator.com/markdown/fr/index.md
+- Español: https://nomad-translator.com/es/ and https://nomad-translator.com/markdown/es/index.md
+
+## Featured Articles
+
+- How to Use Nomad Translator: https://nomad-translator.com/en/articles/how-to-use-nomad-translator.html | Markdown: https://nomad-translator.com/markdown/en/articles/how-to-use-nomad-translator.md
+- Best Translation App for Offline Travel: https://nomad-translator.com/en/articles/best-translation-app-for-offline-travel.html | Markdown: https://nomad-translator.com/markdown/en/articles/best-translation-app-for-offline-travel.md
+- Best Offline Translator App for iPhone: https://nomad-translator.com/en/articles/best-offline-translator-app-for-iphone.html | Markdown: https://nomad-translator.com/markdown/en/articles/best-offline-translator-app-for-iphone.md
+- Offline Camera Translator for Signs and Menus: https://nomad-translator.com/en/articles/offline-camera-translator-for-signs-and-menus.html | Markdown: https://nomad-translator.com/markdown/en/articles/offline-camera-translator-for-signs-and-menus.md
+- How to Translate Without Internet: https://nomad-translator.com/en/articles/translate-without-internet.html | Markdown: https://nomad-translator.com/markdown/en/articles/translate-without-internet.md
+- Chinese Menu Translator for Travel: https://nomad-translator.com/en/articles/chinese-menu-translator.html | Markdown: https://nomad-translator.com/markdown/en/articles/chinese-menu-translator.md
+- Google Translate Offline Alternative for Travel: https://nomad-translator.com/en/articles/google-translate-offline-alternative.html | Markdown: https://nomad-translator.com/markdown/en/articles/google-translate-offline-alternative.md
+- Bester Offline-Übersetzer für iPhone: https://nomad-translator.com/en/articles/bester-offline-ubersetzer-iphone.html | Markdown: https://nomad-translator.com/markdown/en/articles/bester-offline-ubersetzer-iphone.md
+
+## All English Article Slugs
+
+- best-offline-translator-app-for-iphone: https://nomad-translator.com/en/articles/best-offline-translator-app-for-iphone.html
+- travel-translator-app-without-internet: https://nomad-translator.com/en/articles/travel-translator-app-without-internet.html
+- offline-voice-translator-for-travel: https://nomad-translator.com/en/articles/offline-voice-translator-for-travel.html
+- offline-camera-translator-for-signs-and-menus: https://nomad-translator.com/en/articles/offline-camera-translator-for-signs-and-menus.html
+- best-app-to-translate-menus-while-traveling: https://nomad-translator.com/en/articles/best-app-to-translate-menus-while-traveling.html
+- chinese-menu-translator: https://nomad-translator.com/en/articles/chinese-menu-translator.html
+- japanese-menu-translator: https://nomad-translator.com/en/articles/japanese-menu-translator.html
+- korean-menu-translator: https://nomad-translator.com/en/articles/korean-menu-translator.html
+- thai-menu-translator: https://nomad-translator.com/en/articles/thai-menu-translator.html
+- vietnamese-menu-translator: https://nomad-translator.com/en/articles/vietnamese-menu-translator.html
+- translate-signs-offline-on-iphone: https://nomad-translator.com/en/articles/translate-signs-offline-on-iphone.html
+- translate-without-internet: https://nomad-translator.com/en/articles/translate-without-internet.html
+- offline-translator-for-travel: https://nomad-translator.com/en/articles/offline-translator-for-travel.html
+- offline-ocr-translator: https://nomad-translator.com/en/articles/offline-ocr-translator.html
+- translate-at-airport-without-internet: https://nomad-translator.com/en/articles/translate-at-airport-without-internet.html
+- travel-without-roaming-data: https://nomad-translator.com/en/articles/travel-without-roaming-data.html
+- airplane-mode-translator: https://nomad-translator.com/en/articles/airplane-mode-translator.html
+- translation-while-flying: https://nomad-translator.com/en/articles/translation-while-flying.html
+- emergency-travel-translation: https://nomad-translator.com/en/articles/emergency-travel-translation.html
+- best-japanese-translator-app-for-travel: https://nomad-translator.com/en/articles/best-japanese-translator-app-for-travel.html
+- best-korean-translator-app-for-travel: https://nomad-translator.com/en/articles/best-korean-translator-app-for-travel.html
+- best-translator-app-for-japan-travel: https://nomad-translator.com/en/articles/best-translator-app-for-japan-travel.html
+- best-translator-app-for-korea-travel: https://nomad-translator.com/en/articles/best-translator-app-for-korea-travel.html
+- best-translator-app-for-thailand-travel: https://nomad-translator.com/en/articles/best-translator-app-for-thailand-travel.html
+- best-translator-app-for-vietnam-travel: https://nomad-translator.com/en/articles/best-translator-app-for-vietnam-travel.html
+- best-translator-app-for-china-travel: https://nomad-translator.com/en/articles/best-translator-app-for-china-travel.html
+- read-chinese-menus: https://nomad-translator.com/en/articles/read-chinese-menus.html
+- read-chinese-signs: https://nomad-translator.com/en/articles/read-chinese-signs.html
+- translate-chinese-images: https://nomad-translator.com/en/articles/translate-chinese-images.html
+- translate-chinese-screenshot: https://nomad-translator.com/en/articles/translate-chinese-screenshot.html
+- chinese-food-translation-guide: https://nomad-translator.com/en/articles/chinese-food-translation-guide.html
+- best-translator-app-for-taiwan-travel: https://nomad-translator.com/en/articles/best-translator-app-for-taiwan-travel.html
+- best-translator-app-for-france-travel: https://nomad-translator.com/en/articles/best-translator-app-for-france-travel.html
+- best-translator-app-for-italy-travel: https://nomad-translator.com/en/articles/best-translator-app-for-italy-travel.html
+- best-translator-app-for-spain-travel: https://nomad-translator.com/en/articles/best-translator-app-for-spain-travel.html
+- best-translator-app-for-europe-travel: https://nomad-translator.com/en/articles/best-translator-app-for-europe-travel.html
+- translate-photos-without-internet: https://nomad-translator.com/en/articles/translate-photos-without-internet.html
+- download-language-pack-for-offline-translation: https://nomad-translator.com/en/articles/download-language-pack-for-offline-translation.html
+- google-translate-offline-alternative: https://nomad-translator.com/en/articles/google-translate-offline-alternative.html
+- microsoft-translator-offline-alternative: https://nomad-translator.com/en/articles/microsoft-translator-offline-alternative.html
+- itranslate-offline-alternative: https://nomad-translator.com/en/articles/itranslate-offline-alternative.html
+- libretranslate-offline-alternative: https://nomad-translator.com/en/articles/libretranslate-offline-alternative.html
+- f-droid-offline-translator-iphone-alternative: https://nomad-translator.com/en/articles/f-droid-offline-translator-iphone-alternative.html
+- best-offline-translator-apps-compared: https://nomad-translator.com/en/articles/best-offline-translator-apps-compared.html
+- nomad-translator-app: https://nomad-translator.com/en/articles/nomad-translator-app.html
+- how-to-use-nomad-translator: https://nomad-translator.com/en/articles/how-to-use-nomad-translator.html
+- best-translation-app-for-offline-travel: https://nomad-translator.com/en/articles/best-translation-app-for-offline-travel.html
+- bester-offline-ubersetzer-iphone: https://nomad-translator.com/en/articles/bester-offline-ubersetzer-iphone.html
+- nomad-translator-online-vs-offline: https://nomad-translator.com/en/articles/nomad-translator-online-vs-offline.html
+- is-nomad-translator-free: https://nomad-translator.com/en/articles/is-nomad-translator-free.html
+- nomad-translator-apk-and-ios-options: https://nomad-translator.com/en/articles/nomad-translator-apk-and-ios-options.html
+- arabic-to-english-translator-offline: https://nomad-translator.com/en/articles/arabic-to-english-translator-offline.html
+- english-to-chinese-translator-offline: https://nomad-translator.com/en/articles/english-to-chinese-translator-offline.html
+- english-to-arabic-translator-for-travel: https://nomad-translator.com/en/articles/english-to-arabic-translator-for-travel.html
+- english-to-vietnamese-translator-offline: https://nomad-translator.com/en/articles/english-to-vietnamese-translator-offline.html
+- english-to-french-translator-for-travel: https://nomad-translator.com/en/articles/english-to-french-translator-for-travel.html
+

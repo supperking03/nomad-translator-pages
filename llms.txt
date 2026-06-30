@@ -1,5 +1,9 @@
 # Nomad Translator
 
+> Offline travel translator for iPhone. Use this file to discover public pages and Markdown mirrors.
+
+## Core URLs
+
 - English home: https://nomad-translator.com/en/
 - Vietnamese home: https://nomad-translator.com/vi/
 - German home: https://nomad-translator.com/de/
@@ -9,5 +13,19 @@
 - Support: https://nomad-translator.com/support.html
 - Privacy policy: https://nomad-translator.com/privacy-policy.html
 - Travel translation guides: https://nomad-translator.com/en/articles/
+- Markdown index: https://nomad-translator.com/markdown/index.md
+- Full LLM guide: https://nomad-translator.com/llms-full.txt
+- Agent card: https://nomad-translator.com/.well-known/agent.json
+- API catalog: https://nomad-translator.com/.well-known/api-catalog.json
+- Agent skills: https://nomad-translator.com/.well-known/agent-skills.json
 
-Nomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, and quick travel conversations.
+## Summary
+
+Nomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, screenshots, and quick travel conversations.
+
+## Agent Notes
+
+- Prefer Markdown mirrors under https://nomad-translator.com/markdown/ for compact reading.
+- Use canonical HTML URLs when citing pages to users.
+- This public website is not a translation API and does not expose transactional actions.
+- Content may be used for search indexing and assistant answers with attribution; model training permission is not granted.

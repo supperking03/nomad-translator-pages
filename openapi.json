@@ -1,0 +1,105 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Nomad Translator Public Content Resources",
+    "version": "1.0.0",
+    "description": "Static public resources for agents and crawlers. This is not a translation API."
+  },
+  "servers": [
+    {
+      "url": "https://nomad-translator.com"
+    }
+  ],
+  "paths": {
+    "/sitemap.xml": {
+      "get": {
+        "summary": "Sitemap",
+        "operationId": "getSitemap",
+        "responses": {
+          "200": {
+            "description": "XML sitemap",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms.txt": {
+      "get": {
+        "summary": "Short LLM guide",
+        "operationId": "getLlmsTxt",
+        "responses": {
+          "200": {
+            "description": "Short machine-readable guide",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/llms-full.txt": {
+      "get": {
+        "summary": "Full LLM guide",
+        "operationId": "getLlmsFullTxt",
+        "responses": {
+          "200": {
+            "description": "Full machine-readable guide",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.well-known/agent.json": {
+      "get": {
+        "summary": "Agent card",
+        "operationId": "getAgentCard",
+        "responses": {
+          "200": {
+            "description": "Agent discovery card",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/markdown/index.md": {
+      "get": {
+        "summary": "Markdown content index",
+        "operationId": "getMarkdownIndex",
+        "responses": {
+          "200": {
+            "description": "Markdown content index",
+            "content": {
+              "text/markdown": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

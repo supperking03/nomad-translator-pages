@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.1",
+  "site": "https://nomad-translator.com",
+  "contact": "kiengo.uit@gmail.com",
+  "permissions": {
+    "search_indexing": "allowed",
+    "ai_assistant_input": "allowed",
+    "ai_training": "not_granted"
+  },
+  "notes": "Public pages may be crawled for search and assistant answers with attribution. No permission is granted to use this content for model training."
+}

@@ -1,0 +1,132 @@
+{
+  "schema_version": "0.1",
+  "name": "Nomad Translator public content",
+  "description": "Discovery card for public content resources. Nomad Translator does not currently expose a live MCP tool server.",
+  "server_url": null,
+  "status": "static-content-only",
+  "auth": {
+    "type": "none"
+  },
+  "resources": [
+    {
+      "url": "https://nomad-translator.com/",
+      "title": "Nomad Translator root",
+      "description": "Language chooser and canonical site root.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/en/",
+      "title": "English landing page",
+      "description": "Nomad Translator is an offline travel translator for iPhone with on-device text, voice, and camera translation plus downloadable language packs.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/en/articles/",
+      "title": "English article hub",
+      "description": "Travel translation guides for offline, camera, voice, menu, and country-specific use cases.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/about.html",
+      "title": "About Nomad Translator",
+      "description": "Product overview and offline workflow explanation.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/support.html",
+      "title": "Support",
+      "description": "Support and contact page.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/privacy-policy.html",
+      "title": "Privacy Policy",
+      "description": "Privacy, permissions, and on-device processing details.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/llms.txt",
+      "title": "LLM summary",
+      "description": "Short machine-readable guide.",
+      "type": "text/plain",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/llms-full.txt",
+      "title": "Full LLM guide",
+      "description": "Detailed machine-readable guide for agents.",
+      "type": "text/plain",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/markdown/index.md",
+      "title": "Markdown content index",
+      "description": "Markdown index for machine reading.",
+      "type": "text/markdown",
+      "language": "en"
+    }
+  ],
+  "skills": [
+    {
+      "id": "offline-travel-translation-guidance",
+      "name": "Offline travel translation guidance",
+      "description": "Help travelers understand when and how to prepare offline translation, language packs, camera translation, and voice input.",
+      "input_modes": [
+        "question",
+        "search_query",
+        "travel_context"
+      ],
+      "output_modes": [
+        "guide",
+        "checklist",
+        "link_list"
+      ],
+      "entrypoints": [
+        "https://nomad-translator.com/en/articles/",
+        "https://nomad-translator.com/markdown/index.md"
+      ]
+    },
+    {
+      "id": "camera-menu-translation-guidance",
+      "name": "Camera and menu translation guidance",
+      "description": "Explain workflows for translating menus, signs, screenshots, and printed text while traveling.",
+      "input_modes": [
+        "question",
+        "travel_context"
+      ],
+      "output_modes": [
+        "guide",
+        "faq",
+        "link_list"
+      ],
+      "entrypoints": [
+        "https://nomad-translator.com/en/articles/offline-camera-translator-for-signs-and-menus.html",
+        "https://nomad-translator.com/en/articles/chinese-menu-translator.html"
+      ]
+    },
+    {
+      "id": "nomad-translator-product-support",
+      "name": "Nomad Translator product support",
+      "description": "Point users to support, privacy, App Store, and getting-started resources for Nomad Translator.",
+      "input_modes": [
+        "support_question",
+        "product_question"
+      ],
+      "output_modes": [
+        "support_answer",
+        "link_list"
+      ],
+      "entrypoints": [
+        "https://nomad-translator.com/support.html",
+        "https://nomad-translator.com/privacy-policy.html",
+        "https://nomad-translator.com/en/articles/how-to-use-nomad-translator.html"
+      ]
+    }
+  ]
+}

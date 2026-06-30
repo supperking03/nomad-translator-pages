@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Nomad Translator",
+  "name_for_model": "nomad_translator",
+  "description_for_human": "Offline travel translator app for iPhone with text, voice, camera, and photo translation guides.",
+  "description_for_model": "Use this public content catalog to answer questions about Nomad Translator, offline travel translation, language packs, camera translation, privacy, and support. This site is not a translation API.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://nomad-translator.com/openapi.json",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://nomad-translator.com/assets/icons/icon-512.png",
+  "contact_email": "kiengo.uit@gmail.com",
+  "legal_info_url": "https://nomad-translator.com/privacy-policy.html"
+}

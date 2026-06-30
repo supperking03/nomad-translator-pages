@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "name": "Nomad Translator WebMCP manifest",
+  "description": "Static WebMCP-style resource manifest for public content discovery.",
+  "origin": "https://nomad-translator.com",
+  "auth": {
+    "type": "none"
+  },
+  "resources": [
+    {
+      "url": "https://nomad-translator.com/",
+      "title": "Nomad Translator root",
+      "description": "Language chooser and canonical site root.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/en/",
+      "title": "English landing page",
+      "description": "Nomad Translator is an offline travel translator for iPhone with on-device text, voice, and camera translation plus downloadable language packs.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/en/articles/",
+      "title": "English article hub",
+      "description": "Travel translation guides for offline, camera, voice, menu, and country-specific use cases.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/about.html",
+      "title": "About Nomad Translator",
+      "description": "Product overview and offline workflow explanation.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/support.html",
+      "title": "Support",
+      "description": "Support and contact page.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/privacy-policy.html",
+      "title": "Privacy Policy",
+      "description": "Privacy, permissions, and on-device processing details.",
+      "type": "text/html",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/llms.txt",
+      "title": "LLM summary",
+      "description": "Short machine-readable guide.",
+      "type": "text/plain",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/llms-full.txt",
+      "title": "Full LLM guide",
+      "description": "Detailed machine-readable guide for agents.",
+      "type": "text/plain",
+      "language": "en"
+    },
+    {
+      "url": "https://nomad-translator.com/markdown/index.md",
+      "title": "Markdown content index",
+      "description": "Markdown index for machine reading.",
+      "type": "text/markdown",
+      "language": "en"
+    }
+  ],
+  "actions": []
+}

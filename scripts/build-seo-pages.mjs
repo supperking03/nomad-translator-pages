@@ -83,6 +83,13 @@ const faviconTags = `<link rel="icon" href="${siteBasePath}/favicon.ico" sizes="
 <link rel="manifest" href="${siteBasePath}/site.webmanifest" />
 <meta name="theme-color" content="#0F172A" />`;
 
+const agentDiscoveryTags = `<link rel="alternate" type="text/markdown" href="${siteBasePath}/llms.txt" title="LLM summary" />
+<link rel="alternate" type="text/markdown" href="${siteBasePath}/llms-full.txt" title="Full LLM guide" />
+<link rel="service-desc" type="application/json" href="${siteBasePath}/.well-known/api-catalog.json" title="API and resource catalog" />
+<link rel="agent-card" type="application/json" href="${siteBasePath}/.well-known/agent.json" title="Agent card" />
+<link rel="mcp-server" type="application/json" href="${siteBasePath}/.well-known/mcp/server-card.json" title="MCP server card" />
+<link rel="webmcp" type="application/json" href="${siteBasePath}/.well-known/webmcp.json" title="WebMCP manifest" />`;
+
 const appKeywordsEn = [
   "Nomad Translator",
   "Nomad Translator app",
@@ -481,6 +488,7 @@ function page({
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>${escapeHtml(title)}</title>
 ${faviconTags}
+${agentDiscoveryTags}
 <meta name="description" content="${escapeHtml(description)}" />
 <meta name="keywords" content="${escapeHtml(keywords.join(", "))}" />
 <meta name="robots" content="${noIndex ? "noindex" : "index, follow, max-image-preview:large"}" />
@@ -521,6 +529,7 @@ function rootPage() {
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>${appName} | Offline Travel Translator</title>
 ${faviconTags}
+${agentDiscoveryTags}
 <meta name="description" content="${appDescriptionEn}" />
 <meta name="keywords" content="${escapeHtml([...appKeywordsEn, ...appKeywordsVi].join(", "))}" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -2481,6 +2490,358 @@ li { margin: 8px 0; }
 }
 `;
 
+function mdEscape(value) {
+  return String(value).replaceAll("|", "\\|");
+}
+
+function markdownHome(lang) {
+  const l = locales[lang];
+  return `# ${l.homeHiddenTitle}
+
+${l.homeHiddenDescription}
+
+## Key Links
+
+- Home: ${siteUrl}/${lang}/
+- Articles: ${siteUrl}/${lang}/articles/
+- App Store: ${appUrl}
+- Support: ${siteUrl}/support.html
+- Privacy Policy: ${siteUrl}/privacy-policy.html
+
+## Product Summary
+
+${appName} is an iPhone travel translator for offline-first use cases: text translation, voice input, camera/photo translation, downloadable language packs, and on-device processing.
+`;
+}
+
+function markdownArticle(lang, topic) {
+  const l = locales[lang];
+  const data = topic[lang];
+  return `# ${data.title}
+
+${data.description}
+
+## When This Helps
+
+${localizedTopicCopy[lang]?.problem ? localizedTopicCopy[lang].problem(data.focus, data.scenario) : lang === "vi" ? `Tình huống này thường xuất hiện khi người dùng cần ${data.focus} trong bối cảnh ${data.scenario}.` : `This comes up when travelers need ${data.focus} in situations like ${data.scenario}.`}
+
+## Workflow
+
+${data.steps.map((step, index) => `${index + 1}. ${step}`).join("\n")}
+
+## Tips
+
+${data.tips.map((tip) => `- ${tip}`).join("\n")}
+
+## FAQ
+
+${data.faq.map(([question, answer]) => `### ${question}\n\n${answer}`).join("\n\n")}
+
+## Links
+
+- HTML page: ${siteUrl}/${lang}/articles/${topic.slug}.html
+- Article hub: ${siteUrl}/${lang}/articles/
+- App Store: ${appUrl}
+`;
+}
+
+function llmsFullText() {
+  const featured = [
+    "how-to-use-nomad-translator",
+    "best-translation-app-for-offline-travel",
+    "best-offline-translator-app-for-iphone",
+    "offline-camera-translator-for-signs-and-menus",
+    "translate-without-internet",
+    "chinese-menu-translator",
+    "google-translate-offline-alternative",
+    "bester-offline-ubersetzer-iphone"
+  ];
+  const featuredTopics = featured
+    .map((slug) => topics.find((topic) => topic.slug === slug))
+    .filter(Boolean);
+  const languageRows = localeOrder
+    .map((lang) => `- ${locales[lang].label}: ${siteUrl}/${lang}/ and ${siteUrl}/markdown/${lang}/index.md`)
+    .join("\n");
+  const articleRows = featuredTopics
+    .map((topic) => `- ${topic.en.title}: ${siteUrl}/en/articles/${topic.slug}.html | Markdown: ${siteUrl}/markdown/en/articles/${topic.slug}.md`)
+    .join("\n");
+  return `# ${appName}
+
+## Purpose
+
+${appName} is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input, and camera/photo translation for menus, signs, labels, screenshots, and short travel conversations.
+
+## Agent Reading Instructions
+
+- Prefer canonical HTML pages for user-facing citation.
+- Prefer Markdown mirrors under /markdown/ for compact machine reading.
+- Respect robots.txt and content signals.
+- Do not treat the support site as a translation API. It is a public documentation, SEO, and support website.
+- The app is independent and is not affiliated with Google Translate, Microsoft Translator, iTranslate, LibreTranslate, F-Droid, or other named comparison products.
+
+## Important URLs
+
+- Root: ${siteUrl}/
+- Sitemap: ${siteUrl}/sitemap.xml
+- Robots: ${siteUrl}/robots.txt
+- Short LLM guide: ${siteUrl}/llms.txt
+- Full LLM guide: ${siteUrl}/llms-full.txt
+- API catalog: ${siteUrl}/.well-known/api-catalog.json
+- Agent card: ${siteUrl}/.well-known/agent.json
+- Agent skills: ${siteUrl}/.well-known/agent-skills.json
+- MCP server card: ${siteUrl}/.well-known/mcp/server-card.json
+- WebMCP manifest: ${siteUrl}/.well-known/webmcp.json
+- App Store: ${appUrl}
+- Support: ${siteUrl}/support.html
+- Privacy Policy: ${siteUrl}/privacy-policy.html
+
+## Languages
+
+${languageRows}
+
+## Featured Articles
+
+${articleRows}
+
+## All English Article Slugs
+
+${topics.map((topic) => `- ${topic.slug}: ${siteUrl}/en/articles/${topic.slug}.html`).join("\n")}
+`;
+}
+
+function markdownIndex() {
+  const rows = topics
+    .map((topic) => `| [${mdEscape(topic.en.title)}](${siteUrl}/en/articles/${topic.slug}.html) | [Markdown](${siteUrl}/markdown/en/articles/${topic.slug}.md) | ${mdEscape(topic.en.description)} |`)
+    .join("\n");
+  return `# ${appName} Machine-Readable Content Index
+
+This directory provides Markdown mirrors for agents, crawlers, and retrieval systems that prefer compact text over HTML.
+
+## Primary Resources
+
+- LLM summary: ${siteUrl}/llms.txt
+- Full LLM guide: ${siteUrl}/llms-full.txt
+- Sitemap: ${siteUrl}/sitemap.xml
+- Agent card: ${siteUrl}/.well-known/agent.json
+- API catalog: ${siteUrl}/.well-known/api-catalog.json
+
+## English Article Index
+
+| Article | Markdown | Description |
+| --- | --- | --- |
+${rows}
+`;
+}
+
+function agentResourceJson(pathname, title, description, type = "text/html") {
+  return {
+    url: `${siteUrl}${pathname}`,
+    title,
+    description,
+    type,
+    language: "en"
+  };
+}
+
+function agentDiscoveryFiles() {
+  const primaryResources = [
+    agentResourceJson("/", `${appName} root`, "Language chooser and canonical site root."),
+    agentResourceJson("/en/", "English landing page", appDescriptionEn),
+    agentResourceJson("/en/articles/", "English article hub", "Travel translation guides for offline, camera, voice, menu, and country-specific use cases."),
+    agentResourceJson("/about.html", "About Nomad Translator", "Product overview and offline workflow explanation."),
+    agentResourceJson("/support.html", "Support", "Support and contact page."),
+    agentResourceJson("/privacy-policy.html", "Privacy Policy", "Privacy, permissions, and on-device processing details."),
+    agentResourceJson("/llms.txt", "LLM summary", "Short machine-readable guide.", "text/plain"),
+    agentResourceJson("/llms-full.txt", "Full LLM guide", "Detailed machine-readable guide for agents.", "text/plain"),
+    agentResourceJson("/markdown/index.md", "Markdown content index", "Markdown index for machine reading.", "text/markdown")
+  ];
+  const skills = [
+    {
+      id: "offline-travel-translation-guidance",
+      name: "Offline travel translation guidance",
+      description: "Help travelers understand when and how to prepare offline translation, language packs, camera translation, and voice input.",
+      input_modes: ["question", "search_query", "travel_context"],
+      output_modes: ["guide", "checklist", "link_list"],
+      entrypoints: [`${siteUrl}/en/articles/`, `${siteUrl}/markdown/index.md`]
+    },
+    {
+      id: "camera-menu-translation-guidance",
+      name: "Camera and menu translation guidance",
+      description: "Explain workflows for translating menus, signs, screenshots, and printed text while traveling.",
+      input_modes: ["question", "travel_context"],
+      output_modes: ["guide", "faq", "link_list"],
+      entrypoints: [`${siteUrl}/en/articles/offline-camera-translator-for-signs-and-menus.html`, `${siteUrl}/en/articles/chinese-menu-translator.html`]
+    },
+    {
+      id: "nomad-translator-product-support",
+      name: "Nomad Translator product support",
+      description: "Point users to support, privacy, App Store, and getting-started resources for Nomad Translator.",
+      input_modes: ["support_question", "product_question"],
+      output_modes: ["support_answer", "link_list"],
+      entrypoints: [`${siteUrl}/support.html`, `${siteUrl}/privacy-policy.html`, `${siteUrl}/en/articles/how-to-use-nomad-translator.html`]
+    }
+  ];
+  const agentCard = {
+    schema_version: "0.1",
+    name: appName,
+    description: appDescriptionEn,
+    url: siteUrl,
+    provider: {
+      name: developerName,
+      url: siteUrl
+    },
+    contact_email: "kiengo.uit@gmail.com",
+    preferred_content_types: ["text/html", "text/markdown", "application/json", "application/xml"],
+    authentication: {
+      type: "none",
+      note: "Public support and documentation site. No agent authentication is required for reading public resources."
+    },
+    capabilities: {
+      public_content_discovery: true,
+      markdown_mirrors: true,
+      sitemap: `${siteUrl}/sitemap.xml`,
+      llms_txt: `${siteUrl}/llms.txt`,
+      llms_full_txt: `${siteUrl}/llms-full.txt`,
+      api_catalog: `${siteUrl}/.well-known/api-catalog.json`,
+      mcp_server: false,
+      transactional_actions: false
+    },
+    skills,
+    resources: primaryResources
+  };
+  const apiCatalog = {
+    schema_version: "0.1",
+    name: `${appName} public resource catalog`,
+    description: "Machine-readable catalog for the public Nomad Translator support and SEO site.",
+    base_url: siteUrl,
+    auth: { type: "none" },
+    catalogs: [
+      { type: "sitemap", url: `${siteUrl}/sitemap.xml` },
+      { type: "openapi", url: `${siteUrl}/openapi.json` },
+      { type: "llms", url: `${siteUrl}/llms.txt` },
+      { type: "llms-full", url: `${siteUrl}/llms-full.txt` },
+      { type: "markdown-index", url: `${siteUrl}/markdown/index.md` },
+      { type: "agent-card", url: `${siteUrl}/.well-known/agent.json` },
+      { type: "agent-skills", url: `${siteUrl}/.well-known/agent-skills.json` }
+    ],
+    resources: primaryResources
+  };
+  const openApi = {
+    openapi: "3.1.0",
+    info: {
+      title: `${appName} Public Content Resources`,
+      version: "1.0.0",
+      description: "Static public resources for agents and crawlers. This is not a translation API."
+    },
+    servers: [{ url: siteUrl }],
+    paths: {
+      "/sitemap.xml": {
+        get: {
+          summary: "Sitemap",
+          operationId: "getSitemap",
+          responses: {
+            "200": {
+              description: "XML sitemap",
+              content: { "application/xml": { schema: { type: "string" } } }
+            }
+          }
+        }
+      },
+      "/llms.txt": {
+        get: {
+          summary: "Short LLM guide",
+          operationId: "getLlmsTxt",
+          responses: {
+            "200": {
+              description: "Short machine-readable guide",
+              content: { "text/plain": { schema: { type: "string" } } }
+            }
+          }
+        }
+      },
+      "/llms-full.txt": {
+        get: {
+          summary: "Full LLM guide",
+          operationId: "getLlmsFullTxt",
+          responses: {
+            "200": {
+              description: "Full machine-readable guide",
+              content: { "text/plain": { schema: { type: "string" } } }
+            }
+          }
+        }
+      },
+      "/.well-known/agent.json": {
+        get: {
+          summary: "Agent card",
+          operationId: "getAgentCard",
+          responses: {
+            "200": {
+              description: "Agent discovery card",
+              content: { "application/json": { schema: { type: "object" } } }
+            }
+          }
+        }
+      },
+      "/markdown/index.md": {
+        get: {
+          summary: "Markdown content index",
+          operationId: "getMarkdownIndex",
+          responses: {
+            "200": {
+              description: "Markdown content index",
+              content: { "text/markdown": { schema: { type: "string" } } }
+            }
+          }
+        }
+      }
+    }
+  };
+  const mcpServerCard = {
+    schema_version: "0.1",
+    name: `${appName} public content`,
+    description: "Discovery card for public content resources. Nomad Translator does not currently expose a live MCP tool server.",
+    server_url: null,
+    status: "static-content-only",
+    auth: { type: "none" },
+    resources: primaryResources,
+    skills
+  };
+  const webMcp = {
+    schema_version: "0.1",
+    name: `${appName} WebMCP manifest`,
+    description: "Static WebMCP-style resource manifest for public content discovery.",
+    origin: siteUrl,
+    auth: { type: "none" },
+    resources: primaryResources,
+    actions: []
+  };
+  const contentSignals = {
+    schema_version: "0.1",
+    site: siteUrl,
+    contact: "kiengo.uit@gmail.com",
+    permissions: {
+      search_indexing: "allowed",
+      ai_assistant_input: "allowed",
+      ai_training: "not_granted"
+    },
+    notes: "Public pages may be crawled for search and assistant answers with attribution. No permission is granted to use this content for model training."
+  };
+  const aiPlugin = {
+    schema_version: "v1",
+    name_for_human: appName,
+    name_for_model: "nomad_translator",
+    description_for_human: "Offline travel translator app for iPhone with text, voice, camera, and photo translation guides.",
+    description_for_model: "Use this public content catalog to answer questions about Nomad Translator, offline travel translation, language packs, camera translation, privacy, and support. This site is not a translation API.",
+    auth: { type: "none" },
+    api: { type: "openapi", url: `${siteUrl}/openapi.json`, is_user_authenticated: false },
+    logo_url: `${siteUrl}/assets/icons/icon-512.png`,
+    contact_email: "kiengo.uit@gmail.com",
+    legal_info_url: `${siteUrl}/privacy-policy.html`
+  };
+  return { agentCard, apiCatalog, openApi, mcpServerCard, webMcp, contentSignals, aiPlugin, skills };
+}
+
 function generate() {
   writeFile(path.join(root, "assets/seo.css"), css);
   writeFile(path.join(root, "index.html"), rootPage());
@@ -2497,11 +2858,59 @@ function generate() {
   topics.forEach((entry, index) => {
     localeOrder.forEach((lang) => {
       writeFile(path.join(root, lang, "articles", `${entry.slug}.html`), articlePage(lang, entry, index));
+      writeFile(path.join(root, "markdown", lang, "articles", `${entry.slug}.md`), markdownArticle(lang, entry));
     });
     writeFile(path.join(root, "articles", `${entry.slug}.html`), redirectPage(`/en/articles/${entry.slug}.html`));
   });
 
-  writeFile(path.join(root, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml`);
+  localeOrder.forEach((lang) => {
+    writeFile(path.join(root, "markdown", lang, "index.md"), markdownHome(lang));
+  });
+  writeFile(path.join(root, "markdown", "index.md"), markdownIndex());
+
+  const agentFiles = agentDiscoveryFiles();
+  writeFile(path.join(root, ".well-known", "agent.json"), JSON.stringify(agentFiles.agentCard, null, 2));
+  writeFile(path.join(root, ".well-known", "api-catalog.json"), JSON.stringify(agentFiles.apiCatalog, null, 2));
+  writeFile(path.join(root, ".well-known", "ai-plugin.json"), JSON.stringify(agentFiles.aiPlugin, null, 2));
+  writeFile(path.join(root, ".well-known", "agent-skills.json"), JSON.stringify({
+    schema_version: "0.1",
+    site: siteUrl,
+    skills: agentFiles.skills
+  }, null, 2));
+  writeFile(path.join(root, ".well-known", "webmcp.json"), JSON.stringify(agentFiles.webMcp, null, 2));
+  writeFile(path.join(root, ".well-known", "mcp.json"), JSON.stringify(agentFiles.mcpServerCard, null, 2));
+  writeFile(path.join(root, ".well-known", "mcp", "server-card.json"), JSON.stringify(agentFiles.mcpServerCard, null, 2));
+  writeFile(path.join(root, ".well-known", "content-signals.json"), JSON.stringify(agentFiles.contentSignals, null, 2));
+  writeFile(path.join(root, "api-catalog.json"), JSON.stringify(agentFiles.apiCatalog, null, 2));
+  writeFile(path.join(root, "agent.json"), JSON.stringify(agentFiles.agentCard, null, 2));
+  writeFile(path.join(root, "agent-skills.json"), JSON.stringify({
+    schema_version: "0.1",
+    site: siteUrl,
+    skills: agentFiles.skills
+  }, null, 2));
+  writeFile(path.join(root, "mcp.json"), JSON.stringify(agentFiles.mcpServerCard, null, 2));
+  writeFile(path.join(root, "openapi.json"), JSON.stringify(agentFiles.openApi, null, 2));
+  writeFile(path.join(root, "content-signals.json"), JSON.stringify(agentFiles.contentSignals, null, 2));
+
+  writeFile(path.join(root, "robots.txt"), `User-agent: *
+Allow: /
+Sitemap: ${siteUrl}/sitemap.xml
+Host: nomad-translator.com
+
+# AI and agent content signals
+Content-Signal: search=yes
+Content-Signal: ai-input=yes
+Content-Signal: ai-train=no
+
+# Machine-readable discovery
+LLMS: ${siteUrl}/llms.txt
+LLMS-Full: ${siteUrl}/llms-full.txt
+Agent-Card: ${siteUrl}/.well-known/agent.json
+API-Catalog: ${siteUrl}/.well-known/api-catalog.json
+Agent-Skills: ${siteUrl}/.well-known/agent-skills.json
+MCP-Server-Card: ${siteUrl}/.well-known/mcp/server-card.json
+WebMCP: ${siteUrl}/.well-known/webmcp.json
+Content-Signals: ${siteUrl}/.well-known/content-signals.json`);
 
   const sitemapUrls = [
     "/",
@@ -2509,7 +2918,18 @@ function generate() {
     "/about.html",
     "/support.html",
     "/privacy-policy.html",
+    "/llms.txt",
+    "/llms-full.txt",
+    "/markdown/index.md",
+    "/.well-known/agent.json",
+    "/.well-known/api-catalog.json",
+    "/.well-known/agent-skills.json",
+    "/.well-known/mcp/server-card.json",
+    "/.well-known/webmcp.json",
+    "/.well-known/content-signals.json",
+    "/openapi.json",
     ...localeOrder.map((lang) => `/${lang}/articles/`),
+    ...localeOrder.map((lang) => `/markdown/${lang}/index.md`),
     ...topics.flatMap((entry) => localeOrder.map((lang) => `/${lang}/articles/${entry.slug}.html`))
   ];
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls.map((url) => `  <url><loc>${siteUrl}${url}</loc><lastmod>${lastModified}</lastmod><changefreq>${url.includes("/articles/") ? "monthly" : "weekly"}</changefreq><priority>${url === "/" ? "1.0" : localeOrder.some((lang) => url === `/${lang}/`) ? "0.9" : url.includes("/articles/") ? "0.7" : "0.6"}</priority></url>`).join("\n")}\n</urlset>`;
@@ -2527,7 +2947,40 @@ function generate() {
     display: "standalone"
   }, null, 2));
 
-  writeFile(path.join(root, "llms.txt"), `# ${appName}\n\n- English home: ${siteUrl}/en/\n- Vietnamese home: ${siteUrl}/vi/\n- German home: ${siteUrl}/de/\n- French home: ${siteUrl}/fr/\n- Spanish home: ${siteUrl}/es/\n- App Store: ${appUrl}\n- Support: ${siteUrl}/support.html\n- Privacy policy: ${siteUrl}/privacy-policy.html\n- Travel translation guides: ${siteUrl}/en/articles/\n\nNomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, and quick travel conversations.`);
+  writeFile(path.join(root, "llms.txt"), `# ${appName}
+
+> Offline travel translator for iPhone. Use this file to discover public pages and Markdown mirrors.
+
+## Core URLs
+
+- English home: ${siteUrl}/en/
+- Vietnamese home: ${siteUrl}/vi/
+- German home: ${siteUrl}/de/
+- French home: ${siteUrl}/fr/
+- Spanish home: ${siteUrl}/es/
+- App Store: ${appUrl}
+- Support: ${siteUrl}/support.html
+- Privacy policy: ${siteUrl}/privacy-policy.html
+- Travel translation guides: ${siteUrl}/en/articles/
+- Markdown index: ${siteUrl}/markdown/index.md
+- Full LLM guide: ${siteUrl}/llms-full.txt
+- Agent card: ${siteUrl}/.well-known/agent.json
+- API catalog: ${siteUrl}/.well-known/api-catalog.json
+- Agent skills: ${siteUrl}/.well-known/agent-skills.json
+
+## Summary
+
+Nomad Translator is an iPhone app focused on offline travel translation. It supports downloadable language packs, text translation, voice input translation, and camera/photo translation for signs, menus, labels, screenshots, and quick travel conversations.
+
+## Agent Notes
+
+- Prefer Markdown mirrors under ${siteUrl}/markdown/ for compact reading.
+- Use canonical HTML URLs when citing pages to users.
+- This public website is not a translation API and does not expose transactional actions.
+- Content may be used for search indexing and assistant answers with attribution; model training permission is not granted.`);
+  writeFile(path.join(root, ".well-known", "llms.txt"), fs.readFileSync(path.join(root, "llms.txt"), "utf8"));
+  writeFile(path.join(root, "llms-full.txt"), llmsFullText());
+  writeFile(path.join(root, ".well-known", "llms-full.txt"), llmsFullText());
 
   writeFile(path.join(root, "README.md"), `# nomad-translator-pages\n\nStatic SEO and support site for Nomad Translator.\n\n## Structure\n\n- \`/\` language chooser with auto-redirect\n- \`/en/\` English landing page\n- \`/vi/\` Vietnamese landing page\n- \`/de/\` German landing page\n- \`/fr/\` French landing page\n- \`/es/\` Spanish landing page\n- \`/en/articles/\` English guide hub\n- \`/vi/articles/\` Vietnamese guide hub\n- \`/de/articles/\` German guide hub\n- \`/fr/articles/\` French guide hub\n- \`/es/articles/\` Spanish guide hub\n- \`/about.html\` app overview\n- \`/support.html\` support page\n- \`/privacy-policy.html\` privacy page\n\n## Rebuild pages\n\nRun:\n\n\`\`\`bash\nnode scripts/build-seo-pages.mjs\n\`\`\`\n\nThe generator rewrites the landing pages, article pages, aliases, sitemap, robots, and supporting metadata files.\n\n## Publishing\n\nThis repo is configured for the custom domain:\n\n\`${siteUrl}\`\n\nIf you move the site later, update \`siteUrl\` in [scripts/build-seo-pages.mjs](/Users/kelvin/Downloads/nomad-translator-pages/scripts/build-seo-pages.mjs).`);
 }

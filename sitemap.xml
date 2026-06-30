@@ -9,11 +9,26 @@
   <url><loc>https://nomad-translator.com/about.html</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://nomad-translator.com/support.html</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://nomad-translator.com/privacy-policy.html</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/llms.txt</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/llms-full.txt</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/markdown/index.md</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/.well-known/agent.json</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/.well-known/api-catalog.json</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/.well-known/agent-skills.json</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/.well-known/mcp/server-card.json</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/.well-known/webmcp.json</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/.well-known/content-signals.json</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/openapi.json</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://nomad-translator.com/en/articles/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://nomad-translator.com/vi/articles/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://nomad-translator.com/de/articles/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://nomad-translator.com/fr/articles/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://nomad-translator.com/es/articles/</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://nomad-translator.com/markdown/en/index.md</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/markdown/vi/index.md</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/markdown/de/index.md</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/markdown/fr/index.md</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://nomad-translator.com/markdown/es/index.md</loc><lastmod>2026-06-13</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://nomad-translator.com/en/articles/best-offline-translator-app-for-iphone.html</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://nomad-translator.com/vi/articles/best-offline-translator-app-for-iphone.html</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://nomad-translator.com/de/articles/best-offline-translator-app-for-iphone.html</loc><lastmod>2026-06-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>

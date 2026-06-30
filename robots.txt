@@ -1,3 +1,19 @@
 User-agent: *
 Allow: /
 Sitemap: https://nomad-translator.com/sitemap.xml
+Host: nomad-translator.com
+
+# AI and agent content signals
+Content-Signal: search=yes
+Content-Signal: ai-input=yes
+Content-Signal: ai-train=no
+
+# Machine-readable discovery
+LLMS: https://nomad-translator.com/llms.txt
+LLMS-Full: https://nomad-translator.com/llms-full.txt
+Agent-Card: https://nomad-translator.com/.well-known/agent.json
+API-Catalog: https://nomad-translator.com/.well-known/api-catalog.json
+Agent-Skills: https://nomad-translator.com/.well-known/agent-skills.json
+MCP-Server-Card: https://nomad-translator.com/.well-known/mcp/server-card.json
+WebMCP: https://nomad-translator.com/.well-known/webmcp.json
+Content-Signals: https://nomad-translator.com/.well-known/content-signals.json
